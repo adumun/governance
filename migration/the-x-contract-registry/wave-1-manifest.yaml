@@ -1,0 +1,91 @@
+migration_id: MIG-TXCR-GOV-001
+status: IN_PROGRESS
+source_repository: cmartinezs/the-x-contract-registry
+source_branch: master
+target_repository: adumun/governance
+date: 2026-08-24
+policy:
+  copy_does_not_create_authority: true
+  lineage_required: true
+  legacy_repository_global_deprecation: false
+  physical_deletion: false
+items:
+  - source: standards/repository-standard.md
+    classification: GOVERNANCE_STANDARD
+    target: docs/standards/repository/repository-standards-framework.md
+    action: MIGRATE_AND_ADAPT
+    successor_status: CANDIDATE
+  - source: standards/core-repository-standard.md
+    classification: GOVERNANCE_STANDARD
+    target: docs/standards/repository/rs-core.md
+    action: MIGRATE_AND_ADAPT
+    successor_status: CANDIDATE
+  - source: standards/profile-catalog.md
+    classification: GOVERNANCE_STANDARD
+    target: docs/standards/repository/profile-catalog.md
+    action: NEXT_WAVE
+  - source: standards/github-pages-publication-standard.md
+    classification: GOVERNANCE_STANDARD
+    target: docs/standards/publication/github-pages.md
+    action: NEXT_WAVE
+  - source: CHANGE_CONTROL.md
+    classification: GOVERNANCE_POLICY
+    target: docs/standards/tooling/change-control.md
+    action: CONSOLIDATE_WITH_STD-TOOL-001
+  - source: PROVIDER_ENFORCEMENT.md
+    classification: GOVERNANCE_POLICY
+    target: docs/standards/tooling/provider-enforcement.md
+    action: CONSOLIDATE_WITH_STD-TOOL-001
+  - source: standards/audit-standard.md
+    classification: AUDIT_STANDARD
+    target_repository: adumun/audit-framework
+    action: REHOME_IN_AUDIT_WAVE
+  - source: standards/repository-audit-standard.md
+    classification: AUDIT_STANDARD
+    target_repository: adumun/audit-framework
+    action: REHOME_IN_AUDIT_WAVE
+  - source: registry/audits.yaml
+    classification: AUDIT_REGISTRY
+    target_repository: adumun/audit-framework
+    action: REHOME_IN_AUDIT_WAVE
+  - source: schemas/audit-record-v0.1.schema.json
+    classification: AUDIT_SCHEMA
+    target_repository: adumun/audit-framework
+    action: REHOME_IN_AUDIT_WAVE
+  - source: schemas/audit-record.schema.json
+    classification: AUDIT_SCHEMA
+    target_repository: adumun/audit-framework
+    action: REHOME_IN_AUDIT_WAVE
+  - source: schemas/audits-registry.schema.json
+    classification: AUDIT_SCHEMA
+    target_repository: adumun/audit-framework
+    action: REHOME_IN_AUDIT_WAVE
+  - source: registry/contracts.yaml
+    classification: MACHINE_CONTRACT_REGISTRY
+    target_repository: adumun/machine-contracts
+    action: MAP_BEFORE_MIGRATION
+  - source: schemas/contracts.schema.json
+    classification: MACHINE_CONTRACT_SCHEMA
+    target_repository: adumun/machine-contracts
+    action: MAP_BEFORE_MIGRATION
+  - source: registry/relationships.yaml
+    classification: ENTERPRISE_RELATIONSHIP_REGISTRY
+    target_repository: adumun/governance
+    action: DESIGN_SUCCESSOR_BEFORE_MIGRATION
+  - source: registry/repositories.yaml
+    classification: REPOSITORY_REGISTRY
+    target_repository: adumun/governance
+    action: DESIGN_SUCCESSOR_BEFORE_MIGRATION
+  - source: registry/standards.yaml
+    classification: STANDARD_REGISTRY
+    target_repository: adumun/governance
+    action: DESIGN_SUCCESSOR_BEFORE_MIGRATION
+  - source: scripts/validate_registry.py
+    classification: MIXED_VALIDATOR
+    action: SPLIT_BY_RESPONSIBILITY
+    notes: Validator currently spans registries that are being separated; do not copy wholesale.
+cutover_gate:
+  - successor content merged
+  - lineage recorded in target
+  - source scope marked superseded only after successor acceptance
+  - no unresolved semantic loss
