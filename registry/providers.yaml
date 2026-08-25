@@ -115,6 +115,23 @@ providers:
     monthly_cost_clp: null
     financial_treatment: BUNDLED_CAPABILITY
 
+  - id: PROV-GOOGLE-SHEETS
+    product: Google Sheets
+    vendor: Google
+    category: STRUCTURED_OPERATIONAL_DATA
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: BUNDLED_WITH_GOOGLE_WORKSPACE_OR_ACCOUNT
+    capabilities: [CAP-OPERATIONAL-DASHBOARD, CAP-STRUCTURED-REGISTRY, CAP-LIGHTWEIGHT-ANALYTICS]
+    strategic_role: [LIVE_DASHBOARDS, OPERATIONAL_REGISTRIES, LIGHTWEIGHT_ANALYTICS, HUMAN_EDITABLE_STRUCTURED_STATE]
+    dependency_level: MEDIUM
+    substitution_strategy: CSV_XLSX_EXPORT_PLUS_GITHUB_YAML_JSON_CONTRACTS_PLUS_FUTURE_INTERNAL_DASHBOARD
+    cost_status: BUNDLED_OR_TO_CONFIRM
+    monthly_cost_clp: null
+    financial_treatment: BUNDLED_CAPABILITY
+    notes:
+      - Live operational views may reside in Sheets while schemas/contracts remain versioned in GitHub.
+
   - id: PROV-JETBRAINS
     product: JetBrains IDEs
     vendor: JetBrains
