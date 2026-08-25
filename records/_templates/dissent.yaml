@@ -1,0 +1,30 @@
+recordType: PROFESSIONAL_DISSENT
+recordId: DSS-YYYY-NNN
+title: ""
+status: RECORDED
+createdAt: YYYY-MM-DD
+updatedAt: YYYY-MM-DD
+
+relatedDecision:
+  ref: DEC-YYYY-NNN
+
+dissentingRoleOrDomain:
+  role: ""
+  domain: ""
+  actorRef: null
+
+professionalPosition: ""
+evidenceRefs: []
+predictedConsequences: []
+recommendedAlternative: null
+
+acknowledgedByDecisionOwner:
+  acknowledged: false
+  role: ""
+  actorRef: null
+  acknowledgedAt: null
+
+disposition: null
+laterEvidenceRefs: []
+confidentiality: INTERNAL
+notes: ""

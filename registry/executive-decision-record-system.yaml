@@ -1,0 +1,292 @@
+schemaVersion: "1.0"
+kind: ExecutiveDecisionRecordExceptionSystem
+metadata:
+  id: ADM-ORG-DER-001
+  organization: ADÜMÜN
+  title: Executive Decision Record & Exception System
+  maturity: CANDIDATE
+  authorityState: CURRENT
+  effectiveReferenceDate: 2026-08-25
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 26. Executive Decision Record & Exception System
+  dependsOn:
+    - ADM-ORG-ELT-RCN-001
+    - ADM-ORG-EDR-001
+    - ADM-ORG-MDF-001
+  stewardModel:
+    substantiveDecision: DECISION_OWNER
+    registryOperations: COO_OR_DELEGATED_GOVERNANCE_STEWARD
+    integrityAndAudit: GOVERNANCE_AUDIT
+    domainEvidence: RELEVANT_DOMAIN_AUTHORITY
+
+purpose: >-
+  Preserve proportionate, reconstructible evidence for material decisions, exceptions,
+  explicit lawful risk acceptance and material professional dissent without turning
+  routine work into bureaucracy.
+
+criticalOutcome:
+  id: RECONSTRUCTIBLE_EXECUTIVE_DECISION_EVIDENCE
+  definition: >-
+    A material decision can later be reconstructed with reasonable confidence: what
+    was decided, by whom, under what authority and materiality, with what evidence,
+    constraints, exceptions, accepted risks and dissent, who executed it, what
+    happened, and whether or why it was reopened, closed or superseded.
+
+recordTypes:
+  DEC:
+    name: Decision Record
+    idPattern: '^DEC-[0-9]{4}-[0-9]{3,}$'
+    primaryEvent: true
+    template: records/_templates/decision.yaml
+  EXC:
+    name: Exception Record
+    idPattern: '^EXC-[0-9]{4}-[0-9]{3,}$'
+    primaryEvent: false
+    template: records/_templates/exception.yaml
+  RSK:
+    name: Risk Acceptance Record
+    idPattern: '^RSK-[0-9]{4}-[0-9]{3,}$'
+    primaryEvent: false
+    template: records/_templates/risk-acceptance.yaml
+  DSS:
+    name: Professional Dissent Record
+    idPattern: '^DSS-[0-9]{4}-[0-9]{3,}$'
+    primaryEvent: false
+    template: records/_templates/dissent.yaml
+
+sourceOfTruth:
+  rule: One primary record per governance object; derived dashboards and summaries must reference stable record IDs and may not become competing authority.
+  noOrphans: true
+  nonPrimaryRecordsMustReferenceGovernedSource: true
+  evidenceByReferencePreferred: true
+  silentHistoryRewriteProhibited: true
+
+creationPolicy:
+  M0_ROUTINE: NO_STANDALONE_DEC_BY_DEFAULT
+  M1_SIGNIFICANT: RECORD_WHEN_PRECEDENT_LEARNING_CUMULATIVE_EXPOSURE_OR_POLICY_JUSTIFIES
+  M2_MATERIAL: DEC_GENERALLY_REQUIRED
+  M3_MAJOR: DEC_REQUIRED
+  M4_ENTERPRISE_CRITICAL: DEC_REQUIRED
+  HARD_STOP: CANNOT_BE_AUTHORIZED_BY_DEC_EXC_OR_RSK
+  independentTriggers:
+    - MATERIAL_EXCEPTION
+    - MATERIAL_CROSS_DOMAIN_CONFLICT
+    - PRECEDENT_SETTING_ACTION
+    - EXPLICIT_RISK_ACCEPTANCE
+    - MATERIAL_PROFESSIONAL_DISSENT
+    - GOVERNING_AUTHORITY_DECISION
+
+lifecycles:
+  DEC:
+    - DRAFT
+    - PENDING_INPUT
+    - DECIDED
+    - EXECUTING
+    - REVIEW_DUE
+    - CLOSED
+    - SUPERSEDED
+  EXC:
+    - PROPOSED
+    - APPROVED
+    - ACTIVE
+    - REVIEW_DUE
+    - EXPIRED
+    - REVOKED
+    - INCORPORATED_INTO_STANDARD
+  RSK:
+    - PROPOSED
+    - ACCEPTED
+    - MITIGATING
+    - MONITORING
+    - REVIEW_DUE
+    - CLOSED
+    - REVOKED
+  DSS:
+    - RECORDED
+    - ACKNOWLEDGED
+    - RESOLVED_BY_DECISION
+    - SUPERSEDED_BY_NEW_EVIDENCE
+    - WITHDRAWN_BY_AUTHOR
+
+confidentiality:
+  vocabulary:
+    - PUBLIC
+    - INTERNAL
+    - RESTRICTED
+    - LEGAL_CONFIDENTIAL
+    - PEOPLE_CONFIDENTIAL
+  rule: Visibility restrictions do not remove governance requirements; projections must not expose protected source content.
+
+reopenTriggerVocabulary:
+  - DATE
+  - EVIDENCE_CHANGE
+  - ASSUMPTION_INVALIDATED
+  - THRESHOLD_BREACH
+  - INCIDENT
+  - CUSTOMER_IMPACT
+  - WORKFORCE_IMPACT
+  - LEGAL_OR_REGULATORY_CHANGE
+  - FINANCIAL_CHANGE
+  - SECURITY_OR_DATA_CHANGE
+  - MATERIALITY_CHANGE
+  - GOVERNING_AUTHORITY_CHANGE
+
+evidenceClassification:
+  - FACT
+  - EVIDENCE
+  - ESTIMATE
+  - ASSUMPTION
+  - OPINION
+
+decisionModes:
+  - STANDARD
+  - PROFESSIONAL_RECOMMENDATION_OVERRIDDEN
+  - EMERGENCY_RECONSTRUCTION
+
+overrideModel:
+  separateRecordType: false
+  representation: DEC_WITH_DECISION_MODE_AND_LINKED_DSS_AND_OPTIONAL_RSK
+  rule: Professional assessment remains visible and cannot be rewritten merely because another authorized decision was made.
+
+exceptionPolicy:
+  requiresGoverningRuleReference: true
+  mustBeNarrowerThanRule: true
+  expiryOrReviewTriggerPreferred: true
+  hardStopCannotBeExcepted: true
+  repeatedExceptionOutcomes:
+    - STANDARD_STILL_VALID_AND_EXCEPTION_REMAINS_RARE
+    - STANDARD_SHOULD_CHANGE
+    - CAPACITY_OR_TOOLING_SHOULD_CHANGE
+    - BEHAVIOR_MUST_RETURN_TO_STANDARD
+
+riskAcceptancePolicy:
+  lawfulRiskOnly: true
+  hardStopCannotBeAccepted: true
+  professionalAssessmentPreserved: true
+  monitoringOwnerRequiredWhenAccepted: true
+  reviewTriggerOrExpiryRequiredWhenMeaningful: true
+
+dissentPolicy:
+  protected: true
+  retaliationProhibited: true
+  personalGrievanceIsNotDissentRecord: true
+  decisionMayProceedAfterAcknowledgmentWhenLawfulAndAuthorized: true
+  historyPreservedAfterDecision: true
+
+lineagePolicy:
+  identifiersStable: true
+  identifiersRecycled: false
+  materialChangeCreatesNewDecisionOrExplicitAmendmentLineage: true
+  supersessionLinksBothDirectionsWhenToolingAllows: true
+
+outcomeReview:
+  principle: Material decisions should capture what happened, not only what was intended.
+  fieldsWhenProportionate:
+    - execution_status
+    - outcome_evidence
+    - observed_outcome
+    - assumptions_held
+    - unexpected_consequences
+    - customer_impact
+    - workforce_impact
+    - risk_materialized
+    - follow_up_required
+  hindsightRule: Outcome quality alone does not prove original decision quality; changed conditions and randomness must be distinguished from reasoning quality.
+
+agentPolicy:
+  may:
+    - CREATE_DRAFTS
+    - GATHER_EVIDENCE_REFERENCES
+    - VALIDATE_REQUIRED_FIELDS
+    - PROPOSE_MATERIALITY
+    - DETECT_MISSING_RELATIONSHIPS
+    - DETECT_OVERDUE_REVIEWS
+    - DETECT_REPEATED_EXCEPTIONS
+    - PREPARE_SUMMARIES
+    - EXECUTE_AUTHORIZED_POST_DECISION_ACTIONS
+  mayNot:
+    - FABRICATE_DECISION_OWNER
+    - FABRICATE_APPROVAL
+    - FABRICATE_EXCEPTION_APPROVAL
+    - FABRICATE_RISK_ACCEPTANCE
+    - FABRICATE_DISSENT
+    - INFER_AUTHORITY_FROM_TECHNICAL_ACCESS
+  materialDecisionRule: M2+ decisions require competent human or governing-role issuance unless a separately approved pre-authorized control explicitly permits otherwise.
+
+validationRules:
+  - VALID_ID_PATTERN
+  - KNOWN_RECORD_TYPE
+  - KNOWN_STATUS
+  - KNOWN_MATERIALITY
+  - REQUIRED_RELATIONSHIP_IDS
+  - NO_ORPHAN_EXC_RSK_DSS
+  - DEC_REQUIRES_DECISION_OWNER
+  - APPROVED_EXC_REQUIRES_APPROVING_AUTHORITY
+  - ACCEPTED_RSK_REQUIRES_ACCEPTING_AUTHORITY
+  - MATERIAL_DSS_REQUIRES_DECISION_OWNER_ACKNOWLEDGMENT_WHEN_DECISION_PROCEEDED
+  - KNOWN_CONFIDENTIALITY
+  - LIFECYCLE_CONSISTENCY
+  - HARD_STOP_NOT_ACCEPTABLE_AS_EXCEPTION_OR_RISK
+  - SEMANTIC_CORRECTNESS_REMAINS_HUMAN_GOVERNANCE_RESPONSIBILITY
+
+repositoryLayout:
+  systemContract: registry/executive-decision-record-system.yaml
+  templates: records/_templates/
+  actualRecords:
+    decisions: records/decisions/
+    exceptions: records/exceptions/
+    risks: records/risks/
+    dissent: records/dissent/
+  rule: Do not create synthetic records merely to demonstrate the registry.
+
+controlCenterReadModel:
+  views:
+    - OPEN_DECISIONS_BY_MATERIALITY
+    - DECISIONS_AWAITING_INPUT
+    - DECISIONS_AWAITING_REVIEW
+    - ACTIVE_EXCEPTIONS
+    - EXCEPTIONS_NEARING_EXPIRY
+    - ACCEPTED_RISKS_AWAITING_REVIEW
+    - MATERIAL_DISSENT_LINKED_TO_ACTIVE_DECISIONS
+    - DECISION_LATENCY
+    - DECISIONS_WITHOUT_EXECUTION_OUTCOME
+    - REPEATED_EXCEPTION_PATTERNS
+    - MISSING_RELATIONSHIPS
+    - REOPENED_OR_SUPERSEDED_DECISIONS
+
+analyticsGuardrail: Metrics diagnose the governance system and must not incentivize suppressing dissent, exceptions or risk records.
+
+auditModel:
+  auditMayVerify:
+    - APPLICABLE_DECISION_RIGHTS_FOLLOWED
+    - MATERIALITY_CLASSIFICATION_SUPPORTED
+    - REQUIRED_CONSULTATION_OCCURRED
+    - CONSTRAINTS_VISIBLE
+    - EXCEPTION_AND_RISK_RULES_FOLLOWED
+    - LINEAGE_PRESERVED
+    - OUTCOME_REVIEW_WHEN_REQUIRED
+  auditDoesNotOwnBusinessOutcomeJudgment: true
+
+emergencyPolicy:
+  containmentMayPrecedeDocumentation: true
+  reconstructM2PlusAfterStabilization: true
+  contemporaneousFactsMustBeSeparatedFromLaterInterpretation: true
+  fabricatedRetroactiveApprovalProhibited: true
+
+antiPatterns:
+  - RECORD_EVERY_TRIVIAL_ACTION
+  - CREATE_IDS_AFTER_FACT_FOR_AUDIT_THEATER
+  - DELETE_DISSENT_AFTER_DECISION
+  - REWRITE_HISTORY_TO_MATCH_OUTCOME
+  - SILENTLY_TURN_EXCEPTION_INTO_STANDARD
+  - ACCEPT_HARD_STOP_AS_RISK
+  - DUPLICATE_FULL_EVIDENCE_IN_EVERY_RECORD
+  - TREAT_COMPLETE_RECORD_AS_PROOF_OF_CORRECT_DECISION
+  - USE_DSS_FOR_PERSONAL_GRIEVANCE
+  - CREATE_ORPHAN_EXC_RSK_DSS
+  - EXPOSE_RESTRICTED_EVIDENCE_IN_GENERAL_REGISTRY
+  - LET_AGENT_ACCESS_IMPLY_AUTHORITY
+
+nextValidationStep: Instantiate real records only when qualifying M0-M6 events occur, then calibrate fields, lifecycle states, routing and Control Center projections from actual usage evidence.

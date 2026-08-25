@@ -1,0 +1,50 @@
+recordType: EXCEPTION
+recordId: EXC-YYYY-NNN
+title: ""
+status: PROPOSED
+createdAt: YYYY-MM-DD
+updatedAt: YYYY-MM-DD
+
+relatedDecisionOrEvent:
+  type: DECISION
+  ref: DEC-YYYY-NNN
+
+governingRule:
+  ref: ""
+  description: ""
+
+reason: ""
+requestedBy:
+  role: ""
+  actorRef: null
+approvingAuthority:
+  role: ""
+  actorRef: null
+
+scope:
+  description: ""
+  affectedAssetsOrProcesses: []
+
+materiality:
+  level: M1
+  dimensions: []
+
+conditions: []
+consequences: []
+additionalControls: []
+
+effectiveDate: null
+expiryDate: null
+reviewTriggers: []
+owner:
+  role: ""
+  actorRef: null
+
+evidenceRefs: []
+disposition: null
+# STANDARD_STILL_VALID_AND_EXCEPTION_REMAINS_RARE |
+# STANDARD_SHOULD_CHANGE | CAPACITY_OR_TOOLING_SHOULD_CHANGE |
+# BEHAVIOR_MUST_RETURN_TO_STANDARD
+
+confidentiality: INTERNAL
+notes: ""
