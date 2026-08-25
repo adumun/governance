@@ -1,0 +1,526 @@
+schemaVersion: "1.0"
+kind: ExecutiveLeadershipTeamReconciliation
+metadata:
+  id: ADM-ORG-ELT-RCN-001
+  organization: ADÜMÜN
+  title: Executive Leadership Team — Pluralistic Governance & Horizontal Reconciliation
+  maturity: CANDIDATE
+  authorityState: CURRENT
+  effectiveReferenceDate: 2026-08-25
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 23. Executive Leadership Team — Pluralistic Governance & Horizontal Reconciliation
+  reconciles:
+    - ADM-ORG-ELT-001
+    - ADM-ORG-CEO-001
+    - ADM-ORG-COO-001
+    - ADM-ORG-CRO-001
+    - ADM-ORG-CPO-001
+    - ADM-ORG-CTO-001
+    - ADM-ORG-CLO-001
+  steward: People & Organization / Organizational Design & Workforce
+
+executiveSystem:
+  model: PLURALISTIC_ONE_TEAM
+  statement: Distinct executive accountability domains operate as one leadership team serving one enterprise.
+  nonCompetitionRule: C-Level roles must not compete for prestige, budget, headcount, CEO proximity, information control or ownership of success.
+  pluralityPurpose: Improve decisions through complementary professional perspectives, not create factions or territorial power.
+  successRule: The Executive Leadership Team succeeds or fails together at enterprise level.
+
+sharedMission:
+  - id: ELT-M01
+    outcome: SUSTAINABLE_ENTERPRISE_GROWTH
+    statement: Grow ADÜMÜN sustainably and expand its capacity to create durable value.
+  - id: ELT-M02
+    outcome: EXCELLENT_PLACE_TO_WORK
+    statement: Build a workplace characterized by dignity, trust, professional challenge, learning, fair treatment, sustainable workload and strong leadership.
+  - id: ELT-M03
+    outcome: BEST_SUSTAINABLE_COMPENSATION
+    statement: Seek the strongest total compensation ADÜMÜN can sustainably afford while protecting payroll continuity and enterprise survival.
+  - id: ELT-M04
+    outcome: CUSTOMER_PROSPERITY
+    statement: Listen deeply to customers and users, understand their real problems and help them grow or improve rather than merely sell to them.
+  - id: ELT-M05
+    outcome: DURABLE_ENTERPRISE_FOUNDATIONS
+    statement: Preserve the financial, operational, technological, legal and organizational foundations required for growth, customer value and workforce prosperity to endure.
+
+customerPrinciples:
+  - customer_relationships_should_seek_mutual_growth
+  - customer_listening_does_not_mean_obeying_every_request
+  - stated_request_should_be_distinguished_from_underlying_problem
+  - short_term_revenue_should_not_override_customer_outcome
+  - growth_should_come_from_defensible_value_not_exploitation_or_confusion
+  - customer_evidence_must_reach_executive_governance
+
+workforcePrinciples:
+  - high_performance_and_humane_workplace_are_complementary
+  - professional_dissent_requires_psychological_safety
+  - chronic_overload_is_an_enterprise_cost_not_a_hidden_externality
+  - compensation_ambition_must_be_economically_sustainable
+  - cost_control_must_not_treat_people_as_the_default_disposable_variable
+  - workforce_evidence_must_reach_executive_governance
+
+executiveBehavior:
+  required:
+    - state_enterprise_objective_before_domain_position
+    - separate_fact_evidence_estimate_assumption_and_opinion
+    - surface_material_constraints_early
+    - challenge_ideas_not_personal_legitimacy
+    - disclose_material_conflicts_of_interest
+    - preserve_material_dissent
+    - support_legitimate_decisions_after_they_are_made
+    - share_credit_according_to_real_contribution
+    - help_peer_decision_owners_succeed
+  prohibited:
+    - internal_faction_building
+    - information_withholding_for_leverage
+    - prestige_or_headcount_competition
+    - budget_capture_as_status
+    - public_undermining_of_peers
+    - blame_transfer_in_place_of_learning
+    - metric_gaming_that_harms_enterprise_outcomes
+
+healthyTensions:
+  - domains: [CRO, CFO]
+    purpose: balance growth with margin, cash quality and sustainability
+  - domains: [CPO, CTO]
+    purpose: balance product value with feasibility, architecture and lifecycle cost
+  - domains: [COO, ALL]
+    purpose: balance ambition with execution capacity and operating coherence
+  - domains: [CEO, CLO]
+    purpose: distinguish business risk appetite from legal boundaries
+  - domains: [CTO, CISO_FUTURE]
+    purpose: preserve eventual independent security challenge
+  - domains: [COO, GOVERNANCE_AUDIT]
+    purpose: separate operation of the system from independent verification
+
+participationRoles:
+  DECISION_AUTHORITY: Owns the decision and remains accountable for its result.
+  CONSTRAINT_AUTHORITY: Defines a professional boundary that must be addressed, redesigned or escalated.
+  MANDATORY_CONSULTED: Must be consulted because the decision materially affects the domain.
+  ADVISORY: Contributes evidence or expertise without owning the decision.
+  EXECUTION_OWNER: Owns implementation after decision.
+  ESCALATION_AUTHORITY: Arbitrates unresolved legitimate authority conflicts.
+
+coreDecisionRule:
+  oneDecisionOwner: true
+  consensusRequired: false
+  process:
+    - consult
+    - understand_evidence_and_constraints
+    - decide
+    - preserve_material_dissent
+    - execute
+    - review_outcomes
+  ceoRule: CEO is final executive arbitrator, not the default decision router.
+
+constraintModel:
+  generalRule: Constraint authority does not transfer ownership of the whole decision.
+  financial:
+    authority: CFO
+    states:
+      - WITHIN_APPROVED_ENVELOPE
+      - OUTSIDE_APPROVED_ENVELOPE_REQUIRES_REALLOCATION_OR_ESCALATION
+  technical:
+    authority: CTO
+    states:
+      - FEASIBLE
+      - FEASIBLE_WITH_CONDITIONS
+      - EXPERIMENTAL
+      - NOT_CURRENTLY_SUPPORTABLE
+  operational:
+    authority: COO
+    states:
+      - DELIVERABLE
+      - DELIVERABLE_WITH_CAPACITY_CHANGE
+      - NOT_DELIVERABLE_WITH_CURRENT_CAPACITY
+  product:
+    authority: CPO
+    principle: Client demand does not automatically enter the Product roadmap; alternate commercial or delivery models may be assessed.
+  legal:
+    authority: CLO
+    hardStopStates:
+      - ILLEGAL
+      - FRAUDULENT
+      - LEGALLY_IMPOSSIBLE
+      - OUTSIDE_LAWFUL_CORPORATE_AUTHORITY
+    hardStopRule: Hard legal constraints cannot be converted into accepted risk or CEO override.
+
+initialDecisionRights:
+  corporate_strategy:
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, COO, CRO, CPO, CTO, CLO]
+  enterprise_priorities:
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, COO, CRO, CPO, CTO, CLO]
+  budget_and_financial_envelope:
+    decisionOwner: CFO
+    mandatoryConsulted: [CEO, COO]
+    escalation: CEO
+  enterprise_operating_model:
+    decisionOwner: COO
+    mandatoryConsulted: [CFO, CRO, CPO, CTO, CLO]
+    escalation: CEO
+  revenue_strategy:
+    decisionOwner: CRO
+    mandatoryConsulted: [CFO, CPO, COO]
+    escalation: CEO
+  standard_pricing_within_policy:
+    decisionOwner: CRO
+    constraintAuthorities: [CFO]
+    escalation: CEO
+  major_deal_acceptance:
+    decisionOwner: CRO
+    mandatoryConsulted: [CFO, COO, CTO, CLO]
+    conditionalConsulted: [CPO]
+    escalation: CEO
+  product_strategy:
+    decisionOwner: CPO
+    mandatoryConsulted: [CRO, CTO, CFO]
+    conditionalConsulted: [COO, CLO]
+    escalation: CEO
+  product_roadmap:
+    decisionOwner: CPO
+    mandatoryConsulted: [CTO, CRO]
+    conditionalConsulted: [COO, CFO, CLO]
+    escalation: CEO_WHEN_ENTERPRISE_MATERIAL
+  product_admission_or_retirement:
+    decisionOwner: CPO
+    mandatoryConsulted: [CRO, CTO, CFO]
+    conditionalConsulted: [COO, CLO]
+    escalation: CEO_WHEN_STRATEGIC_OR_MATERIAL
+  technology_strategy:
+    decisionOwner: CTO
+    mandatoryConsulted: [CPO, COO, CFO]
+    conditionalConsulted: [CRO, CLO]
+    escalation: CEO
+  architecture:
+    decisionOwner: CTO
+    mandatoryConsulted: [CPO_WHEN_PRODUCT_CONSTRAINT, COO_WHEN_ENTERPRISE_INTERFACE]
+    escalation: CEO_WHEN_ENTERPRISE_MATERIAL
+  production_readiness:
+    decisionOwner: CTO
+    mandatoryConsulted: [COO_WHEN_OPERATIONAL_IMPACT]
+  legal_interpretation:
+    decisionOwner: CLO
+    externalSpecialistWhenRequired: true
+  lawful_legal_risk_acceptance:
+    decisionOwner: BUSINESS_OWNER_OR_CEO_BY_MATERIALITY
+    constraintAuthorities: [CLO]
+    escalation: CEO
+  illegal_or_legally_impossible_action:
+    decisionOwner: NONE
+    hardStopAuthority: CLO
+    overrideAllowed: false
+  business_vertical_creation_or_retirement:
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, COO]
+    conditionalConsulted: [CRO, CPO, CTO, CLO]
+  new_c_level_creation:
+    decisionOwner: CEO
+    mandatoryConsulted: [ORGANIZATIONAL_DESIGN]
+    conditionalConsulted: [AFFECTED_EXECUTIVES]
+
+majorDealModel:
+  primaryOwner: CRO
+  inputs:
+    CFO: economics_cash_margin_and_financial_guardrails
+    COO: deliverability_capacity_and_operating_burden
+    CTO: technical_feasibility_operating_cost_and_supportability
+    CPO: product_boundary_and_productization_implications
+    CLO: contracts_ip_privacy_liability_and_legal_exposure
+  rule: A material deal outside approved boundaries must be redesigned or escalated rather than silently forced through.
+
+productInvestmentModel:
+  primaryOwner: CPO
+  inputs:
+    CRO: market_evidence_and_willingness_to_pay
+    CTO: feasibility_architecture_and_technical_cost
+    CFO: investment_capacity_and_economic_implications
+    COO: execution_capacity_and_operating_burden
+    CLO: material_legal_constraints
+    CEO: strategy_and_material_enterprise_arbitration
+
+capitalAllocationModel:
+  financialAuthority: CFO
+  enterprisePriorityAuthority: CEO
+  rule: CFO must preserve accurate financial analysis even when CEO consciously accepts adverse short-term economics for a lawful strategic reason.
+
+escalationLadder:
+  E0_DOMAIN: One executive decides inside delegated authority.
+  E1_BILATERAL: Two domains reconcile an interface.
+  E2_CROSS_FUNCTIONAL: Three or more domains participate while one Decision Owner remains explicit.
+  E3_EXECUTIVE_CONFLICT: Legitimate authorities remain incompatible and delay or risk becomes material.
+  E4_CEO_ARBITRATION: CEO issues final executive decision within legal and governing-authority limits.
+
+deadlock:
+  conditions:
+    - material_decision_exists
+    - decision_owner_is_known
+    - mandatory_domains_have_been_consulted
+    - legitimate_positions_remain_incompatible
+    - continued_delay_creates_material_cost_risk_customer_harm_or_workforce_harm
+  action: ESCALATE
+  trackingOwner: COO
+
+professionalDissent:
+  protected: true
+  retaliationProhibited: true
+  materialRecordFields:
+    - professional_position
+    - evidence
+    - predicted_consequences
+  afterDecisionRule: Execute lawful and properly authorized decisions professionally unless new evidence or changed constraints justify reopening.
+
+overrideRecord:
+  fields:
+    - decision
+    - decision_owner
+    - professional_position
+    - rationale
+    - accepted_risk
+    - conditions
+    - mitigation
+    - review_trigger
+  purpose: Preserve what ADÜMÜN knew when a material override was made; not a punishment record.
+
+multiHatGovernance:
+  allowed: true
+  rule: Distinct accountabilities remain separate even when held by the same person.
+  materialDecisionPractice: Explicitly consider each role perspective when a decision crosses multiple mandates held by the same person.
+  independentChallengeTriggers:
+    - material_conflict_of_interest
+    - insufficient_specialist_competence
+    - regulatory_independence_requirement
+    - high_financial_exposure
+    - material_security_risk
+    - employment_or_related_party_conflict
+    - self_review_is_materially_insufficient
+  independentChallengeSources:
+    - executive_peer
+    - governance_or_audit
+    - accountant
+    - external_counsel
+    - security_or_technical_specialist
+    - future_board_or_governing_authority
+
+roleSeparationTriggers:
+  - sustained_workload_incompatibility
+  - repeated_conflict_between_mandates
+  - unacceptable_decision_latency
+  - specialist_competence_required
+  - regulatory_or_customer_required_independence
+  - material_conflict_of_interest
+  - insufficient_professional_challenge
+  - organizational_scale
+  - recurring_accountability_gap
+
+reservedRoleActivation:
+  CMO:
+    trigger: Brand, communications, audience and marketing strategy require continuous executive accountability beyond CRO demand generation.
+  CHRO:
+    trigger: Workforce scale and people systems require continuous enterprise-level executive leadership.
+  CCO:
+    trigger: Transversal creative and IP direction spans enough properties to require independent executive coordination.
+  CISO:
+    trigger: Security independence, regulation, certification, enterprise-customer requirements or material cyber risk require separation from CTO.
+  CDO:
+    trigger: Enterprise data governance, ownership, monetization or AI dependence materially exceeds Technology's technical-data mandate.
+
+executiveCadence:
+  weeklyExecutiveOperatingReview:
+    focus:
+      - enterprise_priorities
+      - blockers
+      - cross_domain_decisions
+      - customer_impacting_issues
+      - workforce_risks
+      - exceptions
+  monthlyBusinessReview:
+    focus:
+      - finance
+      - revenue
+      - product
+      - technology
+      - operations
+      - people_and_workforce
+      - legal_and_risk
+      - customer_outcomes
+  quarterlyStrategyReview:
+    focus:
+      - strategy
+      - customer_outcomes
+      - portfolio
+      - capital_allocation
+      - organizational_health
+      - workforce_conditions
+      - compensation_capacity
+      - role_separation_triggers
+  antiCeremonyRule: Meetings must change or disappear when they cease to improve decisions.
+
+voiceOfCustomer:
+  recurringExecutiveInput: true
+  owners:
+    CRO: commercial_voice_of_customer
+    CPO: product_and_user_evidence
+    COO: delivery_and_service_friction
+    CTO: technical_and_supportability_evidence
+    CFO: customer_economics_and_collection_quality
+    CLO: contractual_and_regulatory_patterns
+  executiveQuestion: Are customers achieving the outcome they came to ADÜMÜN for, and what prevents their growth?
+
+voiceOfEmployee:
+  recurringExecutiveInput: true
+  topics:
+    - workload
+    - retention
+    - capability
+    - compensation
+    - fairness
+    - leadership_quality
+    - safety
+    - development
+    - recurring_operational_friction
+  rule: Short-term metric improvement that creates chronic overload, arbitrary treatment, excessive turnover or inability to attract capable people must be surfaced as an enterprise tradeoff.
+
+sharedSuccessMetrics:
+  - sustainable_revenue_and_cash_generation
+  - customer_outcome_and_retention_or_equivalent_value_evidence
+  - strategic_priority_execution
+  - employee_retention_and_engagement_when_measurable
+  - sustainable_workload
+  - compensation_competitiveness
+  - payroll_reliability
+  - product_value
+  - technology_and_reliability_health
+  - material_legal_and_risk_exposure
+  - reduction_of_ceo_dependency
+
+antiGamingRules:
+  CRO: Revenue does not win by closing unprofitable or undeliverable deals.
+  CFO: Finance does not win by reducing cost until enterprise capability collapses.
+  COO: Operations does not win by maximizing utilization until people burn out or responsiveness disappears.
+  CPO: Product does not win by shipping features without user or business value.
+  CTO: Technology does not win by optimizing architecture unrelated to customer or enterprise need.
+  CLO: Legal does not win by eliminating all business risk through prohibition.
+  TEAM: The team wins when ADÜMÜN, its customers and its people become stronger together.
+
+decisionRegister:
+  requiredWhenAny:
+    - material_capital
+    - strategic_implication
+    - irreversible_consequence
+    - cross_domain_conflict
+    - material_exception
+    - precedent
+    - material_risk
+  fields:
+    - decision_id
+    - date
+    - decision_type
+    - decision_owner
+    - consulted_domains
+    - constraints
+    - evidence
+    - decision
+    - rationale
+    - material_dissent
+    - risk_accepted
+    - execution_owner
+    - review_trigger
+  antiBureaucracyRule: Routine delegated decisions should not be registered merely for ceremony.
+
+policyExceptionRegister:
+  fields:
+    - governing_standard
+    - reason
+    - scope
+    - owner
+    - approving_authority
+    - consequences
+    - expiry_or_review_trigger
+  repeatedExceptionRule: Repeated similar exceptions trigger policy, process or capacity-model review.
+
+materialityDimensions:
+  - financial_impact
+  - customer_impact
+  - workforce_impact
+  - strategic_direction
+  - reputation
+  - legal_or_regulatory_exposure
+  - security_or_data_exposure
+  - intellectual_property
+  - irreversible_technical_architecture
+  - organizational_precedent
+  - reversibility
+
+reopenDecisionTriggers:
+  - material_evidence_changes
+  - assumption_becomes_false
+  - economics_change
+  - legal_or_regulatory_condition_changes
+  - risk_changes
+  - implementation_reveals_failed_premise
+  - scheduled_review_trigger_reached
+  - material_customer_or_workforce_outcome_changes
+
+executiveSolidarity:
+  rule: After a lawful and properly authorized decision, executives present a coherent operating position and work together to make it succeed while preserving confidential governance records of material dissent.
+  doesNotRequire: Pretending everyone originally agreed.
+
+governanceAuditBoundary:
+  rule: Governance & Audit independently evaluates decision rights, evidence, controls, exceptions and executive behavior without treating independent challenge as hostility toward leadership.
+
+criticalOutcome:
+  id: COHERENT_EXECUTIVE_DECISION_SYSTEM
+  definition: Recurring material decisions can predictably identify who decides, required peer input, professional constraints, escalation, dissent and override handling, multi-hat challenge and execution without making the CEO a bottleneck.
+  requiredQualities:
+    - speed
+    - professional_pluralism
+    - customer_focus
+    - workforce_wellbeing
+    - enterprise_accountability
+
+executiveCompact:
+  statement: We are one team serving one enterprise. We do not compete against one another; we challenge one another so ADÜMÜN makes better decisions. We pursue sustainable growth, listen deeply to customers and help them become stronger, build a company where excellent people want to work and can be rewarded as well as the business can responsibly sustain, protect the company's long-term capability, and treat professional disagreement as service to the enterprise. No functional victory is an ADÜMÜN victory if customers, people or the enterprise are weakened by it.
+
+roleContractStatusAtReconciliation:
+  CEO:
+    status: DETAILED_ROLE_CANDIDATE
+    ref: ADM-ORG-CEO-001
+  CFO:
+    status: ROLE_DEFINITION_IN_PROGRESS
+  COO:
+    status: DETAILED_ROLE_CANDIDATE
+    ref: ADM-ORG-COO-001
+  CRO:
+    status: DETAILED_ROLE_CANDIDATE
+    ref: ADM-ORG-CRO-001
+  CPO:
+    status: DETAILED_ROLE_CANDIDATE
+    ref: ADM-ORG-CPO-001
+  CTO:
+    status: DETAILED_ROLE_CANDIDATE
+    ref: ADM-ORG-CTO-001
+    machineReadablePath: registry/executive-roles/cto.yaml
+  CLO:
+    status: DETAILED_ROLE_CANDIDATE
+    ref: ADM-ORG-CLO-001
+    machineReadablePath: registry/executive-roles/clo.yaml
+
+nextArtifacts:
+  - Executive Decision Rights Matrix
+  - Materiality & Delegation Framework
+  - Executive Decision Register schema
+  - Executive Policy Exception Register schema
+  - final CFO role reconciliation
+
+maturityExitCriteria:
+  - tested_against_real_m0_m6_decisions
+  - material_role_contract_conflicts_reconciled
+  - final_cfo_mandate_reconciled
+  - corporate_shareholder_or_board_authority_reconciled
+  - decision_rights_matrix_operationally_usable
+  - multi_hat_independent_challenge_mechanism_usable
+  - customer_and_employee_voice_present_in_executive_review
