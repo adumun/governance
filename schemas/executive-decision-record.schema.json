@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adumun.invalid/governance/schemas/executive-decision-record.schema.json",
+  "title": "ADÜMÜN Executive Decision Record",
+  "description": "Structural contract for ADM-ORG-DER-001 actual DEC/EXC/RSK/DSS records. Semantic and cross-record integrity rules are enforced by tools/decision_registry.py and human governance.",
+  "type": "object",
+  "required": ["recordType", "recordId", "title", "status", "createdAt", "updatedAt", "confidentiality"],
+  "properties": {
+    "recordType": {"enum": ["DECISION", "EXCEPTION", "RISK_ACCEPTANCE", "PROFESSIONAL_DISSENT"]},
+    "recordId": {"type": "string", "pattern": "^(DEC|EXC|RSK|DSS)-[0-9]{4}-[0-9]{3,}$"},
+    "title": {"type": "string", "minLength": 1},
+    "createdAt": {"type": "string", "format": "date"},
+    "updatedAt": {"type": "string", "format": "date"},
+    "confidentiality": {"enum": ["PUBLIC", "INTERNAL", "RESTRICTED", "LEGAL_CONFIDENTIAL", "PEOPLE_CONFIDENTIAL"]},
+    "materiality": {
+      "type": "object",
+      "properties": {
+        "level": {"enum": ["M0", "M1", "M2", "M3", "M4", "HARD_STOP"]},
+        "dimensions": {"type": "array"}
+      },
+      "required": ["level"],
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"recordType": {"const": "DECISION"}}, "required": ["recordType"]},
+      "then": {
+        "required": ["decisionOwner", "materiality", "decision", "rationale"],
+        "properties": {
+          "recordId": {"pattern": "^DEC-[0-9]{4}-[0-9]{3,}$"},
+          "status": {"enum": ["DRAFT", "PENDING_INPUT", "DECIDED", "EXECUTING", "REVIEW_DUE", "CLOSED", "SUPERSEDED"]},
+          "decisionMode": {"enum": ["STANDARD", "PROFESSIONAL_RECOMMENDATION_OVERRIDDEN", "EMERGENCY_RECONSTRUCTION"]},
+          "decisionOwner": {"type": "object", "required": ["role"], "properties": {"role": {"type": "string", "minLength": 1}}, "additionalProperties": true},
+          "decision": {"type": "string", "minLength": 1},
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"recordType": {"const": "EXCEPTION"}}, "required": ["recordType"]},
+      "then": {
+        "required": ["relatedDecisionOrEvent", "governingRule", "reason", "materiality"],
+        "properties": {
+          "recordId": {"pattern": "^EXC-[0-9]{4}-[0-9]{3,}$"},
+          "status": {"enum": ["PROPOSED", "APPROVED", "ACTIVE", "REVIEW_DUE", "EXPIRED", "REVOKED", "INCORPORATED_INTO_STANDARD"]},
+          "relatedDecisionOrEvent": {"type": "object", "required": ["ref"], "properties": {"ref": {"type": "string", "pattern": "^DEC-[0-9]{4}-[0-9]{3,}$"}}, "additionalProperties": true},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"recordType": {"const": "RISK_ACCEPTANCE"}}, "required": ["recordType"]},
+      "then": {
+        "required": ["relatedDecisionOrEvent", "riskStatement", "materiality", "professionalAssessment", "residualRisk"],
+        "properties": {
+          "recordId": {"pattern": "^RSK-[0-9]{4}-[0-9]{3,}$"},
+          "status": {"enum": ["PROPOSED", "ACCEPTED", "MITIGATING", "MONITORING", "REVIEW_DUE", "CLOSED", "REVOKED"]},
+          "relatedDecisionOrEvent": {"type": "object", "required": ["ref"], "properties": {"ref": {"type": "string", "pattern": "^DEC-[0-9]{4}-[0-9]{3,}$"}}, "additionalProperties": true},
+          "riskStatement": {"type": "string", "minLength": 1},
+          "professionalAssessment": {"type": "string", "minLength": 1},
+          "residualRisk": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"recordType": {"const": "PROFESSIONAL_DISSENT"}}, "required": ["recordType"]},
+      "then": {
+        "required": ["relatedDecision", "dissentingRoleOrDomain", "professionalPosition"],
+        "properties": {
+          "recordId": {"pattern": "^DSS-[0-9]{4}-[0-9]{3,}$"},
+          "status": {"enum": ["RECORDED", "ACKNOWLEDGED", "RESOLVED_BY_DECISION", "SUPERSEDED_BY_NEW_EVIDENCE", "WITHDRAWN_BY_AUTHOR"]},
+          "relatedDecision": {"type": "object", "required": ["ref"], "properties": {"ref": {"type": "string", "pattern": "^DEC-[0-9]{4}-[0-9]{3,}$"}}, "additionalProperties": true},
+          "professionalPosition": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

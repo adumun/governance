@@ -1,0 +1,108 @@
+schemaVersion: "1.0"
+kind: ExecutiveDecisionRecordOperations
+metadata:
+  id: ADM-ORG-DER-OPS-001
+  organization: ADÜMÜN
+  title: Executive Decision Record Operations
+  maturity: CANDIDATE
+  authorityState: IMPLEMENTATION
+  implements: ADM-ORG-DER-001
+  effectiveReferenceDate: 2026-08-25
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 26. Executive Decision Record & Exception System
+
+purpose: >-
+  Make DEC/EXC/RSK/DSS records locally operable, machine-checkable and projectable
+  for executive review and future Control Center consumption without transferring
+  substantive authority to tooling.
+
+artifacts:
+  structuralSchema: schemas/executive-decision-record.schema.json
+  operationalTool: tools/decision_registry.py
+  dependencies: tools/requirements.txt
+  operationsGuide: docs/standards/governance/executive-decision-record-operations.md
+  dashboardContract: registry/dashboards/executive-decisions.yaml
+
+commands:
+  validate:
+    invocation: python tools/decision_registry.py validate
+    purpose: Validate actual records, core fields, vocabularies and cross-record integrity.
+    errorExit: 1
+    warningExitByDefault: 0
+    strictMode: python tools/decision_registry.py validate --strict
+  nextId:
+    invocation: python tools/decision_registry.py next-id DEC
+    supportedTypes: [DEC, EXC, RSK, DSS]
+    allocationRule: NEXT_MAXIMUM_SEQUENCE_WITHIN_TYPE_AND_YEAR
+    distributedLocking: false
+    mergeConflictRule: Re-run allocation and reconcile before merge when concurrent branches collide.
+  snapshot:
+    invocation: python tools/decision_registry.py snapshot
+    outputFormat: JSON
+    authoritative: false
+    refuseOnIntegrityErrors: true
+
+validationLayers:
+  structuralContract:
+    artifact: schemas/executive-decision-record.schema.json
+    role: Interoperable shape/vocabulary contract for actual record objects.
+  operationalSemanticChecks:
+    artifact: tools/decision_registry.py
+    checks:
+      - DUPLICATE_RECORD_IDS
+      - RECORD_TYPE_AND_ID_PREFIX_MATCH
+      - CORE_REQUIRED_FIELDS
+      - LIFECYCLE_STATUS_VOCABULARY
+      - CONFIDENTIALITY_VOCABULARY
+      - MATERIALITY_VOCABULARY_WHERE_PRESENT
+      - DECISION_OWNER_PRESENT
+      - APPROVING_AUTHORITY_PRESENT_FOR_ACTIVE_EXCEPTION
+      - ACCEPTING_AUTHORITY_AND_MONITOR_PRESENT_FOR_ACCEPTED_RISK
+      - DISSENT_ACKNOWLEDGMENT_CONSISTENCY
+      - NO_ORPHAN_EXC_RSK_DSS
+      - CROSS_RECORD_REFERENCE_EXISTS
+      - CROSS_RECORD_REFERENCE_TYPE_MATCH
+      - DATE_BASED_REVIEW_AND_EXPIRY_DIAGNOSTICS
+  humanSemanticJudgment:
+    remainsRequiredFor:
+      - DECISION_CORRECTNESS
+      - MATERIALITY_JUDGMENT
+      - EXCEPTION_JUSTIFICATION
+      - RISK_ACCEPTABILITY
+      - PROFESSIONAL_DISSENT_SUBSTANCE
+      - AUTHORITY_INTERPRETATION
+
+mutationPolicy:
+  sourceRecordAutoMutation: false
+  rule: >-
+    Date or validation findings may surface a condition but do not silently change
+    lifecycle state, create approval, accept risk or acknowledge dissent.
+
+idPolicy:
+  source: actual records only
+  templatesExcluded: true
+  filenameNotAuthoritative: true
+  identifiersStable: true
+  identifiersRecycled: false
+
+projectionPolicy:
+  sourceRecordsRemainAuthoritative: true
+  restrictedEvidenceCopiedToGeneralProjection: false
+  missingRelationshipsBecomeErrors: true
+  dissentMaterialityProjection: INHERIT_LINKED_DECISION_MATERIALITY
+  rule: Read models preserve stable IDs and must not manufacture governance state.
+
+localValidation:
+  githubActionsRequired: false
+  retainedEvidenceExpectedForMaterialChanges: true
+  deterministicDateOverride: --today YYYY-MM-DD
+
+calibrationTrigger: FIRST_REAL_RECORDS_AVAILABLE
+calibrationQuestions:
+  - Should reverse links become mandatory?
+  - Should any lifecycle transitions become pre-authorized machine transitions?
+  - Which schema fields should become stricter after usage evidence?
+  - Which Control Center views create real operational value?
+  - Are repeated exceptions or overdue reviews visible with acceptable signal-to-noise?
