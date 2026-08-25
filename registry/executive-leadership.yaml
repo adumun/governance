@@ -1,4 +1,4 @@
-schemaVersion: "1.1"
+schemaVersion: "1.2"
 kind: ExecutiveLeadershipBaseline
 metadata:
   id: ADM-ORG-ELT-001
@@ -38,7 +38,8 @@ currentBaseline:
   - code: COO
     title: Chief Operating Officer
     responsibility: Enterprise operating model, transversal execution, operational performance, cross-unit coordination, process effectiveness and continuous improvement.
-    status: DESIGN_BASELINE
+    status: DETAILED_ROLE_CANDIDATE
+    detailedRoleRef: ADM-ORG-COO-001
   - code: CTO
     title: Chief Technology Officer
     responsibility: Technology strategy, architecture, engineering, platforms, infrastructure, AI and agents, technical standards, DevOps and technical security.
@@ -138,6 +139,158 @@ detailedRoles:
     reportingLine: Highest executive authority under the founding operating model; later accountable to the legally competent shareholder, Board or equivalent governing authority.
     officeOfCeoRule: Do not create a separate Office of the CEO unless evidence shows dedicated support reduces material coordination cost.
 
+  COO:
+    id: ADM-ORG-COO-001
+    title: Chief Operating Officer
+    maturity: CANDIDATE
+    authorityState: CURRENT
+    humanSourceSection: 18. COO — Chief Operating Officer — Detailed Executive Mandate
+    executiveLevel: C_LEVEL
+    accountabilityScope: ENTERPRISE_OPERATIONS
+    purpose: Convert ADÜMÜN strategy into a coherent, observable and repeatable enterprise operating system.
+    operatingSystemPrinciple: The COO does not own every operation; the COO owns the system through which operations remain coherent.
+    coreAccountabilities:
+      - enterprise operating model
+      - transversal execution
+      - operating cadence
+      - process design
+      - dependency management
+      - operational performance
+      - capacity visibility
+      - work in progress discipline
+      - escalation mechanisms
+      - blocker resolution
+      - business continuity coordination
+      - cross-unit operating coherence
+      - operational reporting
+      - incident-system integrity
+      - continuous improvement
+    sixMonthMandate:
+      - convert governance documentation into operating behavior
+      - establish a minimal enterprise operating cadence
+      - make priorities owners dependencies blockers and evidence visible
+      - reduce uncontrolled work in progress
+      - create explicit escalation paths
+      - improve milestone predictability
+      - automate repetitive operational toil without obscuring accountability
+      - materially reduce founder_or_ceo_dependency_for_routine_coordination
+    governanceExecutionChain:
+      - decision
+      - owner
+      - work
+      - execution
+      - evidence
+      - outcome
+      - review
+      - next_decision
+    authority:
+      - define_transversal_operating_processes
+      - require_explicit_ownership_for_material_cross_domain_work
+      - establish_operational_reporting_standards
+      - require_status_and_evidence_for_enterprise_commitments
+      - define_escalation_paths
+      - coordinate_cross_unit_dependencies
+      - eliminate_redundant_operating_processes
+      - introduce_operational_controls
+      - require_postmortems_or_corrective_actions_after_material_failures
+      - propose_redistribution_of_operating_capacity
+      - suspend_clearly_defective_process_pending_correction_when_material_risk_exists
+    constraints:
+      - may_not_change_corporate_strategy_unilaterally
+      - may_not_redefine_ceo_approved_priorities_unilaterally
+      - may_not_reallocate_material_capital_against_cfo_controls
+      - may_not_redefine_product_strategy_against_cpo_accountability
+      - may_not_prescribe_technical_architecture_against_cto_authority
+      - may_not_create_commercial_commitments_against_cro_authority
+      - may_not_reinterpret_legal_obligations_against_clo_authority
+      - may_not_absorb_business_vertical_ownership_due_to_coordination_difficulty
+    boundaries:
+      CEO: CEO owns required outcomes and strategic priority; COO owns the operating system that executes them.
+      CFO: COO determines operational capacity needs and execution constraints; CFO determines affordability and economic sustainability.
+      CRO: CRO owns commercial demand and commitments; COO ensures delivery capacity and operating controls can support them.
+      CPO: CPO owns product strategy and roadmap decisions; COO owns cross-enterprise operating mechanisms enabling product work.
+      CTO: CTO owns technology strategy and technical operating methods; COO owns integration of Technology into enterprise operating coherence.
+      CLO: CLO determines legal obligations and interpretation; COO ensures applicable legal requirements become operational controls and evidence.
+      GovernanceAudit: COO operates and improves the system; Governance & Audit independently evaluates and challenges it.
+    verticalRelationship: Business Verticals own operating and commercial outcomes; COO owns enterprise operating interfaces and coherence across verticals and corporate functions.
+    notPmoRule: COO accountability is broader than project tracking or milestone administration; any future PMO is only one possible supporting capability.
+    notChiefOfStaffRule: Chief of Staff amplifies the CEO; COO amplifies the organization through enterprise operating coherence.
+    potentialCapabilities:
+      - Enterprise Operations
+      - Operational Excellence
+      - Execution & Coordination
+      - Business Continuity
+      - Delivery Operations when justified
+      - PMO when justified
+    automationPrinciple: Automation removes toil but never removes accountable ownership, escalation paths or decision authority.
+    capacityModel:
+      dimensions:
+        - demand
+        - available_capacity
+        - committed_capacity
+        - actual_throughput
+      rule: When demand exceeds sustainable capacity, surface the constraint and force sequencing, reduction or explicit risk acceptance.
+    workInProgressRule: Enterprise work in progress must remain below actual sustainable execution capacity.
+    operatingStates:
+      - ACTIVE
+      - PAUSED
+      - BACKLOG
+      - TERMINATED_OR_RETIRED
+    blockerLevels:
+      L0: local blocker resolvable within the team
+      L1: cross-team blocker requiring coordination
+      L2: executive-domain blocker requiring C-Level authority
+      L3: enterprise blocker requiring CEO or executive arbitration
+    incidentFlow:
+      - detect
+      - contain
+      - owner
+      - resolve
+      - learn
+      - prevent_recurrence
+    m0M6Indicators:
+      - enterprise_priority_completion_rate
+      - milestone_predictability
+      - work_blocked_beyond_threshold
+      - cycle_time
+      - lead_time
+      - committed_vs_available_capacity
+      - work_in_progress
+      - overload_and_context_switching
+      - unresolved_dependencies
+      - cross_domain_blocker_age
+      - decision_latency
+      - recurring_incidents
+      - failed_handoffs
+      - rework_rate
+      - process_exceptions
+      - manual_repetitive_work_removed
+      - automation_failure_rate
+      - founder_or_ceo_operational_dependency
+    targetOutcomeM0M6: ADÜMÜN can execute principal priorities through an explicit, observable and proportionate operating system without constant manual CEO coordination.
+    operatingPrinciples:
+      - strategy_without_execution_is_not_an_operating_result
+      - governance_must_become_behavior_not_documentation
+      - every_material_piece_of_work_requires_an_accountable_owner
+      - every_material_dependency_requires_an_explicit_interface
+      - work_in_progress_must_remain_below_sustainable_capacity
+      - automation_does_not_own_accountability
+      - operating_system_should_reduce_ceo_dependency
+      - processes_exist_to_improve_outcomes_not_to_justify_themselves
+      - repeated_manual_coordination_indicates_operating_system_debt
+      - repeated_exceptions_require_process_or_policy_review
+    antiPatterns:
+      - micromanager
+      - central_project_manager_for_all_work
+      - universal_approval_gate
+      - process_bureaucracy_generator
+      - executor_of_every_transversal_task
+      - shadow_ceo
+      - shadow_cfo
+      - owner_of_every_incident
+      - default_manager_of_every_person
+    reportingLine: CEO
+
 reservedScaleTriggered:
   - code: CMO
     title: Chief Marketing Officer
@@ -176,7 +329,6 @@ notCurrentlyJustified:
 nextRefinement:
   required: true
   sequence:
-    - COO
     - CRO
     - CPO
     - CTO
