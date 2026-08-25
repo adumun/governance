@@ -1,0 +1,101 @@
+schemaVersion: "1.0"
+kind: ExecutiveLeadershipBaseline
+metadata:
+  id: ADM-ORG-ELT-001
+  organization: ADÜMÜN
+  title: Executive Leadership Team — Initial C-Level Baseline
+  maturity: CANDIDATE
+  authorityState: CURRENT
+  effectiveReferenceDate: 2026-08-25
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 16. Executive Leadership Team — Initial C-Level Baseline
+  steward: People & Organization / Organizational Design & Workforce
+
+principles:
+  - id: ELT-P01
+    statement: Distinct executive accountability domains may be temporarily held by the same person.
+  - id: ELT-P02
+    statement: Product and Technology remain conceptually separate; CPO owns what and why, CTO owns technological capability and engineering approach.
+  - id: ELT-P03
+    statement: Revenue and Finance remain conceptually separate to preserve tension between growth, margin, cash, risk and sustainability.
+  - id: ELT-P04
+    statement: Executive titles are created because accountability requires them, not to simulate organizational maturity.
+  - id: ELT-P05
+    statement: New C-Level roles require an explicit trigger, mandate, decision rights, interfaces and evidence that separation reduces ambiguity, coordination cost or material risk.
+
+currentBaseline:
+  - code: CEO
+    title: Chief Executive Officer
+    responsibility: Enterprise direction, corporate strategy, executive priorities, resource allocation, company-wide decision accountability and executive-team coordination.
+    status: DESIGN_BASELINE
+  - code: CFO
+    title: Chief Financial Officer
+    responsibility: Finance, treasury, accounting, taxation, budgeting, financial control, funding, capital allocation and economic sustainability.
+    status: ROLE_DEFINITION_IN_PROGRESS
+  - code: COO
+    title: Chief Operating Officer
+    responsibility: Enterprise operating model, transversal execution, operational performance, cross-unit coordination, process effectiveness and continuous improvement.
+    status: DESIGN_BASELINE
+  - code: CTO
+    title: Chief Technology Officer
+    responsibility: Technology strategy, architecture, engineering, platforms, infrastructure, AI and agents, technical standards, DevOps and technical security.
+    status: DESIGN_BASELINE
+  - code: CPO
+    title: Chief Product Officer
+    responsibility: Product strategy, discovery, validation, product portfolio, lifecycle, product experience and prioritization of what ADÜMÜN builds for users and markets.
+    status: DESIGN_BASELINE
+  - code: CRO
+    title: Chief Revenue Officer
+    responsibility: Revenue strategy, commercial model, sales, pricing, channels, partnerships, monetization, pipeline and customer/account growth.
+    status: DESIGN_BASELINE
+  - code: CLO
+    title: Chief Legal Officer
+    responsibility: Corporate legal affairs, contracts, intellectual property, labor/legal coordination, privacy, regulation, compliance and legal risk protection.
+    status: DESIGN_BASELINE
+
+reservedScaleTriggered:
+  - code: CMO
+    title: Chief Marketing Officer
+    responsibility: Marketing, brand, communications, audience and market activation.
+    interimCoverage: CRO
+    trigger: Separate when marketing/brand complexity or scale requires independent executive accountability.
+  - code: CHRO
+    alternateTitle: Chief People Officer
+    title: Chief Human Resources Officer
+    responsibility: Enterprise people systems, workforce strategy, organizational development, compensation, performance and culture.
+    interimCoverage: CEO + COO + People & Organization
+    trigger: Separate when sustained workforce scale and organizational complexity justify dedicated executive ownership.
+  - code: CCO
+    title: Chief Creative Officer
+    responsibility: Enterprise creative direction, narrative/IP coherence and creative vision.
+    trigger: Activate if the creative and entertainment portfolio requires transversal executive authority.
+  - code: CISO
+    title: Chief Information Security Officer
+    responsibility: Independent enterprise information-security leadership.
+    interimCoverage: CTO
+    trigger: Separate when risk, regulation, customer obligations or scale require independence from Technology.
+  - code: CDO
+    title: Chief Data Officer
+    responsibility: Enterprise data governance and data strategy.
+    interimCoverage: CTO
+    trigger: Separate when data becomes sufficiently material and transversal to justify an independent mandate.
+
+notCurrentlyJustified:
+  - CSO
+  - CIO
+  - CAIO
+  - CXO
+  - Chief Innovation Officer
+  - Chief Sustainability Officer
+
+nextRefinement:
+  required: true
+  scope:
+    - dedicated role mandates
+    - decision rights
+    - interfaces and conflict boundaries
+    - L1/L2/L3 ownership mapping
+    - activation and separation triggers
+    - delegation and temporary multi-hat rules
