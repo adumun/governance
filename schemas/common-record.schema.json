@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adumun.example/schemas/common-record.schema.json",
+  "title": "ADÜMÜN Common Authority-Bearing Record",
+  "type": "object",
+  "required": ["schema_version", "id", "type", "maturity", "status", "source_of_truth"],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "id": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+$"},
+    "type": {"type": "string", "pattern": "^[A-Z0-9_]+$"},
+    "name": {"type": ["string", "null"]},
+    "maturity": {"type": "string", "enum": ["OBSERVED", "CANDIDATE", "PILOTED", "STANDARDIZED", "ENFORCED"]},
+    "status": {"type": "string", "pattern": "^[A-Z0-9_]+$"},
+    "owner_domain": {"type": ["string", "null"]},
+    "source_of_truth": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1}
+      ]
+    },
+    "last_reviewed": {"type": ["string", "null"], "format": "date"},
+    "updated_at": {"type": ["string", "null"], "format": "date-time"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}, "default": []},
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "target_id"],
+        "properties": {
+          "type": {"type": "string", "pattern": "^[A-Z0-9_]+$"},
+          "target_id": {"type": "string"}
+        },
+        "additionalProperties": false
+      },
+      "default": []
+    }
+  },
+  "additionalProperties": true
+}
