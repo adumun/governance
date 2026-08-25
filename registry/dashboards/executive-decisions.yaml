@@ -1,0 +1,81 @@
+schema_version: 0.1.0
+maturity: CANDIDATE
+dashboard_id: DASH-EXEC-DECISIONS
+name: Executive Decisions & Exceptions
+purpose: >-
+  Provide a reproducible operational read model over ADM-ORG-DER-001 records for
+  executive review and future ADÜMÜN Control Center consumption without becoming
+  a competing source of authority.
+source:
+  system_id: ADM-ORG-DER-001
+  record_roots:
+    - ../../records/decisions/
+    - ../../records/exceptions/
+    - ../../records/risks/
+    - ../../records/dissent/
+  projection_tool: ../../tools/decision_registry.py
+refresh_mode: ON_CHANGE_OR_REVIEW
+headline_metrics:
+  - id: DECISION_TOTAL
+    label: Decisions
+    unit: COUNT
+    formula: "count(recordType == DECISION)"
+  - id: ACTIVE_EXCEPTIONS
+    label: Active Exceptions
+    unit: COUNT
+    filter: "recordType == EXCEPTION and status in [APPROVED, ACTIVE, REVIEW_DUE]"
+  - id: ACCEPTED_RISKS
+    label: Accepted Risks
+    unit: COUNT
+    filter: "recordType == RISK_ACCEPTANCE and status in [ACCEPTED, MITIGATING, MONITORING, REVIEW_DUE]"
+  - id: OPEN_DISSENT
+    label: Open Professional Dissent
+    unit: COUNT
+    filter: "recordType == PROFESSIONAL_DISSENT and status in [RECORDED, ACKNOWLEDGED]"
+  - id: REVIEW_DUE
+    label: Review Due
+    unit: COUNT
+    formula: "count(records flagged by review/expiry date checks)"
+  - id: DECISIONS_WITHOUT_OUTCOME
+    label: Decisions Without Execution Outcome
+    unit: COUNT
+    formula: "count(materially progressed decisions lacking observedOutcome and outcome evidence)"
+views:
+  - id: OPEN_DECISIONS_BY_MATERIALITY
+    type: TABLE
+    dimensions: [recordId, title, status, materiality, updatedAt, confidentiality, path]
+    filter: "recordType == DECISION and status not in [CLOSED, SUPERSEDED]"
+    sort: [materiality desc, updatedAt asc, recordId]
+  - id: DECISIONS_AWAITING_INPUT
+    type: TABLE
+    dimensions: [recordId, title, materiality, updatedAt, path]
+    filter: "recordType == DECISION and status == PENDING_INPUT"
+  - id: DECISIONS_AWAITING_REVIEW
+    type: TABLE
+    dimensions: [recordId, recordType, title, status, materiality, updatedAt, path]
+    source_flag: REVIEW_DUE_OR_EXPIRY_CHECK
+  - id: ACTIVE_EXCEPTIONS
+    type: TABLE
+    dimensions: [recordId, title, status, materiality, updatedAt, path]
+    filter: "recordType == EXCEPTION and status in [APPROVED, ACTIVE, REVIEW_DUE]"
+  - id: ACCEPTED_RISKS_AWAITING_REVIEW
+    type: TABLE
+    dimensions: [recordId, title, status, materiality, updatedAt, path]
+    filter: "recordType == RISK_ACCEPTANCE and status in [ACCEPTED, MITIGATING, MONITORING, REVIEW_DUE]"
+  - id: MATERIAL_DISSENT_LINKED_TO_ACTIVE_DECISIONS
+    type: TABLE
+    dimensions: [recordId, title, status, updatedAt, path]
+    rule: "Dissent inherits materiality context from its linked decision."
+  - id: DECISIONS_WITHOUT_EXECUTION_OUTCOME
+    type: TABLE
+    dimensions: [recordId, title, status, materiality, updatedAt, path]
+  - id: VALIDATION_FINDINGS
+    type: TABLE
+    dimensions: [severity, code, recordId, message, path]
+quality_rules:
+  - "Source records remain authoritative; this dashboard is a projection only."
+  - "Restricted source evidence must not be copied into general projections."
+  - "No view may manufacture approval, authority, dissent, risk acceptance or lifecycle state."
+  - "Missing relationships are integrity errors, not silently dropped rows."
+  - "Date-based review flags diagnose state; tooling does not silently mutate authoritative records."
+  - "Metrics must not incentivize suppression of dissent, exceptions or risk records."
