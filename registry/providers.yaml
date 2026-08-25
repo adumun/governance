@@ -1,0 +1,205 @@
+schema_version: 0.1.0
+maturity: CANDIDATE
+last_reviewed: 2026-08-25
+purpose: >-
+  Version the enterprise tool/provider landscape independently from any single
+  capability. A provider can be current, planned, candidate or retired, and can
+  support multiple corporate capabilities.
+
+lifecycle_status_vocabulary:
+  - CURRENT
+  - PLANNED
+  - CANDIDATE
+  - DEFERRED
+  - RETIRED
+
+usage_status_vocabulary:
+  - IN_USE
+  - LIMITED_USE
+  - TO_CONFIRM
+  - FUTURE
+  - NOT_IN_USE
+
+providers:
+  - id: PROV-CHATGPT
+    product: ChatGPT
+    vendor: OpenAI
+    category: AI_ASSISTANT
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: CURRENT_ACCOUNT_PLAN_TO_CONFIRM
+    capabilities: [CAP-AI-ASSISTANCE, CAP-CODING-ASSISTANCE, CAP-KNOWLEDGE-WORK]
+    strategic_role: [ANALYSIS, CODING, DOCUMENTATION, ORCHESTRATION, CONTENT]
+    dependency_level: MEDIUM
+    substitution_strategy: MULTI_MODEL_AND_OPEN_LOCAL_OPTIONALITY
+    cost_status: TO_RECONCILE_WITH_FINANCIAL_BASELINE
+    monthly_cost_clp: null
+    financial_treatment: FOUNDER_OR_CORPORATE_DEPENDING_ON_TRANSITION
+    notes:
+      - Do not make an operational process dependent on a single model/provider when a provider-neutral contract is practical.
+
+  - id: PROV-CLAUDE
+    product: Claude
+    vendor: Anthropic
+    category: AI_ASSISTANT
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: CURRENT_ACCOUNT_PLAN_TO_CONFIRM
+    capabilities: [CAP-AI-ASSISTANCE, CAP-CODING-ASSISTANCE, CAP-KNOWLEDGE-WORK]
+    strategic_role: [ANALYSIS, CODING, LONG_CONTEXT, CONTENT]
+    dependency_level: MEDIUM
+    substitution_strategy: MULTI_MODEL_AND_OPEN_LOCAL_OPTIONALITY
+    cost_status: TO_RECONCILE_WITH_FINANCIAL_BASELINE
+    monthly_cost_clp: null
+    financial_treatment: FOUNDER_OR_CORPORATE_DEPENDING_ON_TRANSITION
+
+  - id: PROV-GEMINI
+    product: Gemini
+    vendor: Google
+    category: AI_ASSISTANT
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: CURRENT_OR_BUNDLED_PLAN_TO_CONFIRM
+    capabilities: [CAP-AI-ASSISTANCE, CAP-KNOWLEDGE-WORK]
+    strategic_role: [ANALYSIS, GOOGLE_ECOSYSTEM_INTEGRATION, CONTENT]
+    dependency_level: MEDIUM
+    substitution_strategy: MULTI_MODEL
+    cost_status: TO_RECONCILE_WITH_FINANCIAL_BASELINE
+    monthly_cost_clp: null
+    financial_treatment: FOUNDER_OR_CORPORATE_DEPENDING_ON_TRANSITION
+
+  - id: PROV-GITHUB
+    product: GitHub
+    vendor: GitHub
+    category: SOURCE_CONTROL_AND_COLLABORATION
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: CURRENT_ORG
+    capabilities: [CAP-SCM-COLLAB, CAP-GOVERNANCE-VERSIONING, CAP-SOFTWARE-DELIVERY]
+    strategic_role: [SOURCE_CONTROL, PULL_REQUESTS, GOVERNANCE_VERSIONING, EVIDENCE]
+    dependency_level: HIGH
+    substitution_strategy: PORTABLE_GIT_PLUS_PROVIDER_NEUTRAL_GOVERNANCE_CONTRACTS
+    cost_status: TO_RECONCILE_WITH_FINANCIAL_BASELINE
+    monthly_cost_clp: null
+    financial_treatment: CORPORATE_CAPABILITY
+    notes:
+      - GitHub Actions must not be the only validation path while the financial bypass is active.
+
+  - id: PROV-GOOGLE-DRIVE
+    product: Google Drive
+    vendor: Google
+    category: DOCUMENT_AND_KNOWLEDGE_STORAGE
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: CURRENT_OR_BUNDLED_PLAN_TO_CONFIRM
+    capabilities: [CAP-KNOWLEDGE-DOCS, CAP-HUMAN-AUTHORITY, CAP-EVIDENCE-STORAGE]
+    strategic_role: [HUMAN_SOURCE_OF_TRUTH, COLLABORATION, ARTIFACT_STORAGE]
+    dependency_level: HIGH
+    substitution_strategy: EXPORTABLE_FORMATS_PLUS_VERSIONED_MACHINE_READABLE_REPRESENTATIONS
+    cost_status: TO_RECONCILE_WITH_FINANCIAL_BASELINE
+    monthly_cost_clp: null
+    financial_treatment: CORPORATE_OR_FOUNDER_TRANSITION
+
+  - id: PROV-GOOGLE-DOCS
+    product: Google Docs
+    vendor: Google
+    category: DOCUMENT_AUTHORING
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: BUNDLED_WITH_GOOGLE_WORKSPACE_OR_ACCOUNT
+    capabilities: [CAP-KNOWLEDGE-DOCS, CAP-HUMAN-AUTHORITY, CAP-QUICK-STARTS]
+    strategic_role: [CANON_AUTHORING, ROADMAPS, QUICK_STARTS, COLLABORATION]
+    dependency_level: MEDIUM
+    substitution_strategy: EXPORTABLE_DOCUMENTS_PLUS_MARKDOWN_YAML_REPRESENTATIONS
+    cost_status: BUNDLED_OR_TO_CONFIRM
+    monthly_cost_clp: null
+    financial_treatment: BUNDLED_CAPABILITY
+
+  - id: PROV-JETBRAINS
+    product: JetBrains IDEs
+    vendor: JetBrains
+    category: DEVELOPMENT_TOOLING
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: CURRENT_LICENSE_TO_CONFIRM_RENEWAL_AND_CORPORATE_PATH
+    capabilities: [CAP-DEV-IDE, CAP-SOFTWARE-DELIVERY]
+    strategic_role: [ENGINEERING_PRODUCTIVITY, DEBUGGING, DEVELOPMENT]
+    dependency_level: LOW_MEDIUM
+    substitution_strategy: PORTABLE_PROJECT_CONFIG_PLUS_ALTERNATIVE_IDES
+    cost_status: TO_RECONCILE_WITH_FINANCIAL_BASELINE
+    monthly_cost_clp: null
+    financial_treatment: FOUNDER_OR_CORPORATE_DEPENDING_ON_ENTITLEMENT
+
+  - id: PROV-FIGMA
+    product: Figma
+    vendor: Figma
+    category: DESIGN_AND_PROTOTYPING
+    lifecycle_status: CURRENT
+    usage_status: IN_USE
+    entitlement_status: PLAN_TO_CONFIRM
+    capabilities: [CAP-DESIGN-COLLAB, CAP-PROTOTYPING, CAP-DESIGN-SYSTEM]
+    strategic_role: [UI_UX, PROTOTYPING, BRAND_ASSETS, DESIGN_SYSTEMS, HANDOFF]
+    dependency_level: MEDIUM
+    substitution_strategy: EXPORTABLE_ASSETS_PLUS_DOCUMENTED_TOKENS_AND_COMPONENT_RULES
+    cost_status: TO_CONFIRM
+    monthly_cost_clp: null
+    financial_treatment: FOUNDER_OR_CORPORATE_DEPENDING_ON_PLAN
+
+  - id: PROV-MIRO
+    product: Miro
+    vendor: Miro
+    category: COLLABORATIVE_WHITEBOARD
+    lifecycle_status: CANDIDATE
+    usage_status: FUTURE
+    entitlement_status: NONE_OR_TO_CONFIRM
+    capabilities: [CAP-WHITEBOARD-COLLAB, CAP-DISCOVERY-WORKSHOPS, CAP-PROCESS-MAPPING]
+    strategic_role: [DISCOVERY, WORKSHOPS, ARCHITECTURE_MAPPING, PROCESS_MAPPING]
+    dependency_level: LOW_MEDIUM
+    substitution_strategy: FIGJAM_OR_DIAGRAMS_AS_CODE_OR_DOCUMENT_BASED_MAPPING
+    cost_status: NOT_COMMITTED
+    monthly_cost_clp: null
+    financial_treatment: FUTURE_OPTIONAL_CAPABILITY
+    adoption_gate: VALUE_OVERLAP_JUSTIFICATION
+
+  - id: PROV-JIRA
+    product: Jira
+    vendor: Atlassian
+    category: WORK_MANAGEMENT
+    lifecycle_status: DEFERRED
+    usage_status: FUTURE
+    entitlement_status: NOT_REQUIRED_DURING_CURRENT_MIGRATION
+    capabilities: [CAP-WORK-MGMT, CAP-PORTFOLIO-EXECUTION, CAP-DELIVERY-GOVERNANCE]
+    strategic_role: [ISSUE_MANAGEMENT, PROJECT_MANAGEMENT, PORTFOLIO_EXECUTION]
+    dependency_level: HIGH
+    substitution_strategy: PROVIDER_NEUTRAL_WORK_CONTRACTS_PLUS_ADAPTERS
+    cost_status: NOT_COMMITTED
+    monthly_cost_clp: null
+    financial_treatment: FUTURE_CORPORATE_CAPABILITY
+    adoption_gate: POST_MIGRATION_OPERATING_READINESS
+    notes:
+      - Do not make current migration execution depend on Jira.
+
+  - id: PROV-SUNO
+    product: Suno
+    vendor: Suno
+    category: GENERATIVE_MUSIC
+    lifecycle_status: CANDIDATE
+    usage_status: FUTURE
+    entitlement_status: PAID_PLAN_REQUIRED_FOR_GOVERNED_COMMERCIAL_USE
+    capabilities: [CAP-AI-MUSIC]
+    strategic_role: [CAMPAIGN_MUSIC, CREATIVE_EVIDENCE, MUSIC_PROTOTYPING]
+    dependency_level: MEDIUM
+    substitution_strategy: PROVIDER_ADAPTER_PLUS_GENERATIVE_MEDIA_INDEPENDENCE_RD
+    cost_status: PLAN_DEPENDENT
+    monthly_cost_clp: null
+    financial_treatment: ACTIVATE_ONLY_WHEN_RIGHTS_AND_ECONOMIC_GATE_PASS
+    notes:
+      - Provider-specific plan rows and commercial-rights facts may remain in the live operational sheet.
+
+rules:
+  - Unknown cost is null/TBD, never zero.
+  - CURRENT means the tool is part of the current operating tool landscape; it does not assert a particular paid tier unless entitlement_status says so.
+  - PLANNED/CANDIDATE/DEFERRED tools do not contribute to current OPEX until actually activated or contracted.
+  - Every provider must map to one or more enterprise capabilities; capabilities must not be defined as synonymous with a provider.
+  - Provider replacement/exit paths should be documented for medium/high dependency capabilities.
+  - The provider registry must be reconcilable with the live financial baseline and the Funding Activation Dashboard.
