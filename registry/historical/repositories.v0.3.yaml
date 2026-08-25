@@ -1,0 +1,30 @@
+registryVersion: 0.3.0
+schemaVersion: 0.2.0
+status: HISTORICAL_PREDECESSOR_SNAPSHOT
+predecessor:
+  repository: cmartinezs/the-x-contract-registry
+  path: registry/repositories.yaml
+  blobSha: ded2b1779b0f72db045d41b55165067eb8f6de03
+note: >-
+  This file records the predecessor registry identity and migration boundary. The legacy
+  observations are historical as of 2026-08-22 and MUST NOT be treated as a current
+  ADÜMÜN inventory without re-observation. Refer to predecessor Git blob above for the
+  immutable byte-level source when historical detail is required.
+observedRepositories:
+  - cmartinezs/the-x-contract-registry
+  - cmartinezs/powerful-brain
+  - cmartinezs/initiative-control-center
+  - cmartinezs/project-pulse
+  - cmartinezs/shipping-mode
+  - cmartinezs/claude-planning-with-ai
+  - cmartinezs/agent-status-project
+  - cmartinezs/grade-ops-ai
+  - cmartinezs/local-ai-image-stack
+  - cmartinezs/nexus-community-ecosystem
+  - cmartinezs/auto-ig-posting
+  - cmartinezs/astra-project
+  - cmartinezs/ddd-hexagonal-ai-template
+  - cmartinezs/the-x-prospect-prototypes
+migrationRule: >-
+  Current repository state must be re-observed into ADÜMÜN governance; never silently
+  promote this dated seed to current authority.
