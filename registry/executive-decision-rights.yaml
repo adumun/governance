@@ -1,0 +1,891 @@
+schemaVersion: "1.0"
+kind: ExecutiveDecisionRightsMatrix
+metadata:
+  id: ADM-ORG-EDR-001
+  organization: ADÜMÜN
+  title: Executive Decision Rights & Delegation Matrix
+  maturity: CANDIDATE
+  authorityState: CURRENT
+  effectiveReferenceDate: 2026-08-25
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 24. Executive Decision Rights & Delegation Matrix
+  reconciles:
+    - ADM-ORG-ELT-RCN-001
+    - ADM-ORG-CEO-001
+    - ADM-ORG-COO-001
+    - ADM-ORG-CRO-001
+    - ADM-ORG-CPO-001
+    - ADM-ORG-CTO-001
+    - ADM-ORG-CLO-001
+  steward: People & Organization / Organizational Design & Workforce
+
+purpose: >-
+  Convert ADÜMÜN's pluralistic executive model into operational decision authority
+  so that recurring decisions are fast, delegated, accountable, evidence-based and
+  collaborative without becoming approval-by-committee.
+
+principles:
+  delegationFirst: true
+  oneDecisionOneOwner: true
+  consensusRequired: false
+  ceoIsDefaultRouter: false
+  enterpriseSuccessOverridesFunctionalGaming: true
+  customerImpactIsFirstClassMateriality: true
+  workforceImpactIsFirstClassMateriality: true
+  agentsMayRouteButDoNotOwnAccountability: true
+  noInventedQuantitativeThresholdsUntilDomainAuthorityDefinesThem: true
+
+participationRoles:
+  DECISION_OWNER: Owns and issues the decision and remains accountable for outcome.
+  MANDATORY_CONSULTED: Must provide relevant evidence or professional input before a material decision.
+  CONSTRAINT_AUTHORITY: Defines a professional boundary or condition that must be satisfied, redesigned or escalated.
+  ADVISORY: Contributes evidence or expertise without mandatory participation or ownership.
+  EXECUTION_OWNER: Owns implementation after decision.
+  ESCALATION_AUTHORITY: Resolves unresolved legitimate authority conflicts.
+  HARD_STOP_AUTHORITY: Applies to non-overridable illegality or absence of lawful authority.
+
+normalDecisionFlow:
+  - classify_decision_type
+  - identify_decision_owner
+  - assess_materiality
+  - verify_delegation_envelope
+  - gather_required_evidence
+  - consult_mandatory_domains
+  - resolve_constraints
+  - decide
+  - preserve_material_dissent
+  - execute
+  - review_outcome
+
+materialityDimensions:
+  - FINANCIAL
+  - STRATEGIC
+  - CUSTOMER
+  - WORKFORCE
+  - LEGAL
+  - SECURITY
+  - DATA
+  - REPUTATION
+  - INTELLECTUAL_PROPERTY
+  - TECHNICAL_IRREVERSIBILITY
+  - OPERATIONAL
+  - BUSINESS_CONTINUITY
+  - REGULATORY
+  - GOVERNING_AUTHORITY
+
+materialityRules:
+  monetaryValueIsNotRequiredForMateriality: true
+  aggregateModerateDimensionsMayBecomeMaterial: true
+  uncertaintyRule: Consult the most affected domain or COO for routing rather than defaulting directly to CEO.
+  evidenceVocabulary:
+    - FACT
+    - EVIDENCE
+    - ESTIMATE
+    - ASSUMPTION
+    - OPINION
+  evidenceStrengthRule: Required evidence increases with risk, irreversibility and investment.
+
+delegationEnvelope:
+  fields:
+    - decision_type
+    - accountable_role
+    - scope
+    - quantitative_bounds_when_defined
+    - standard_patterns
+    - constraints
+    - mandatory_consultation_triggers
+    - escalation_triggers
+    - duration_or_review_trigger
+    - evidence_required
+  rule: Delegation transfers decision authority but not the originating executive mandate's enterprise accountability.
+
+decisionCatalog:
+  CORPORATE_STRATEGY:
+    domain: STRATEGY
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, COO, CRO, CPO, CTO, CLO]
+    executionOwner: EXECUTIVE_TEAM_DISTRIBUTED
+    materiality: [STRATEGIC]
+    evidenceRequired:
+      - enterprise_performance
+      - market_evidence
+      - financial_capacity
+      - execution_capacity
+      - product_evidence
+      - technology_implications
+      - legal_constraints
+      - customer_impact
+      - workforce_impact
+    escalation: FUTURE_BOARD_OR_SHAREHOLDER_AUTHORITY_WHEN_RESERVED
+
+  ENTERPRISE_PRIORITIES:
+    domain: STRATEGY
+    decisionOwner: CEO
+    mandatoryConsulted: [AFFECTED_C_LEVELS]
+    constraintAuthorities: [CFO, COO]
+    evidenceRequired:
+      - strategic_context
+      - capacity
+      - economics
+      - customer_and_product_evidence
+    escalation: CEO
+
+  BUSINESS_LINE_ENTRY_OR_EXIT:
+    domain: STRATEGY
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, COO, CRO, CPO, CTO, CLO]
+    materiality: [STRATEGIC, FINANCIAL, CUSTOMER, WORKFORCE]
+    evidenceRequired:
+      - strategic_fit
+      - market_opportunity
+      - economics
+      - capability
+      - operating_burden
+      - legal_exposure
+      - exit_cost
+
+  BUSINESS_VERTICAL_CREATE_OR_RETIRE:
+    domain: ORGANIZATIONAL_DESIGN
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, COO]
+    conditionalConsulted: [CRO, CPO, CTO, CLO, ORGANIZATIONAL_DESIGN]
+    materiality: [STRATEGIC]
+    rules:
+      - business_vertical_does_not_automatically_create_brand
+      - business_vertical_does_not_automatically_create_legal_entity
+
+  STRATEGIC_INITIATIVE_ACTIVATE_PAUSE_KILL:
+    domain: PORTFOLIO
+    decisionOwner: CEO_WHEN_ENTERPRISE_MATERIAL_OTHERWISE_DELEGATED_PORTFOLIO_OWNER
+    evidenceRequired:
+      - strategic_fit
+      - current_evidence
+      - opportunity_cost
+      - current_commitments
+      - customer_and_workforce_impact
+    rules:
+      - sunk_cost_is_not_continuation_authority
+      - kill_or_pause_must_preserve_lineage
+
+  BUDGET_OR_FINANCIAL_ENVELOPE:
+    domain: FINANCE
+    decisionOwner: CFO
+    mandatoryConsulted: [CEO, COO, AFFECTED_EXECUTIVES]
+    constraintAuthorities: [CFO]
+    escalation: CEO_FOR_STRATEGIC_ALLOCATION_CONFLICT
+    evidenceRequired:
+      - liquidity
+      - runway
+      - expected_revenue
+      - obligations
+      - workforce_cost
+      - operating_capacity
+
+  BUDGET_REALLOCATION_WITHIN_ENVELOPE:
+    domain: FINANCE
+    decisionOwner: CFO_OR_DELEGATED_BUDGET_OWNER
+    autonomousWhen:
+      - inside_approved_financial_envelope
+      - does_not_materially_change_enterprise_priority
+      - does_not_create_material_customer_or_workforce_harm
+    consultWhen:
+      - priority_effect_is_material
+      - workforce_capacity_changes_materially
+      - customer_commitment_changes_materially
+
+  CAPITAL_ALLOCATION_MATERIAL:
+    domain: FINANCE_STRATEGY
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, BUSINESS_SPONSOR]
+    constraintAuthorities: [CFO]
+    evidenceRequired:
+      - use_of_capital
+      - expected_value
+      - cash_and_runway_effect
+      - alternatives
+      - opportunity_cost
+      - risk
+    rule: CFO preserves accurate financial analysis even when CEO accepts adverse lawful strategic economics.
+
+  STANDARD_EXPENDITURE_WITHIN_BUDGET:
+    domain: FINANCE
+    decisionOwner: DELEGATED_BUDGET_OWNER
+    autonomousWhen:
+      - inside_approved_budget
+      - inside_procurement_policy
+      - no_material_exception
+    ceoApprovalRequired: false
+
+  EXPENDITURE_OUTSIDE_BUDGET_OR_MATERIAL_EXCEPTION:
+    domain: FINANCE
+    decisionOwner: CFO_FOR_FINANCIAL_ADMISSIBILITY
+    conditionalConsulted: [COO, CTO, CLO, CPO, CRO]
+    escalation: CEO_WHEN_STRATEGIC_REALLOCATION_REQUIRED
+
+  FUNDING_OR_DEBT_TRANSACTION:
+    domain: FINANCE
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, CLO]
+    conditionalConsulted: [GOVERNING_AUTHORITY]
+    executionOwner: CFO
+    materiality: [FINANCIAL, STRATEGIC, LEGAL]
+
+  REVENUE_STRATEGY:
+    domain: REVENUE
+    decisionOwner: CRO
+    mandatoryConsulted: [CFO, CPO, COO]
+    conditionalConsulted: [CTO, CLO]
+    escalation: CEO_FOR_STRATEGIC_CONFLICT
+
+  STANDARD_PRICING_AND_PACKAGING:
+    domain: REVENUE
+    decisionOwner: CRO
+    constraintAuthorities: [CFO]
+    conditionalConsulted: [CPO]
+    autonomousWhen:
+      - inside_approved_economic_policy
+      - inside_approved_offer_scope
+      - no_material_product_repositioning
+
+  STANDARD_DISCOUNT_WITHIN_POLICY:
+    domain: REVENUE
+    decisionOwner: CRO_OR_DELEGATED_COMMERCIAL_OWNER
+    constraintAuthorities: [CFO]
+    autonomousWhen:
+      - discount_within_policy
+      - economics_above_financial_floor
+      - payment_terms_standard
+      - scope_standard
+      - delivery_assumptions_known
+    ceoApprovalRequired: false
+
+  DISCOUNT_BELOW_FINANCIAL_FLOOR:
+    domain: REVENUE
+    decisionOwner: CRO
+    constraintAuthorities: [CFO]
+    escalation: CEO_FOR_STRATEGIC_EXCEPTION
+    evidenceRequired:
+      - expected_margin_or_contribution
+      - cash_timing
+      - strategic_reason
+      - reference_or_learning_value
+      - opportunity_cost
+
+  STANDARD_PROPOSAL_OR_SOW:
+    domain: REVENUE
+    decisionOwner: DELEGATED_COMMERCIAL_OWNER
+    autonomousWhen:
+      - offer_approved
+      - pricing_approved
+      - delivery_capacity_known
+      - legal_pattern_approved
+      - no_material_deviation
+
+  MAJOR_OR_NONSTANDARD_DEAL:
+    domain: REVENUE
+    decisionOwner: CRO
+    mandatoryConsulted: [CFO, COO, CTO, CLO]
+    conditionalConsulted: [CPO]
+    constraintAuthorities: [CFO, COO, CTO, CLO, CPO_WHEN_PRODUCT_BOUNDARY]
+    escalation: CEO_FOR_UNRESOLVED_ENTERPRISE_MATERIAL_CONFLICT
+    evidenceRequired:
+      - deal_value_and_economics
+      - cash_timing
+      - capacity_and_delivery_model
+      - technical_feasibility_and_supportability
+      - legal_obligations
+      - product_boundary
+      - customer_outcome
+
+  PARTNERSHIP_STANDARD:
+    domain: REVENUE
+    decisionOwner: CRO
+    conditionalConsulted: [CFO, CTO, CPO, CLO]
+    escalation: CEO_WHEN_STRATEGIC
+
+  STRATEGIC_ALLIANCE:
+    domain: STRATEGY_REVENUE
+    decisionOwner: CEO
+    mandatoryConsulted: [CRO]
+    conditionalConsulted: [CFO, COO, CPO, CTO, CLO]
+
+  CUSTOMER_COMMITMENT_OUTSIDE_KNOWN_CAPABILITY:
+    domain: REVENUE
+    decisionOwner: CRO
+    mandatoryConsulted: [COO, CTO]
+    conditionalConsulted: [CPO, CFO, CLO]
+    rule: Commitment cannot be made autonomously before relevant constraints are resolved.
+
+  MAJOR_CUSTOMER_POLICY_CHANGE:
+    domain: CUSTOMER
+    decisionOwner: BUSINESS_OWNER_OR_CRO_OR_CPO_BY_NATURE
+    mandatoryConsulted: [AFFECTED_CUSTOMER_FACING_DOMAIN]
+    conditionalConsulted: [CFO, COO, CLO]
+    materiality: [CUSTOMER]
+    escalation: CEO_WHEN_STRATEGIC_OR_REPUTATIONAL
+
+  CUSTOMER_REMEDIATION_OR_COMPENSATION:
+    domain: CUSTOMER
+    decisionOwner: DELEGATED_CUSTOMER_OWNER
+    autonomousWhen:
+      - inside_remediation_policy
+    consultWhen:
+      - material_financial_exception
+      - legal_liability_or_precedent
+    mandatoryConsultedWhenMaterial: [CFO, CLO]
+
+  TERMINATE_MAJOR_CUSTOMER_RELATIONSHIP:
+    domain: REVENUE_CUSTOMER
+    decisionOwner: CRO
+    mandatoryConsulted: [CFO, COO, CLO]
+    escalation: CEO_WHEN_REVENUE_REPUTATION_STRATEGY_OR_LEGAL_IMPACT_IS_MATERIAL
+
+  PRODUCT_STRATEGY:
+    domain: PRODUCT
+    decisionOwner: CPO
+    mandatoryConsulted: [CRO, CTO, CFO]
+    conditionalConsulted: [COO, CLO]
+    escalation: CEO_FOR_STRATEGIC_CONFLICT
+
+  PRODUCT_CANDIDATE_ADMISSION:
+    domain: PRODUCT
+    decisionOwner: CPO
+    evidenceRequired:
+      - problem
+      - user_or_customer
+      - evidence_confidence
+      - value
+      - differentiation
+      - strategic_fit
+      - feasibility
+      - operability
+      - economics
+      - risk
+    autonomousWhen:
+      - inside_approved_portfolio_envelope
+
+  PRODUCT_ROADMAP:
+    domain: PRODUCT
+    decisionOwner: CPO
+    mandatoryConsulted: [CTO, CRO]
+    conditionalConsulted: [COO, CFO, CLO]
+    rules:
+      - customer_request_is_evidence_not_authority
+      - ceo_approval_not_required_by_default
+
+  MVP_OR_PILOT_SCOPE:
+    domain: PRODUCT
+    decisionOwner: CPO
+    mandatoryConsulted: [CTO]
+    conditionalConsulted: [CRO, COO, CLO]
+
+  PRODUCTIZATION:
+    domain: PRODUCT
+    decisionOwner: CPO
+    mandatoryConsulted: [CRO, CTO, CFO, COO]
+    conditionalConsulted: [CLO]
+    materiality: [STRATEGIC, CUSTOMER, OPERATIONAL]
+    evidenceRequired:
+      - classification_before_and_after
+      - ownership
+      - operating_model
+      - economics
+      - support_model
+      - technical_lifecycle
+      - legal_and_ip_implications
+
+  PRODUCT_SCALE:
+    domain: PRODUCT
+    decisionOwner: CPO
+    mandatoryConsultedWhenMaterial: [CFO, COO, CTO, CRO]
+    escalation: CEO_WHEN_REQUIRING_MATERIAL_ENTERPRISE_REALLOCATION
+
+  PRODUCT_PAUSE_KILL_RETIRE:
+    domain: PRODUCT
+    decisionOwner: CPO
+    escalation: CEO_WHEN_ENTERPRISE_STRATEGIC_OR_CUSTOMER_REVENUE_REPUTATION_IMPACT_MATERIAL
+    evidenceRequired:
+      - evidence_for_continuation_or_exit
+      - customer_commitments
+      - revenue_effect
+      - support_and_retirement_plan
+
+  MAJOR_PRODUCT_EXPERIENCE_CHANGE:
+    domain: PRODUCT
+    decisionOwner: CPO
+    conditionalMateriality: [CUSTOMER, LEGAL, DATA, REPUTATION]
+
+  TECHNOLOGY_STRATEGY:
+    domain: TECHNOLOGY
+    decisionOwner: CTO
+    mandatoryConsulted: [CPO, COO, CFO]
+    conditionalConsulted: [CRO, CLO]
+    escalation: CEO_FOR_STRATEGIC_CONFLICT
+
+  ARCHITECTURE_LOCAL_REVERSIBLE:
+    domain: TECHNOLOGY
+    decisionOwner: TECHNICAL_OWNER_OR_TEAM
+    autonomousWhen:
+      - inside_technology_standards
+      - reversible
+      - not_cross_product_material
+
+  ARCHITECTURE_CROSS_PRODUCT_OR_SHARED:
+    domain: TECHNOLOGY
+    decisionOwner: CTO_OR_DELEGATED_ARCHITECTURE_AUTHORITY
+    mandatoryConsulted: [AFFECTED_PRODUCT_OR_OPERATION_OWNERS]
+    evidenceRequired:
+      - context
+      - alternatives
+      - rationale
+      - lifecycle_cost
+      - coupling
+      - consequences
+    decisionRecord: ADR_OR_EQUIVALENT_WHEN_MATERIAL
+
+  ENTERPRISE_ARCHITECTURE_MATERIAL:
+    domain: TECHNOLOGY
+    decisionOwner: CTO
+    mandatoryConsulted: [CPO, COO, CFO]
+    conditionalConsulted: [CLO, CRO]
+    escalation: CEO_WHEN_ENTERPRISE_TRADEOFF_REMAINS_UNRESOLVED
+
+  BUILD_BUY_REUSE_ADAPT_OUTSOURCE:
+    domain: TECHNOLOGY_SOURCING
+    technicalAssessmentOwner: CTO
+    productImplicationOwner: CPO
+    economicsAuthority: CFO
+    legalConstraintAuthority: CLO
+    decisionOwnerRule: Primary purpose and materiality determine the business/product/technology owner.
+    escalation: CEO_WHEN_ENTERPRISE_MATERIAL_UNRESOLVED
+
+  PRODUCTION_READINESS:
+    domain: TECHNOLOGY
+    decisionOwner: CTO_OR_DELEGATED_TECHNICAL_AUTHORITY
+    conditionalConsulted: [COO, CPO_OR_SERVICE_OWNER, CRO, CLO]
+    rules:
+      - business_deadline_does_not_silently_redefine_readiness
+      - control_depth_scales_with_criticality
+
+  TECHNOLOGY_STANDARD:
+    domain: TECHNOLOGY
+    decisionOwner: CTO
+    exceptionAllowed: true
+    exceptionRule: Material deviations must be explicit, justified and traceable.
+
+  SECURITY_EXCEPTION_INTERIM_CISO:
+    domain: SECURITY
+    decisionOwner: CTO_FOR_TECHNICAL_TREATMENT
+    mandatoryIndependentChallengeWhen:
+      - material_self_review_risk
+      - high_security_exposure
+      - regulatory_requirement
+      - enterprise_customer_requirement
+    conditionalConsulted: [CLO, COO, CEO, GOVERNANCE_AUDIT]
+
+  PRODUCTION_DATA_DESTRUCTIVE_ACTION:
+    domain: TECHNOLOGY_SECURITY
+    decisionOwner: DELEGATED_TECHNICAL_OPERATOR_WITHIN_APPROVED_CONTROL
+    strongControlRequired: true
+    requirements:
+      - least_privilege
+      - recovery_or_rollback_when_possible
+      - auditability
+      - scoped_authority
+    rule: Possession of credentials is not decision authority.
+
+  ENTERPRISE_OPERATING_MODEL:
+    domain: OPERATIONS
+    decisionOwner: COO
+    mandatoryConsulted: [AFFECTED_EXECUTIVES]
+    escalation: CEO_FOR_STRATEGIC_CONFLICT
+
+  PROCESS_STANDARD_OR_CADENCE:
+    domain: OPERATIONS
+    decisionOwner: COO
+    conditionalConsulted: [AFFECTED_DOMAIN]
+    autonomousWhen:
+      - proportionate
+      - does_not_redefine_peer_professional_authority
+      - does_not_create_material_workforce_burden_without_review
+
+  CAPACITY_ALLOCATION_WITHIN_APPROVED_PRIORITIES:
+    domain: OPERATIONS
+    decisionOwner: DOMAIN_OWNER_WITH_COO_COORDINATION
+    constraintAuthorities: [CFO]
+    escalation: CEO_WHEN_ENTERPRISE_PRIORITIES_MUST_CHANGE
+
+  WORK_IN_PROGRESS_REDUCTION_OR_PAUSE_FOR_CAPACITY:
+    domain: OPERATIONS
+    decisionOwner: COO_FOR_CAPACITY_CONTROL
+    escalation: CEO_WHEN_STRATEGIC_PRIORITY_CHANGE_REQUIRED
+
+  MATERIAL_PROCESS_EXCEPTION:
+    domain: OPERATIONS_GOVERNANCE
+    decisionOwner: GOVERNING_PROCESS_OWNER
+    trackingOwner: COO
+    repeatedExceptionRule: Trigger policy or process review.
+
+  BUSINESS_CONTINUITY_ACTIVATION:
+    domain: OPERATIONS
+    decisionOwner: COO
+    specializedExecutionOwner: AFFECTED_DOMAIN
+    escalation: CEO_WHEN_STRATEGIC_CUSTOMER_WORKFORCE_OR_REPUTATIONAL_IMPACT_MATERIAL
+
+  ENTERPRISE_INCIDENT_COORDINATION:
+    domain: OPERATIONS
+    decisionOwner: COO_FOR_COMMON_INCIDENT_SYSTEM
+    substantiveOwner: AFFECTED_DOMAIN_EXECUTIVE
+    conditionalConsulted: [CRO, CFO, CTO, CPO, CLO, PEOPLE]
+
+  WORKFORCE_PLAN:
+    domain: PEOPLE
+    decisionOwner: COO_OR_PEOPLE_UNDER_CEO_STRATEGY
+    mandatoryConsulted: [CFO, AFFECTED_EXECUTIVES]
+    escalation: CEO_FOR_MATERIAL_ENTERPRISE_SHAPE_CHANGE
+
+  STANDARD_HIRING_WITHIN_APPROVED_PLAN:
+    domain: PEOPLE
+    decisionOwner: DELEGATED_HIRING_MANAGER_OR_EXECUTIVE
+    processAuthority: PEOPLE
+    autonomousWhen:
+      - position_inside_approved_workforce_plan
+      - compensation_inside_approved_band
+      - budget_pre_authorized
+    ceoApprovalRequired: false
+
+  HIRING_OUTSIDE_PLAN_OR_MATERIAL_HEADCOUNT_EXPANSION:
+    domain: PEOPLE
+    businessSponsor: AFFECTED_EXECUTIVE
+    mandatoryConsulted: [CFO, COO_OR_PEOPLE]
+    decisionOwner: CEO_WHEN_MATERIAL_REALLOCATION_REQUIRED
+
+  COMPENSATION_FRAMEWORK:
+    domain: PEOPLE_FINANCE
+    peopleAuthority: PEOPLE_AND_ORGANIZATIONAL_DESIGN
+    financialAuthority: CFO
+    enterprisePhilosophyAuthority: CEO
+    principles:
+      - seek_strongest_sustainable_compensation
+      - do_not_optimize_for_minimum_acceptable_pay
+      - preserve_internal_equity
+      - preserve_payroll_continuity
+
+  INDIVIDUAL_COMPENSATION_WITHIN_BAND:
+    domain: PEOPLE
+    decisionOwner: DELEGATED_PEOPLE_OR_HIRING_AUTHORITY
+    autonomousWhen:
+      - inside_approved_band
+      - inside_budget
+      - no_material_equity_exception
+
+  ABOVE_BAND_OR_EXCEPTIONAL_COMPENSATION:
+    domain: PEOPLE
+    decisionOwner: CEO_WHEN_MATERIAL_OR_PRECEDENT_SETTING
+    mandatoryConsulted: [PEOPLE, CFO, BUSINESS_OWNER]
+    evidenceRequired:
+      - market_position
+      - internal_equity
+      - role_criticality
+      - capability_scarcity
+      - affordability
+      - retention_or_acquisition_rationale
+
+  PROMOTION_STANDARD:
+    domain: PEOPLE
+    decisionOwner: DELEGATED_MANAGER_OR_PEOPLE_AUTHORITY
+    escalation: ORGANIZATIONAL_AUTHORITY_WHEN_ROLE_OR_STRUCTURE_MATERIAL
+
+  TERMINATION_STANDARD:
+    domain: PEOPLE
+    decisionOwner: ACCOUNTABLE_MANAGER_WITH_PEOPLE_PROCESS
+    conditionalConsulted: [CLO]
+    ceoApprovalRequired: false
+
+  MATERIAL_LAYOFF_OR_RESTRUCTURING:
+    domain: PEOPLE_STRATEGY
+    decisionOwner: CEO
+    mandatoryConsulted: [CFO, COO_OR_PEOPLE, CLO, AFFECTED_EXECUTIVES]
+    materiality: [WORKFORCE, FINANCIAL, OPERATIONAL, REPUTATION]
+    evidenceRequired:
+      - business_rationale
+      - alternatives_considered
+      - customer_and_operational_effect
+      - financial_effect
+      - legal_obligations
+      - humane_implementation_plan
+
+  WORKFORCE_POLICY_MATERIAL:
+    domain: PEOPLE
+    decisionOwner: PEOPLE_OR_COO_BY_DOMAIN
+    escalation: CEO_WHEN_ENTERPRISE_VALUES_COMPENSATION_PRIVACY_WORKING_CONDITIONS_OR_PRECEDENT_MATERIAL
+
+  LEGAL_INTERPRETATION:
+    domain: LEGAL
+    decisionOwner: CLO_OR_QUALIFIED_EXTERNAL_COUNSEL_UNDER_CLO
+    hardConstraint: true
+    rule: Business preference cannot relabel legal findings.
+
+  ROUTINE_STANDARD_CONTRACT:
+    domain: LEGAL_COMMERCIAL
+    decisionOwner: DELEGATED_COMMERCIAL_OR_OPERATING_OWNER
+    autonomousWhen:
+      - approved_template_or_pattern
+      - modifications_inside_delegated_bounds
+
+  MATERIAL_CONTRACT_DEVIATION:
+    domain: LEGAL_COMMERCIAL
+    legalInterpretationOwner: CLO
+    transactionDecisionOwner: BUSINESS_OR_COMMERCIAL_OWNER_IF_LAWFUL
+    conditionalConsulted: [CFO, COO, CTO, CPO]
+
+  LAWFUL_LEGAL_RISK_ACCEPTANCE:
+    domain: LEGAL_RISK
+    decisionOwner: BUSINESS_OWNER_OR_CEO_BY_MATERIALITY
+    constraintAuthorities: [CLO]
+    evidenceRequired:
+      - legal_position
+      - obligations
+      - mitigation
+      - residual_exposure
+      - business_rationale
+
+  ILLEGAL_FRAUDULENT_LEGALLY_IMPOSSIBLE_OR_ULTRA_VIRES_ACTION:
+    domain: LEGAL
+    decisionOwner: NONE
+    hardStopAuthority: CLO
+    overrideAllowed: false
+
+  IP_LICENSE_OR_TRANSFER_MATERIAL:
+    domain: LEGAL_IP
+    decisionOwner: BUSINESS_OR_PRODUCT_OWNER_FOR_PURPOSE
+    mandatoryConsulted: [CLO]
+    conditionalConsulted: [CFO, CRO]
+    escalation: CEO_WHEN_STRATEGIC_IP_IS_TRANSFERRED_ENCUMBERED_OR_EXCLUSIVELY_LICENSED
+
+  PRIVACY_OR_REGULATORY_TRIGGER:
+    domain: LEGAL_PRIVACY
+    assessmentOwner: CLO
+    executionOwners: [CPO_OR_BUSINESS_OWNER, CTO, COO]
+    escalation: CEO_WHEN_BUSINESS_MODEL_OR_MARKET_ENTRY_MATERIAL
+
+  MATERIAL_SECURITY_RISK_ACCEPTANCE:
+    domain: SECURITY_RISK
+    technicalTreatmentOwner: CTO
+    decisionOwner: BUSINESS_OWNER_OR_CEO_BY_MATERIALITY
+    conditionalConsulted: [CLO, COO, GOVERNANCE_AUDIT]
+    independentChallengeWhen: MATERIAL_SELF_REVIEW_RISK
+
+  DATA_USE_NEW_PURPOSE_OR_SENSITIVE_CATEGORY:
+    domain: DATA_PRIVACY
+    decisionOwner: PRODUCT_OR_BUSINESS_OWNER
+    mandatoryConsulted: [CLO, CTO]
+    conditionalConsulted: [CPO]
+    escalation: CEO_WHEN_CUSTOMER_DATA_OR_REPUTATION_RISK_MATERIAL
+
+  DATA_RETENTION_OR_DELETION_POLICY:
+    domain: DATA_LEGAL_OPERATIONS
+    legalRequirementOwner: CLO
+    businessNeedOwner: CPO_OR_BUSINESS_OWNER
+    technicalExecutionOwner: CTO
+    operationalizationOwner: COO
+
+  ROUTINE_PUBLIC_COMMUNICATION:
+    domain: COMMUNICATIONS
+    decisionOwner: DELEGATED_COMMUNICATION_OWNER
+    autonomousWhen:
+      - inside_brand_and_claim_standards
+      - no_material_legal_or_reputational_exposure
+
+  MATERIAL_CORPORATE_CLAIM:
+    domain: COMMUNICATIONS_REVENUE
+    decisionOwner: CRO_MARKETING_OR_DESIGNATED_COMMS_OWNER
+    mandatoryConsultedWhenRelevant: [CPO, CTO, CLO]
+    escalation: CEO_WHEN_ENTERPRISE_POSITIONING_MATERIAL
+
+  PUBLIC_RESPONSE_TO_CRISIS_DISPUTE_OR_REGULATORY_MATTER:
+    domain: CRISIS_COMMUNICATIONS
+    decisionOwner: CEO
+    mandatoryConsulted: [CLO, AFFECTED_EXECUTIVE]
+    conditionalConsulted: [CRO_OR_COMMUNICATIONS]
+
+  PUBLIC_COMMITMENT_OF_FUTURE_CAPABILITY:
+    domain: COMMUNICATIONS_REVENUE
+    decisionOwner: CRO_OR_COMMUNICATION_OWNER
+    constraintAuthorities: [CPO, CTO]
+    rule: Experimental or unapproved capability cannot be represented as certain or production-ready.
+
+customerImpact:
+  principle: Profitable action does not automatically justify disproportionate customer harm.
+  mandatoryEvidenceWhenMaterial:
+    - expected_customer_outcome
+    - affected_segments_or_accounts
+    - contractual_expectations
+    - trust_or_reputation_effect
+    - remediation_or_mitigation
+  voiceOfCustomerIsInputNotVeto: true
+
+workforceImpact:
+  principle: Employee impact is enterprise impact, not merely HR administration.
+  materialTriggers:
+    - compensation
+    - employment_continuity
+    - chronic_workload
+    - privacy
+    - safety
+    - working_location
+    - working_hours
+    - role_scope
+    - career_opportunity
+    - large_group_effect
+  mandatoryEvidenceWhenMaterial:
+    - affected_population
+    - alternatives
+    - workload_and_capacity_effect
+    - compensation_or_equity_effect
+    - legal_obligations
+    - retention_and_capability_effect
+    - implementation_plan
+
+escalationLadder:
+  E0_DOMAIN: Decision stays inside delegated domain authority.
+  E1_BILATERAL: Two domains reconcile an interface.
+  E2_CROSS_FUNCTIONAL: Three or more domains participate with one Decision Owner.
+  E3_EXECUTIVE_CONFLICT: Legitimate constraints remain incompatible and delay or risk becomes material.
+  E4_CEO_ARBITRATION: CEO resolves the enterprise tradeoff inside legal and governing-authority limits.
+
+hardStopRules:
+  - illegal_action_cannot_be_approved
+  - fraudulent_action_cannot_be_approved
+  - legally_impossible_action_cannot_be_approved
+  - action_without_lawful_corporate_authority_cannot_be_approved
+  - credentials_or_system_access_do_not_create_decision_authority
+
+deadlock:
+  conditions:
+    - decision_owner_known
+    - mandatory_domains_consulted
+    - legitimate_positions_remain_incompatible
+    - continued_delay_creates_material_cost_risk_customer_harm_or_workforce_harm
+  action: ESCALATE
+  trackingOwner: COO
+
+professionalDissent:
+  protected: true
+  materialRecordFields:
+    - position
+    - evidence
+    - expected_consequences
+  postDecisionRule: Execute lawful authorized decisions professionally unless new evidence or changed constraints justify reopening.
+
+multiHatGovernance:
+  allowed: true
+  rule: Distinct role perspectives remain explicit in material cross-domain decisions even when held by one person.
+  independentChallengeTriggers:
+    - material_conflict_of_interest
+    - insufficient_specialist_competence
+    - regulation_or_required_independence
+    - high_financial_exposure
+    - material_security_exposure
+    - material_workforce_or_related_party_conflict
+    - material_self_review_risk
+  challengeSources:
+    - executive_peer
+    - governance_or_audit
+    - accountant
+    - external_counsel
+    - technical_or_security_specialist
+    - future_board_or_governing_authority
+
+decisionRegister:
+  requiredWhenAnyMaterial:
+    - capital
+    - strategy
+    - irreversible_consequence
+    - cross_domain_conflict
+    - policy_exception
+    - precedent
+    - legal_security_data_or_ip_exposure
+    - customer_harm_risk
+    - workforce_harm_risk
+    - governing_authority_implication
+  fields:
+    - decision_id
+    - date
+    - decision_type
+    - decision_owner
+    - consulted_domains
+    - constraints
+    - materiality_dimensions
+    - evidence
+    - decision
+    - rationale
+    - material_dissent
+    - accepted_risk
+    - execution_owner
+    - review_or_reopen_trigger
+  antiBureaucracyRule: Routine delegated decisions are not registered merely for ceremony.
+
+reopenRule:
+  allowedWhen:
+    - material_evidence_changes
+    - key_assumption_becomes_false
+    - economics_change_materially
+    - risk_changes_materially
+    - customer_or_workforce_impact_changes_materially
+    - law_or_regulation_changes
+    - deadline_or_dependency_changes_materially
+    - technology_or_operability_changes_materially
+    - strategic_context_changes
+  notEnough: Participant still prefers a different option.
+
+agentExecution:
+  allowedCapabilities:
+    - classify_decision_type
+    - assess_known_materiality
+    - verify_delegation_envelope
+    - gather_evidence
+    - request_mandatory_consultation
+    - detect_constraint_conflict
+    - prepare_decision_record
+    - execute_delegated_low_risk_action_when_explicitly_authorized
+  prohibited:
+    - invent_decision_authority
+    - infer_ceo_approval_when_not_required
+    - treat_credentials_as_authority
+    - hide_uncertainty_in_materiality
+    - override_hard_stop
+  uncertaintyRule: Surface uncertainty to the accountable role or COO routing mechanism.
+
+antiPatterns:
+  - every_decision_goes_to_ceo
+  - every_consulted_role_becomes_approver
+  - every_monetary_decision_is_material
+  - customer_request_equals_product_commitment
+  - finance_withholds_analysis_to_veto_strategy
+  - revenue_bypasses_deliverability
+  - product_bypasses_economics
+  - technology_bypasses_business_value
+  - operations_turns_coordination_into_ownership
+  - legal_treats_all_risk_as_prohibited
+  - people_optimizes_for_minimum_compensation
+  - disagreement_is_treated_as_disloyalty
+  - consensus_required_for_every_decision
+  - agent_executes_because_credentials_allow_it
+
+criticalOutcome:
+  id: OPERABLE_DELEGATED_DECISION_SYSTEM
+  statement: >-
+    Normal decisions occur without unnecessary CEO involvement; material decisions
+    predictably identify one owner and the right professional inputs; constraint
+    authorities surface legitimate boundaries without taking over unrelated decisions;
+    customer and workforce impact are first-class materiality; professional dissent
+    remains safe; agents route without inventing authority; and escalation is timely,
+    exceptional and evidence-based.
+
+nextArtifact:
+  id: ADM-ORG-MDF-001
+  title: Materiality & Delegation Framework
+  purpose: Standardize materiality classification and how delegation envelopes are granted, reviewed, expanded, narrowed or revoked.
