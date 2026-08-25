@@ -1,0 +1,36 @@
+registryVersion: 1.0.0
+schemaVersion: 1.0.0
+status: CURRENT_CANDIDATE
+repositories:
+  - repository: adumun/governance
+    class: GOVERNANCE
+    status: ACTIVE
+    role: Enterprise repository standards, policy, tooling governance and repository/relationship governance registry.
+    authority: CURRENT_CANDIDATE
+    standards: [RS-CORE, RS-GOV, RS-CONTRACT]
+  - repository: adumun/machine-contracts
+    class: CONTRACT
+    status: ACTIVE
+    role: Canonical version-control home for enterprise machine contracts, schemas, mappings, profiles, fixtures and validators.
+    authority: CURRENT_CANDIDATE
+    standards: [RS-CORE, RS-CONTRACT, RS-TOOLING]
+  - repository: adumun/audit-framework
+    class: GOVERNANCE
+    status: ACTIVE
+    role: Canonical version-control home for audit semantics, domain profiles, mechanisms, schemas and evidence registry.
+    authority: CURRENT
+    standards: [RS-CORE, RS-GOV, RS-CONTRACT]
+  - repository: cmartinezs/the-x-contract-registry
+    class: LEGACY
+    status: MIGRATING_TO_DEPRECATED
+    role: Historical predecessor split across ADÜMÜN successors.
+    newConsumersAllowed: false
+    activeDevelopment: false
+    successors:
+      - adumun/governance
+      - adumun/machine-contracts
+      - adumun/audit-framework
+    standards: [RS-CORE, RS-LEGACY]
+notes:
+  - This registry intentionally starts with the repositories involved in the current authority cutover.
+  - Historical portfolio seed observations remain referenced under registry/historical and are not silently promoted as current facts.
