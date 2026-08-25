@@ -13,6 +13,7 @@ Human-readable corporate canons and standards remain authoritative in their decl
 - brand and transitional-identity governance
 - Quick Start documentation
 - machine-readable funding/public-activation registries and dashboard specifications
+- enterprise provider/tool governance and dependency tracking
 
 ## Authority rule
 Repository content becomes normative only when an applicable ADÜMÜN authority source explicitly assigns that status. Drafts and candidate profiles must declare their maturity.
@@ -28,7 +29,13 @@ Quick Starts are navigational. They do not override an applicable canon, approve
 ## Machine-readable / processable entry points
 - `registry/brand-identities.yaml` — current/successor public identities and transition lineage
 - `registry/funding-activation.yaml` — WHAT targets plus current activation portfolio
-- `registry/dashboards/funding-activation.yaml` — reproducible dashboard metrics/views
+- `registry/providers.yaml` — current/planned/candidate/deferred provider and tool landscape
+- `registry/dashboards/funding-activation.yaml` — reproducible funding + provider dashboard metrics/views
+
+## Tool / provider governance
+- `docs/standards/tooling/provider-governance.md`
+
+Core rule: **Capability != Provider**. ChatGPT, Claude, Gemini, GitHub, Google Drive/Docs, JetBrains, Figma, Miro, Jira, Suno and future tools are implementations or enablers of enterprise capabilities, not the capability definitions themselves.
 
 ## Branding and public activation
 - `docs/standards/brand/brand-governance.md`
