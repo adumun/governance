@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+id: POLICY-RESULT-FORMALIZATION
+type: GOVERNANCE_POLICY
+name: Result Formalization & Conversation Governance
+maturity: CANDIDATE
+status: ACTIVE_PILOT
+owner_domain: Governance & Audit
+source_of_truth:
+  - "Drive: 00 - Standard - Result Formalization & Conversation Governance — ADÜMÜN"
+  - "GitHub: docs/standards/documentation/result-formalization.md"
+last_reviewed: 2026-08-25
+rules:
+  material_result_requires_documentation: true
+  material_operational_state_requires_machine_readable_representation: true
+  conversation_is_not_source_of_truth: true
+  conversation_should_be_concise: true
+  conversation_must_link_artifacts: true
+  quick_start_must_be_updated_or_marked_stale_when_invalidated: true
+conversation_completion_fields:
+  - important_result
+  - material_consequences_or_blockers
+  - artifact_locations
+  - sponsor_intervention_if_required
+artifact_routing:
+  human_authority: GOOGLE_DOCS
+  live_structured_state: GOOGLE_SHEETS
+  versioned_governance: GITHUB
+  implementation: OWNING_REPOSITORY
+  evidence: EVIDENCE_REGISTRY_OR_OWNING_DOMAIN

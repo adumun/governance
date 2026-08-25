@@ -1,0 +1,50 @@
+schema_version: 0.1.0
+maturity: CANDIDATE
+dashboard_id: DASH-PRE-EXEC-CLOSURE
+name: Pre-Execution Transversal Closure Dashboard
+purpose: "Track whether the cross-cutting operating rules required before H0 execution are sufficiently closed."
+source_registry: ../pre-execution-closure.yaml
+refresh_mode: ON_CHANGE
+headline_metrics:
+  - id: CLOSURE_TOTAL
+    label: Total Closure Items
+    unit: COUNT
+    formula: "count(items)"
+  - id: CLOSURE_CLOSED
+    label: Closed Items
+    unit: COUNT
+    filter: "status == CLOSED"
+  - id: H0_BLOCKING_OPEN
+    label: H0 Blocking Items Not Closed
+    unit: COUNT
+    filter: "h0_blocking == true and status not in [CLOSED, DEFERRED_WITH_GUARDRAIL]"
+  - id: CLOSURE_IN_PROGRESS
+    label: In Progress
+    unit: COUNT
+    filter: "status == IN_PROGRESS"
+  - id: MACHINE_READABLE_COVERAGE
+    label: Machine-Readable Coverage
+    unit: RATIO
+    formula: "count(items where machine_readable_required == false or machine-readable artifact exists) / count(items)"
+  - id: H0_GATE
+    label: H0 Gate
+    unit: STATUS
+    formula: "PASS if H0_BLOCKING_OPEN == 0 else NOT_READY"
+views:
+  - id: H0_BLOCKERS
+    type: TABLE
+    dimensions: [id, name, priority, status, owner_domain, next_action, blocker]
+    filter: "h0_blocking == true"
+  - id: ALL_CLOSURES
+    type: TABLE
+    dimensions: [id, name, priority, status, owner_domain, evidence_required, source_of_truth, next_action, evidence_refs, last_reviewed]
+    sort: [priority, status, id]
+  - id: DOCUMENTATION_AND_DATA
+    type: TABLE
+    filter: "id in [CL-001, CL-017, CL-018, CL-024, CL-025]"
+    dimensions: [id, name, status, evidence_refs, next_action]
+quality_rules:
+  - "Status comes only from the governed closure vocabulary."
+  - "H0 gate is derived, never manually painted."
+  - "Evidence references must point to durable artifacts, not chat-only statements."
+  - "Unknowns are null/empty, never invented values."
