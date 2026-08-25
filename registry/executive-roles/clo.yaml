@@ -1,0 +1,322 @@
+schemaVersion: "1.0"
+kind: ExecutiveRoleContract
+metadata:
+  id: ADM-ORG-CLO-001
+  organization: ADÜMÜN
+  title: Chief Legal Officer — Detailed Executive Mandate
+  code: CLO
+  maturity: CANDIDATE
+  authorityState: CURRENT
+  effectiveReferenceDate: 2026-08-25
+  parentExecutiveBaselineRef: ADM-ORG-ELT-001
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 22. CLO — Chief Legal Officer — Detailed Executive Mandate
+  steward: People & Organization / Organizational Design & Workforce
+
+role:
+  executiveLevel: C_LEVEL
+  accountabilityScope: ENTERPRISE_LEGAL_COMPLIANCE_AND_LEGAL_RISK
+  reportingLine: CEO
+  purpose: Protect ADÜMÜN's ability to operate, contract, create, sell, employ, license, process information and assume risk within a legally valid and consciously governed framework.
+  primaryQuestion: Can ADÜMÜN do this lawfully, under what conditions, what obligations arise, and what legal risk is being accepted?
+
+coreAccountabilities:
+  - corporate_legal_affairs
+  - legal_aspects_of_corporate_governance
+  - commercial_legal_and_contracts
+  - intellectual_property
+  - licensing
+  - privacy_and_legal_data_protection_interpretation
+  - consumer_and_regulatory_obligations
+  - labor_legal_coordination
+  - legal_risk
+  - disputes_and_litigation_coordination
+  - external_counsel
+  - material_legal_opinions_and_decisions
+  - legal_records
+  - legal_due_diligence_readiness
+  - legal_incident_response
+
+sixMonthMandate:
+  - establish_proportionate_legal_operating_baseline
+  - prevent_unknown_or_accidental_material_legal_obligations
+  - introduce_risk_based_legal_review
+  - create_reusable_approved_legal_patterns_where_actual_need_exists
+  - make_material_contract_and_legal_obligations_visible
+  - establish_ip_provenance_and_ownership_controls
+  - activate_privacy_and_regulatory_controls_by_real_exposure
+  - create_external_counsel_routing_model
+  - establish_legal_trigger_registry
+  - preserve_lawful_speed_without_unnecessary_approval_bottlenecks
+
+legalOperatingFlow:
+  - business_action
+  - legal_relevance_assessment
+  - approved_pattern_or_legal_review
+  - explicit_obligations
+  - accountable_execution
+  - evidence_or_record
+  - renewal_expiry_or_termination
+
+legalPositionVocabulary:
+  - PROHIBITED_OR_LEGALLY_IMPOSSIBLE
+  - LEGALLY_PERMITTED_WITH_OBLIGATIONS
+  - LEGALLY_UNCERTAIN
+  - LEGALLY_PERMITTED_WITH_RISK
+
+boundaries:
+  CEO: CEO may accept lawful business risk within corporate authority; illegal, fraudulent, legally impossible or ultra vires conduct is not overrideable.
+  CFO: CFO owns financial, accounting and tax-management reality; CLO owns material legal interpretation, corporate legal structure, contractual obligations and legal risk.
+  CRO: CRO owns commercial negotiation within approved patterns; CLO owns legal interpretation of material commercial commitments and deviations.
+  COO: CLO determines legal obligations; COO operationalizes applicable controls, owners, cadence, escalation and evidence.
+  CTO: CLO defines legal outcomes and constraints; CTO designs and operates technical controls.
+  CPO: CPO integrates material legal constraints into product decisions; CLO remains authoritative for legal interpretation.
+  GovernanceAudit: CLO interprets legal obligations; Governance translates enterprise controls where appropriate; Audit independently verifies evidence when material.
+
+constraints:
+  - may_not_become_universal_approval_gate
+  - may_not_own_enterprise_strategy
+  - may_not_own_financial_or_tax_execution
+  - may_not_own_all_compliance_execution
+  - may_not_prescribe_technical_implementation_when_multiple_compliant_solutions_exist
+  - may_not_treat_every_legal_risk_as_prohibition
+  - may_not_convert_unlawful_action_into_risk_acceptance
+
+riskAcceptance:
+  lawfulRiskMayBeAcceptedBy: competent_business_authority_within_governance
+  preserve:
+    - legal_objection
+    - business_rationale
+    - accepted_residual_risk
+    - mitigations
+    - decision_owner
+  prohibitedOverrideClasses:
+    - illegal
+    - fraudulent
+    - legally_impossible
+    - outside_lawful_corporate_authority
+
+contractLifecycle:
+  - DRAFT
+  - REVIEW
+  - NEGOTIATION
+  - APPROVAL
+  - SIGNATURE
+  - EFFECTIVE
+  - OBLIGATION_MANAGEMENT
+  - RENEWAL_OR_AMENDMENT
+  - TERMINATION
+  - ARCHIVE
+
+contractMetadataMinimum:
+  - contract_id
+  - counterparty
+  - type
+  - business_owner
+  - effective_date
+  - expiry_date
+  - renewal_terms
+  - commercial_value_or_category
+  - material_obligations
+  - ip_treatment
+  - privacy_or_data_clauses
+  - sla_or_support_commitments
+  - termination_rights
+  - status
+
+obligationRegistryMinimum:
+  - source
+  - obligation
+  - owner
+  - due_condition_or_cadence
+  - evidence
+  - status
+
+approvedPatternCandidates:
+  - NDA
+  - MSA
+  - SOW
+  - SAAS_TERMS
+  - PRIVACY_NOTICE_AND_TERMS
+  - DPA
+  - LICENSING_AGREEMENT
+  - SERVICE_AGREEMENT
+  - CONTRACTOR_AGREEMENT
+  - EMPLOYMENT_RELATED_DOCUMENTS
+  - PARTNERSHIP_AGREEMENT
+
+patternRule: Approved templates enable delegated routine execution only inside accepted bounds; material deviations require proportional review.
+
+intellectualProperty:
+  repositoryPossessionRule: Repository possession does not prove intellectual-property ownership.
+  contractorRule: Payment alone must not be assumed to transfer all relevant IP rights.
+  openSourceRule: Technical suitability and legal licensing consequences are separate assessments.
+  aiGeneratedMaterialRule: Material commercial AI-generated assets require provenance and rights-risk analysis proportional to use; avoid unsupported global ownership claims.
+
+privacy:
+  materialDataQuestions:
+    - what_personal_data
+    - purpose
+    - applicable_legal_basis_or_justification
+    - systems
+    - authorized_access
+    - retention
+    - third_parties
+    - jurisdiction
+    - deletion_or_exit_behavior
+  crossBorderRule: Activate assessment from actual user, provider, processing, data and contractual facts rather than universal jurisdiction pre-analysis.
+
+corporateLegal:
+  separationRule: Business Vertical, Brand and Legal Entity are distinct concepts.
+  entityCreationTriggers:
+    - liability_isolation
+    - investment
+    - partnership
+    - tax
+    - regulation
+    - ownership
+    - geography
+    - financing
+
+externalCounsel:
+  model: specialist_on_demand
+  possibleSpecialties:
+    - corporate
+    - labor
+    - tax
+    - intellectual_property
+    - privacy
+    - technology
+    - litigation
+  rule: External counsel advises; accountable ADÜMÜN roles decide.
+  spendBoundary: CLO determines legal necessity and expertise; CFO controls affordability, procurement and financial oversight.
+
+legalRiskModel:
+  levels:
+    L0: ROUTINE
+    L1: LOW
+    L2: MATERIAL
+    L3: HIGH
+    L4: EXISTENTIAL_OR_PROHIBITED
+  dimensions:
+    - probability
+    - financial_impact
+    - injunction_or_business_interruption
+    - regulatory_impact
+    - contractual_exposure
+    - intellectual_property_exposure
+    - privacy_exposure
+    - reputation
+    - reversibility
+
+legalDecisionRecord:
+  fields:
+    - issue
+    - legal_position
+    - risk
+    - options
+    - recommendation
+    - decision
+    - decision_owner
+    - conditions
+    - residual_risk
+
+complianceOperatingModel:
+  legal: identify_and_interpret_obligations
+  domainOwner: execute_required_behavior
+  COO: operationalize_controls_ownership_and_evidence
+  CTO: implement_technical_controls_when_applicable
+  GovernanceAudit: independently_verify_when_appropriate
+  rule: Compliance documents without implemented controls and evidence do not constitute compliance.
+
+legalTriggers:
+  - FIRST_EMPLOYEE
+  - FIRST_FOREIGN_CUSTOMER
+  - FIRST_CONSUMER_SUBSCRIPTION
+  - FIRST_MATERIAL_INTERNATIONAL_DATA_TRANSFER
+  - FIRST_BIOMETRIC_OR_SIMILARLY_SENSITIVE_DATA_PROCESSING
+  - FIRST_ENTERPRISE_SLA
+  - FIRST_INVESTOR_OR_FINANCING_TRANSACTION
+  - FIRST_REGULATED_INDUSTRY_CUSTOMER
+  - FIRST_MATERIAL_AI_GENERATED_COMMERCIAL_IP
+  - FIRST_MATERIAL_EMPLOYMENT_OR_CONTRACTOR_DISPUTE
+  - FIRST_REGULATOR_NOTICE
+  - FIRST_MATERIAL_IP_CLAIM
+
+m0M6Indicators:
+  - material_contracts_using_approved_patterns
+  - contract_turnaround_time
+  - obligations_with_identified_owner
+  - missed_renewals
+  - unresolved_material_legal_risks
+  - preventable_disputes
+  - legal_incidents
+  - external_legal_spend
+  - ip_ownership_gaps
+  - unreviewed_material_deviations
+  - regulatory_triggers_detected
+  - remediation_cycle_time
+
+criticalOutcome: LEGAL_OPERATING_BASELINE
+criticalOutcomeDefinition: Material business acts can identify legal relevance and risk, use approved patterns where appropriate, escalate material deviations, record material obligations and ownership, and obtain specialist counsel when required while preserving lawful operating speed.
+
+targetOutcomeM0M6: ADÜMÜN has a proportionate legal operating baseline in which material contracts, IP rights, corporate records, privacy obligations and material legal risks have identifiable ownership; routine legal activity uses approved patterns without unnecessary bottlenecks; high-risk deviations are escalated; specialists are used selectively; and material commitments do not create unknown legal obligations because Legal entered too late.
+
+potentialCapabilities:
+  - Corporate Legal
+  - Commercial & Contracts
+  - Intellectual Property
+  - Privacy & Data Protection
+  - Regulatory & Compliance
+  - Employment Legal
+  - Disputes / External Counsel Coordination
+
+notCurrentlyJustified:
+  - separate_general_counsel_and_clo
+  - chief_compliance_officer
+  - chief_privacy_officer
+  - vp_legal
+  - dedicated_internal_ip_department
+  - internal_litigation_team
+
+operatingPrinciples:
+  - legal_enables_lawful_business_not_merely_blocks_risk
+  - illegal_or_legally_impossible_actions_are_not_risk_acceptance_decisions
+  - lawful_legal_risk_acceptance_requires_visible_rationale_and_residual_exposure
+  - legal_interpretation_and_business_judgment_are_distinct
+  - routine_activity_uses_approved_patterns_and_exceptional_obligations_receive_proportional_review
+  - signed_contract_starts_obligation_lifecycle
+  - ip_ownership_must_be_demonstrable
+  - repository_possession_does_not_prove_ip_ownership
+  - material_legal_constraints_enter_design_early
+  - compliance_requires_controls_and_evidence
+  - external_counsel_advises_accountable_roles_decide
+  - legal_structures_business_verticals_and_brands_are_separate
+  - legal_governance_scales_with_actual_exposure
+  - regulatory_triggers_activate_deeper_controls_when_relevant
+  - legal_records_become_progressively_machine_readable_where_confidentiality_permits
+
+antiPatterns:
+  - department_of_no
+  - universal_approval_gate
+  - reviewer_of_every_routine_contract
+  - shadow_ceo
+  - shadow_cfo
+  - policy_bureaucracy_generator
+  - owner_of_business_strategy
+  - owner_of_all_compliance_execution
+  - universal_enterprise_risk_owner
+  - legal_risk_equals_prohibited
+  - contract_signed_equals_contract_managed
+  - template_equals_no_review_ever
+  - payment_equals_ip_owned
+  - repository_possession_equals_ip_owned
+  - privacy_policy_equals_privacy_compliance
+  - external_lawyer_equals_business_owner
+  - compliance_document_equals_compliance
+
+nextPhase:
+  name: EXECUTIVE_LEADERSHIP_TEAM_RECONCILIATION
+  objective: Reconcile CEO, CFO, COO, CRO, CPO, CTO and CLO into one coherent executive decision system rather than creating additional C-Level titles.
