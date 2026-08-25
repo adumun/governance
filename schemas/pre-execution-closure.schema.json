@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adumun.example/schemas/pre-execution-closure.schema.json",
+  "title": "ADÜMÜN Pre-Execution Closure Register",
+  "type": "object",
+  "required": ["schema_version", "maturity", "register_id", "items"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "maturity": {"type": "string", "enum": ["CANDIDATE", "PILOTED", "STANDARDIZED", "ENFORCED"]},
+    "register_id": {"const": "REG-PRE-EXEC-CLOSURE"},
+    "last_reviewed": {"type": "string", "format": "date"},
+    "items": {
+      "type": "array",
+      "minItems": 25,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "priority", "status", "owner_domain", "machine_readable_required", "h0_blocking", "evidence_required", "source_of_truth", "next_action", "last_reviewed"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^CL-[0-9]{3}$"},
+          "name": {"type": "string", "minLength": 1},
+          "priority": {"type": "string", "enum": ["BLOCKING", "HIGH", "MEDIUM"]},
+          "status": {"type": "string", "enum": ["OPEN", "IN_PROGRESS", "READY_FOR_REVIEW", "CLOSED", "DEFERRED_WITH_GUARDRAIL"]},
+          "owner_domain": {"type": "string", "minLength": 1},
+          "machine_readable_required": {"type": "boolean"},
+          "h0_blocking": {"type": "boolean"},
+          "evidence_required": {"type": "string", "minLength": 1},
+          "source_of_truth": {"type": "string", "minLength": 1},
+          "next_action": {"type": "string", "minLength": 1},
+          "blocker": {"type": ["string", "null"]},
+          "evidence_refs": {"type": "array", "items": {"type": "string"}},
+          "last_reviewed": {"type": "string", "format": "date"},
+          "notes": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
