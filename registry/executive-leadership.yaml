@@ -1,4 +1,4 @@
-schemaVersion: "1.0"
+schemaVersion: "1.1"
 kind: ExecutiveLeadershipBaseline
 metadata:
   id: ADM-ORG-ELT-001
@@ -29,7 +29,8 @@ currentBaseline:
   - code: CEO
     title: Chief Executive Officer
     responsibility: Enterprise direction, corporate strategy, executive priorities, resource allocation, company-wide decision accountability and executive-team coordination.
-    status: DESIGN_BASELINE
+    status: DETAILED_ROLE_CANDIDATE
+    detailedRoleRef: ADM-ORG-CEO-001
   - code: CFO
     title: Chief Financial Officer
     responsibility: Finance, treasury, accounting, taxation, budgeting, financial control, funding, capital allocation and economic sustainability.
@@ -54,6 +55,88 @@ currentBaseline:
     title: Chief Legal Officer
     responsibility: Corporate legal affairs, contracts, intellectual property, labor/legal coordination, privacy, regulation, compliance and legal risk protection.
     status: DESIGN_BASELINE
+
+detailedRoles:
+  CEO:
+    id: ADM-ORG-CEO-001
+    title: Chief Executive Officer
+    maturity: CANDIDATE
+    authorityState: CURRENT
+    humanSourceSection: 17. CEO — Chief Executive Officer — Detailed Executive Mandate
+    executiveLevel: C_LEVEL
+    accountabilityScope: ENTERPRISE_WIDE
+    purpose: Convert ADÜMÜN vision into coherent enterprise direction, strategic priorities, resource allocation and sustainable corporate results.
+    optimizationTarget: ADÜMÜN as an enterprise, not any individual initiative, product, vertical, creative property or technology.
+    coreAccountabilities:
+      - corporate strategy
+      - enterprise priorities
+      - portfolio coherence
+      - executive resource allocation
+      - C-Level coordination
+      - cross-domain conflict resolution
+      - material strategic decisions
+      - enterprise performance
+      - institutional representation
+      - continuity and sustainability
+      - delegation quality and executive accountability clarity
+    sixMonthMandate:
+      - preserve enterprise survival
+      - concentrate execution on defensible priorities
+      - enable real revenue validation with CFO, CRO and CPO
+      - convert governance design into operating behavior with COO
+      - reduce dependency on founder/CEO intervention through delegation
+      - preserve strategic optionality while solving short-term constraints
+    reservedDecisions:
+      - create_modify_or_eliminate_c_level_roles
+      - material_corporate_strategy_changes
+      - enterprise_level_objectives
+      - enter_or_exit_major_business_lines
+      - create_or_retire_business_vertical_l1
+      - strategic_initiative_activation_pause_or_termination_when_material
+      - material_policy_exceptions
+      - unresolved_c_level_conflicts
+      - extraordinary_resource_reallocation
+      - major_strategic_alliances
+      - substantive_business_model_changes
+      - decisions_materially_affecting_independence_reputation_or_long_term_position
+    constraints:
+      - ultimate_executive_authority_is_not_arbitrary_authority
+      - professional_findings_must_not_be_falsified_suppressed_or_redefined_to_support_preference
+      - legal_impossibility_or_illegality_is_not_overrideable
+      - subject_matter_executives_retain_professional_accountability_within_approved_mandates
+      - material_overrides_require_visible_rationale_risk_and_consequences
+    boundaries:
+      CFO: CEO sets direction and risk appetite; CFO determines financial reality, constraints and sustainability.
+      COO: CEO owns required enterprise outcomes; COO owns the operating system that executes them.
+      CRO: CEO sets business direction; CRO owns the revenue system and sustainable commercial execution.
+      CPO: CEO sets strategic problems and portfolio direction; CPO owns product strategy, discovery, validation and product portfolio decisions.
+      CTO: CEO sets strategic needs and constraints; CTO owns technology strategy, architecture, engineering approach and technical standards.
+      CLO: CEO may accept lawful business risk; CLO identifies legal constraints and exposure; illegality is not overrideable.
+    antiPatterns:
+      - default_owner_of_tickets
+      - routine_project_management
+      - approve_every_expenditure
+      - prescribe_detailed_technology_choices
+      - act_as_default_product_manager
+      - execute_ordinary_sales
+      - day_to_day_management_of_all_teams
+      - become_required_for_normal_company_operation
+    delegationPrinciple: Delegation transfers decision authority but not ultimate enterprise accountability; normal work should increasingly execute correctly without CEO intervention.
+    enterpriseOptimizationPrinciple: Historical attachment to an initiative, technology or creative property is insufficient justification for continued investment when evidence no longer supports its opportunity cost.
+    m0M6Indicators:
+      - runway_protected_or_extended
+      - real_revenue_generated
+      - enterprise_priority_execution_rate
+      - resource_concentration_on_approved_priorities
+      - unresolved_decisions_without_owner
+      - dependency_on_ceo_intervention
+      - idea_to_evidence_to_offer_to_revenue_progress
+      - strategic_risk_treatment
+      - portfolio_rationalization
+      - approved_m0_m6_objective_achievement
+    institutionalRepresentation: Primary executive representative for material strategic relationships, subject to legal, financial and governance authority limits.
+    reportingLine: Highest executive authority under the founding operating model; later accountable to the legally competent shareholder, Board or equivalent governing authority.
+    officeOfCeoRule: Do not create a separate Office of the CEO unless evidence shows dedicated support reduces material coordination cost.
 
 reservedScaleTriggered:
   - code: CMO
@@ -92,6 +175,12 @@ notCurrentlyJustified:
 
 nextRefinement:
   required: true
+  sequence:
+    - COO
+    - CRO
+    - CPO
+    - CTO
+    - CLO
   scope:
     - dedicated role mandates
     - decision rights
