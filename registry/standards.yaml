@@ -1,0 +1,97 @@
+registryVersion: 1.0.0
+schemaVersion: 1.0.0
+status: CANDIDATE_SUCCESSOR
+predecessor:
+  repository: cmartinezs/the-x-contract-registry
+  path: registry/standards.yaml
+  blobSha: d17555303062a440d3db04ca4cf4e7807cea146a
+compatibilityPolicy: >-
+  Canonical standard IDs are stable within major version 1. Aliases are documentation-only
+  unless explicitly modeled. Provider configuration must not create new canonical IDs.
+standards:
+  - id: RS-CORE
+    name: Core Repository Standard
+    requiredByDefault: true
+    dependsOn: []
+  - id: RS-GOV
+    name: Governance & Initiative Repository
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-CONTRACT
+    name: Contract Provider / Machine Interface
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-PRODUCT
+    name: Product / Application
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-SERVICE
+    name: Backend / API / Worker Service
+    aliases: [RS-API]
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-FRONTEND
+    name: Frontend / UI Client
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-MONOREPO
+    name: Multi-component Repository
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-CAPABILITY
+    name: Shared Capability
+    requiredByDefault: false
+    dependsOn: [RS-CORE, RS-CONTRACT]
+  - id: RS-LIBRARY
+    name: Reusable Library / Package
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-TOOLING
+    name: CLI / Plugin / Automation Tooling
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-AI
+    name: AI / Agentic System
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-DATA
+    name: Data / Persistence / Migration
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-INFRA
+    name: Infrastructure / Deployment
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-PAGES
+    name: GitHub Pages Publication
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-EXPERIMENT
+    name: Experiment / PoC / Spike
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-CONTENT
+    name: Content / Creative / Educational Assets
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-TEMPLATE
+    name: Template / Scaffold / Reference Architecture
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-PUBLIC
+    name: Public / Open Repository
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+  - id: RS-LEGACY
+    name: Deprecated / Superseded / Archived Repository
+    requiredByDefault: false
+    dependsOn: [RS-CORE]
+adoptionLevels: [REQUIRED, APPLICABLE, RECOMMENDED, NOT_APPLICABLE, DEFERRED]
+conformanceMaturity:
+  R0: IDENTIFIED
+  R1: DISCOVERABLE
+  R2: MACHINE_READABLE
+  R3: VALIDATED
+  R4: INTEGRATED
+  R5: GOVERNED_EVOLUTION
+enforcementLifecycle: [OBSERVED, CANDIDATE, PILOTED, STANDARDIZED, ENFORCED]
