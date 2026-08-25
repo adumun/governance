@@ -1,9 +1,10 @@
-schema_version: 0.1.0
+schema_version: 0.2.0
 maturity: CANDIDATE
 dashboard_id: DASH-FUNDING-ACTIVATION
 name: Funding Activation Dashboard
-purpose: "Track progress from capabilities/offers/prospects to predictable monthly coverage of the CLP 3M WHAT."
+purpose: "Track progress from capabilities/offers/prospects to predictable monthly coverage of the CLP 3M WHAT, including provider/tool cost and dependency."
 source_registry: ../funding-activation.yaml
+provider_registry: ../providers.yaml
 refresh_mode: ON_CHANGE_OR_DAILY
 
 headline_metrics:
@@ -47,6 +48,36 @@ headline_metrics:
     unit: COUNT
     filter: "state in [ALPHA_ENABLED, ALPHA_SUBSCRIPTION_GATED, EVIDENCE_ONLY, R_AND_D_ACTIVE]"
 
+  - id: CURRENT_PROVIDER_COUNT
+    label: Current Tools / Providers
+    unit: COUNT
+    source: provider_registry
+    filter: "lifecycle_status == CURRENT"
+
+  - id: FUTURE_PROVIDER_COUNT
+    label: Planned / Candidate / Deferred Tools
+    unit: COUNT
+    source: provider_registry
+    filter: "lifecycle_status in [PLANNED, CANDIDATE, DEFERRED]"
+
+  - id: KNOWN_PROVIDER_MONTHLY_COST_CLP
+    label: Known Monthly Provider Cost
+    unit: CLP_MONTH
+    source: provider_registry
+    formula: "sum(monthly_cost_clp where lifecycle_status == CURRENT and monthly_cost_clp != null)"
+
+  - id: UNKNOWN_PROVIDER_COST_COUNT
+    label: Current Providers With Unknown Cost
+    unit: COUNT
+    source: provider_registry
+    filter: "lifecycle_status == CURRENT and monthly_cost_clp == null"
+
+  - id: HIGH_DEPENDENCY_PROVIDER_COUNT
+    label: Medium/High Provider Dependencies
+    unit: COUNT
+    source: provider_registry
+    filter: "dependency_level in [MEDIUM, HIGH, CRITICAL]"
+
   - id: MF08_STATUS
     label: M-F08 Consolidated Operating Minimum Covered
     unit: STATUS
@@ -75,9 +106,29 @@ views:
     type: TABLE
     dimensions: [id, name, state, provider_dependency, monthly_cost_clp, cost_avoidance_clp, evidence_status]
 
+  - id: PROVIDER_PORTFOLIO
+    type: TABLE
+    source: provider_registry
+    dimensions: [id, product, vendor, category, lifecycle_status, usage_status, entitlement_status, capabilities, dependency_level, cost_status, monthly_cost_clp]
+    sort: [lifecycle_status, category, product]
+
+  - id: PROVIDER_DEPENDENCY
+    type: TABLE
+    source: provider_registry
+    dimensions: [id, product, capabilities, dependency_level, substitution_strategy, adoption_gate]
+    filter: "dependency_level in [MEDIUM, HIGH, CRITICAL]"
+
+  - id: TOOLING_ROADMAP
+    type: TABLE
+    source: provider_registry
+    dimensions: [id, product, lifecycle_status, usage_status, strategic_role, financial_treatment, adoption_gate]
+    filter: "lifecycle_status in [PLANNED, CANDIDATE, DEFERRED]"
+
 quality_rules:
   - "Unknown numeric values remain null; never replace them with invented forecasts."
+  - "Unknown provider cost is null/TBD, never zero."
   - "Only contracted/predictable contributions count toward monthly coverage."
   - "Direct and indirect economic roles must remain distinguishable."
+  - "Capability and provider are different entities; a capability may have multiple provider implementations."
   - "Every externally visible offer/capability should be traceable to brand identity, channel and CTA."
   - "Dashboard calculations must be reproducible from registry data."
