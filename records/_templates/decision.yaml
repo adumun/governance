@@ -1,0 +1,72 @@
+recordType: DECISION
+recordId: DEC-YYYY-NNN
+title: ""
+status: DRAFT
+createdAt: YYYY-MM-DD
+updatedAt: YYYY-MM-DD
+decisionType: ""
+decisionMode: STANDARD
+# STANDARD | PROFESSIONAL_RECOMMENDATION_OVERRIDDEN | EMERGENCY_RECONSTRUCTION
+
+decisionOwner:
+  role: ""
+  actorRef: null
+
+materiality:
+  level: M0
+  dimensions: []
+  impact: null
+  reversibility: null
+  exposure: null
+  rationale: ""
+
+consultedDomains: []
+constraintAuthorities: []
+executionOwner:
+  role: ""
+  actorRef: null
+
+evidence:
+  - ref: ""
+    classification: EVIDENCE
+    note: ""
+
+alternativesConsidered: []
+constraints: []
+assumptions: []
+dependencies: []
+
+decision: ""
+rationale: ""
+expectedOutcome: ""
+
+linkedExceptions: []
+linkedRiskAcceptances: []
+linkedDissent: []
+linkedIncidents: []
+linkedContracts: []
+linkedADRs: []
+
+review:
+  scheduledDate: null
+  triggers: []
+
+outcome:
+  executionStatus: NOT_STARTED
+  evidenceRefs: []
+  observedOutcome: null
+  assumptionsHeld: null
+  unexpectedConsequences: []
+  customerImpactObserved: null
+  workforceImpactObserved: null
+  riskMaterialized: null
+  followUpRequired: null
+
+confidentiality: INTERNAL
+
+lineage:
+  supersedes: null
+  supersededBy: null
+  relatedDecisions: []
+
+notes: ""
