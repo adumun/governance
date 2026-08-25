@@ -1,0 +1,83 @@
+schema_version: 0.1.0
+maturity: CANDIDATE
+dashboard_id: DASH-FUNDING-ACTIVATION
+name: Funding Activation Dashboard
+purpose: "Track progress from capabilities/offers/prospects to predictable monthly coverage of the CLP 3M WHAT."
+source_registry: ../funding-activation.yaml
+refresh_mode: ON_CHANGE_OR_DAILY
+
+headline_metrics:
+  - id: WHAT_MONTHLY_CLP
+    label: Monthly Operating Minimum
+    unit: CLP_MONTH
+    target: 3000000
+    source: what.consolidated_operating_minimum_monthly
+
+  - id: PREDICTABLE_COVERAGE_CLP
+    label: Predictable Monthly Coverage
+    unit: CLP_MONTH
+    aggregation: SUM
+    field: monthly_predictable_contribution_clp
+    default_when_missing: 0
+
+  - id: COVERAGE_GAP_CLP
+    label: Coverage Gap
+    unit: CLP_MONTH
+    formula: "max(WHAT_MONTHLY_CLP - PREDICTABLE_COVERAGE_CLP, 0)"
+
+  - id: CASH_COLLECTED_MTD_CLP
+    label: Cash Collected MTD
+    unit: CLP
+    aggregation: SUM
+    field: collected_cash_mtd_clp
+    default_when_missing: 0
+
+  - id: WEIGHTED_PIPELINE_CLP
+    label: Weighted Pipeline
+    unit: CLP
+    formula: "sum(opportunity_value_clp * probability_pct / 100)"
+
+  - id: P0_COUNT
+    label: P0 Items
+    unit: COUNT
+    filter: "priority == P0"
+
+  - id: ALPHA_ENABLEMENT_COUNT
+    label: Alpha / Enablement Items
+    unit: COUNT
+    filter: "state in [ALPHA_ENABLED, ALPHA_SUBSCRIPTION_GATED, EVIDENCE_ONLY, R_AND_D_ACTIVE]"
+
+  - id: MF08_STATUS
+    label: M-F08 Consolidated Operating Minimum Covered
+    unit: STATUS
+    formula: "ACHIEVED if PREDICTABLE_COVERAGE_CLP >= WHAT_MONTHLY_CLP else NOT_YET"
+
+views:
+  - id: ROADMAP_6M
+    type: TABLE
+    dimensions: [cycle_id, phase, coverage_target_clp, metric_focus, primary_portfolio, gate, mf_target]
+
+  - id: PORTFOLIO_PRIORITY
+    type: TABLE
+    dimensions: [id, name, priority, state, economic_role, next_action, next_milestone]
+    sort: [priority, state]
+
+  - id: DEMAND_ENGINE
+    type: FUNNEL
+    stages: [PUBLISHED_EVIDENCE, CTA, INTAKE, QUALIFIED_OPPORTUNITY, PROPOSAL, CONTRACTED, COLLECTED, RECURRING]
+    attribution_required: true
+
+  - id: BRAND_TRANSITION
+    type: STATUS
+    dimensions: [current_public_identity, transition_gate, successor_identity, continuity_checks]
+
+  - id: CAPABILITY_OPTIONALITY
+    type: TABLE
+    dimensions: [id, name, state, provider_dependency, monthly_cost_clp, cost_avoidance_clp, evidence_status]
+
+quality_rules:
+  - "Unknown numeric values remain null; never replace them with invented forecasts."
+  - "Only contracted/predictable contributions count toward monthly coverage."
+  - "Direct and indirect economic roles must remain distinguishable."
+  - "Every externally visible offer/capability should be traceable to brand identity, channel and CTA."
+  - "Dashboard calculations must be reproducible from registry data."
