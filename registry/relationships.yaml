@@ -1,0 +1,45 @@
+registryVersion: 1.0.0
+schemaVersion: 1.0.0
+status: CURRENT_CANDIDATE
+relationshipTypes: [SUPERSEDES_SCOPE, SUPERSEDES_REPOSITORY, PROVIDES_AUTHORITY_FOR]
+relationships:
+  - id: REL-ADUMUN-001
+    type: SUPERSEDES_SCOPE
+    from: adumun/audit-framework
+    to: cmartinezs/the-x-contract-registry
+    scope: audit-framework
+    status: CURRENT
+  - id: REL-ADUMUN-002
+    type: SUPERSEDES_SCOPE
+    from: adumun/governance
+    to: cmartinezs/the-x-contract-registry
+    scope: repository-governance
+    status: PENDING_THIS_MERGE
+  - id: REL-ADUMUN-003
+    type: SUPERSEDES_SCOPE
+    from: adumun/machine-contracts
+    to: cmartinezs/the-x-contract-registry
+    scope: machine-contracts
+    status: PENDING_FINAL_MACHINE_CUTOVER
+  - id: REL-ADUMUN-004
+    type: PROVIDES_AUTHORITY_FOR
+    from: adumun/governance
+    to: ADUMUN_REPOSITORY_STANDARDS
+    status: CURRENT_CANDIDATE
+  - id: REL-ADUMUN-005
+    type: PROVIDES_AUTHORITY_FOR
+    from: adumun/machine-contracts
+    to: ADUMUN_MACHINE_CONTRACTS
+    status: CURRENT_CANDIDATE
+  - id: REL-ADUMUN-006
+    type: PROVIDES_AUTHORITY_FOR
+    from: adumun/audit-framework
+    to: ADUMUN_AUDIT_FRAMEWORK
+    status: CURRENT
+historicalPredecessor:
+  repository: cmartinezs/the-x-contract-registry
+  path: registry/relationships.yaml
+  blobSha: 9995016518864307b0b378675d18f0854c682469
+  rule: >-
+    The predecessor relationship registry remains historical evidence. Its dated assertions
+    are not automatically current ADÜMÜN facts and must be re-observed before reuse.
