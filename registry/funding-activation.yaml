@@ -1,0 +1,154 @@
+schema_version: 0.1.0
+maturity: CANDIDATE
+last_reviewed: 2026-08-25
+what:
+  currency: CLP
+  emergency_founder_floor_monthly: 2200000
+  founder_sustainable_baseline_monthly: 2600000
+  consolidated_operating_minimum_monthly: 3000000
+  one_month_runway_with_contingency: 3300000
+  three_month_runway_with_contingency: 9900000
+  six_month_runway_with_contingency: 19800000
+
+public_identity:
+  current: BRAND-CORP-TRANSITIONAL
+  successor: BRAND-CORP-ADUMUN
+  transition_gate: M-006
+
+portfolio:
+  - id: PROS-CERRO-POQUI
+    type: PROSPECT
+    name: Prospecto Cerro Poqui
+    priority: P0
+    economic_role: DIRECT_REVENUE_DELIVERY_EVIDENCE
+    state: PROSPECT
+    direct_revenue_required: true
+    next_milestone: M-F03
+    next_action: "Cerrar readiness y propuesta acotada"
+
+  - id: PROS-NEXUS
+    type: PROSPECT_PRODUCT
+    name: Nexus Community Ecosystem
+    priority: P0_P1
+    economic_role: PROSPECT_VALIDATION_PAID_PILOT_FUTURE_RECURRING
+    state: PROSPECT
+    direct_revenue_required: true
+    next_milestone: M-F03
+    next_action: "Convertir señal en conversación con decision-makers"
+
+  - id: PROD-AUTO-IG
+    type: PRODUCT
+    name: Auto IG Posting
+    priority: P1
+    economic_role: PAID_PILOT_PRODUCT_REVENUE_DELIVERY_EVIDENCE
+    state: PILOT_READYING
+    direct_revenue_required: false
+    next_milestone: M-F01
+    next_action: "Cerrar MVP/UAT con closure budget y decidir offer activation"
+
+  - id: PROD-PTL
+    type: PRODUCT
+    name: Personal Tax Ledger
+    priority: P1_P2
+    economic_role: PRODUCT_CANDIDATE_DOMAIN_EVIDENCE
+    state: EVIDENCE_ONLY
+    direct_revenue_required: false
+    next_milestone: M-F01
+    next_action: "Definir smallest defensible MVP y compliance gate"
+
+  - id: CAP-SHIPPING-MODE
+    type: CAPABILITY
+    name: Shipping Mode
+    priority: P1
+    economic_role: EVIDENCE_SALES_ENABLEMENT_DELIVERY_LEVERAGE
+    state: EVIDENCE_ONLY
+    direct_revenue_required: false
+    next_action: "Empaquetar evidencia para venta"
+
+  - id: CAP-LOCAL-AI-IMAGE
+    type: CAPABILITY
+    name: Local AI Image Generation Stack
+    priority: P1
+    economic_role: COST_REDUCTION_CREATIVE_EVIDENCE_DELIVERY_ENABLEMENT
+    state: ALPHA_ENABLED
+    direct_revenue_required: false
+    next_action: "Operar alpha y producir evidencia reusable"
+
+  - id: CAP-DIGITAL-PERSONAS
+    type: CAPABILITY_PROGRAM
+    name: Digital Personas Alpha
+    priority: P1_P2
+    economic_role: EVIDENCE_DISCOVERY_RELATIONSHIP_FUTURE_REVENUE
+    state: ALPHA_ENABLED
+    direct_revenue_required: false
+    next_action: "Definir cohorte alpha de 1-3 personas"
+
+  - id: CAP-AI-MUSIC
+    type: CAPABILITY
+    name: AI Music Generation
+    priority: P1_P2
+    economic_role: EVIDENCE_CAMPAIGN_ENABLEMENT_COST_REDUCTION_FUTURE_REVENUE
+    state: ALPHA_SUBSCRIPTION_GATED
+    direct_revenue_required: false
+    next_action: "Validar rights/provider y producir primer asset comercialmente utilizable"
+
+  - id: CAP-GEN-MEDIA-RD
+    type: R_AND_D_PROGRAM
+    name: Generative Media Independence R&D
+    priority: P1_P2
+    economic_role: COST_REDUCTION_PROVIDER_OPTIONALITY_EVIDENCE_FUTURE_DELIVERY_CAPABILITY
+    state: R_AND_D_ACTIVE
+    direct_revenue_required: false
+    next_action: "Benchmark music, voice and video internal/self-hosted paths sin desplazar P0"
+
+  - id: CAP-DEMAND-GEN
+    type: CAPABILITY
+    name: Marketing & Inbound Demand Generation
+    priority: P0
+    economic_role: DISCOVERY_LEAD_GENERATION_CONVERSION_ATTRIBUTION
+    state: ACTIVE_DESIGN
+    direct_revenue_required: false
+    next_milestone: M-F02
+    next_action: "Activar 2 offer/capability surfaces bajo The X: Codename con intake y attribution"
+
+  - id: CAP-PRESS-PR
+    type: CAPABILITY
+    name: Press & Public Relations
+    priority: P1
+    economic_role: EARNED_DISCOVERY_REPUTATION_PARTNERSHIP_LEAD_ENABLEMENT
+    state: READY_ON_TRIGGER
+    direct_revenue_required: false
+    next_milestone: M-F03
+    next_action: "Preparar press kit y activation criteria basados en evidencia material"
+
+professional_services:
+  - id: SVC-CODE-REVIEW
+    name: Code Review / Technical Review
+    priority: P0
+    state: OFFER_DESIGN
+  - id: SVC-COACHING
+    name: Technical Coaching / Mentoring
+    priority: P0
+    state: OFFER_DESIGN
+  - id: SVC-ADVISORY
+    name: Technical Advisory / Architecture Second Opinion
+    priority: P0
+    state: OFFER_DESIGN
+  - id: SVC-FREELANCE
+    name: Freelance Bounded Engineering
+    priority: P0
+    state: OFFER_DESIGN
+  - id: SVC-CLASSES
+    name: Technical Classes / Workshops
+    priority: P0
+    state: OFFER_DESIGN
+  - id: SVC-PREP
+    name: Test / Interview Preparation
+    priority: P0
+    state: OFFER_DESIGN
+
+rules:
+  - "Completion is not activation."
+  - "Do not count proposals, grants, pilots or capability demos as predictable revenue until the applicable economic evidence exists."
+  - "P0 cash work takes precedence over open-ended R&D."
+  - "Public exposure requires evidence, rights, brand, channel and fulfillment readiness."
