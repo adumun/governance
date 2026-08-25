@@ -1,4 +1,4 @@
-schemaVersion: "1.3"
+schemaVersion: "1.4"
 kind: ExecutiveLeadershipBaseline
 metadata:
   id: ADM-ORG-ELT-001
@@ -47,7 +47,8 @@ currentBaseline:
   - code: CPO
     title: Chief Product Officer
     responsibility: Product strategy, discovery, validation, product portfolio, lifecycle, product experience and prioritization of what ADÜMÜN builds for users and markets.
-    status: DESIGN_BASELINE
+    status: DETAILED_ROLE_CANDIDATE
+    detailedRoleRef: ADM-ORG-CPO-001
   - code: CRO
     title: Chief Revenue Officer
     responsibility: Revenue strategy, commercial model, sales, pricing, channels, partnerships, monetization, pipeline and customer/account growth.
@@ -588,6 +589,269 @@ detailedRoles:
     targetOutcomeM0M6: Demonstrate at least one repeatable commercial path from a defined customer problem and offer to collected revenue without economically, operationally, legally or strategically destructive commitments.
     reportingLine: CEO
 
+  CPO:
+    id: ADM-ORG-CPO-001
+    title: Chief Product Officer
+    maturity: CANDIDATE
+    authorityState: CURRENT
+    humanSourceSection: 20. CPO — Chief Product Officer — Detailed Executive Mandate
+    executiveLevel: C_LEVEL
+    accountabilityScope: ENTERPRISE_PRODUCT
+    primaryAccountability: Own ADÜMÜN's product strategy and product portfolio, deciding what should become a product, for whom, why, with what evidence, and whether continued investment remains justified.
+    purpose: Convert problems, needs, opportunities and evidence into coherent, usable and sustainable products while preventing ideas, repositories, tools, client requests and experiments from becoming products accidentally.
+    coreAccountabilities:
+      - product strategy
+      - product discovery
+      - problem and customer validation
+      - value proposition
+      - product portfolio
+      - product lifecycle
+      - productization decisions
+      - product prioritization
+      - roadmap governance
+      - product experience
+      - user and customer research
+      - product analytics
+      - experimentation
+      - adoption and retention outcomes
+      - product investment theses
+      - product-market evidence
+      - continue pivot pause productize scale retire and kill decisions
+    sixMonthMandate:
+      - replace idea_driven_and_repository_driven_product_behavior_with_evidence_driven_decisions
+      - establish_explicit_product_portfolio
+      - control_product_work_in_progress
+      - identify_and_resolve_zombie_products
+      - define_minimum_evidence_expectations_proportional_to_investment
+      - connect_product_with_revenue_and_technology_without_collapsing_accountabilities
+      - demonstrate_at_least_one_validated_product_path
+    identityRules:
+      softwareNotProduct: Software, repositories, deployed applications, prototypes, internal automation and technical systems are not automatically products.
+      initiativeNotProduct: Initiative lifecycle and product maturity are separate dimensions; an initiative may conclude with no product.
+      capabilityNotProduct: Reusable capability does not become a product without a defined consumer, value proposition, support model, strategic fit and supporting evidence.
+      clientSolutionNotProduct: Customer-specific solutions remain CLIENT_SOLUTION unless evidence justifies productization.
+    productizationTaxonomy:
+      INTERNAL: Solution primarily serving ADÜMÜN internal operations.
+      SHARED_CAPABILITY: Reusable capability consumed by multiple internal or external contexts without necessarily being a standalone product.
+      PRODUCT: Repeatable offering intended for defined users or customers.
+      CLIENT_SOLUTION: Customer-specific solution whose scope, economics or obligations remain client-specific.
+      MANAGED_SERVICE: Continuously operated service delivered by ADÜMÜN.
+      HYBRID: Intentional combination of classifications with explicit ownership, economics and operating model.
+    productLifecycle:
+      - PROBLEM_OR_OPPORTUNITY
+      - DISCOVERY
+      - VALIDATION
+      - PRODUCT_CANDIDATE
+      - EXPERIMENT_OR_BUILD
+      - PILOT
+      - PRODUCTIZED
+      - OPERATE_OR_SCALE
+      - RETIRED
+    admissionCriteria:
+      - problem
+      - user
+      - evidence
+      - value
+      - differentiation
+      - strategic_fit
+      - feasibility
+      - operability
+      - economics
+      - risk
+    productizationTrigger:
+      - repeated_need
+      - multiple_potential_consumers
+      - reusable_core
+      - separable_intellectual_property
+      - supportability
+      - market_evidence
+      - economic_potential
+    prioritizationDimensions:
+      - strategic_fit
+      - problem_severity
+      - evidence_confidence
+      - reach
+      - user_value
+      - revenue_potential
+      - effort
+      - time_to_evidence
+      - risk
+      - reuse
+      - differentiation
+      - opportunity_cost
+    productWipPrinciple: Maintain many ideas, fewer active discoveries and very few simultaneous active product bets; Product WIP must respect Product, Technology, Operations and financial capacity.
+    explicitDecisionStates:
+      - CONTINUE
+      - PIVOT
+      - PAUSE
+      - PRODUCTIZE
+      - SCALE
+      - RETIRE
+      - KILL
+    killCriteria:
+      - weak_problem_evidence
+      - insufficient_usage
+      - absent_willingness_to_pay_when_commercially_relevant
+      - excessive_cost
+      - unsustainable_support_burden
+      - superior_external_alternative
+      - insufficient_differentiation
+      - material_legal_or_ip_risk
+      - excessive_opportunity_cost
+      - strategic_change
+      - repeated_negative_evidence
+    zombieProductDefinition: Product or product candidate consuming meaningful resources without sufficient ownership, users, evidence, usage or revenue where relevant, a justified roadmap or an explicit next lifecycle decision.
+    discoveryMethods:
+      - interviews
+      - observation
+      - prototypes
+      - landing_pages
+      - concierge_tests
+      - fake_door_tests
+      - pilots
+      - usability_testing
+      - willingness_to_pay_tests
+      - competitor_comparisons
+      - usage_analytics
+    evidenceLadder:
+      - ASSUMPTION
+      - ANECDOTE
+      - QUALITATIVE_EVIDENCE
+      - BEHAVIORAL_EVIDENCE
+      - COMMERCIAL_EVIDENCE
+      - REPEATED_USAGE_OR_REVENUE_EVIDENCE
+    outcomeVsOutput:
+      output: Shipping features, story points, tickets and implementation activity.
+      outcome: Adoption, activation, usage, retention, time to value, customer outcome and product economics.
+      rule: Output is useful operational evidence but does not substitute for demonstrated value.
+    productExperienceScope:
+      - ux
+      - interaction
+      - information_architecture
+      - onboarding
+      - usability
+      - user_journeys
+      - product_coherence
+    roadmapFields:
+      - objective
+      - problem
+      - evidence
+      - expected_outcome
+      - confidence
+      - next_milestone_or_decision
+    portfolioRecordFields:
+      - product_id
+      - name
+      - type
+      - owner
+      - target_user_or_customer
+      - problem
+      - lifecycle_or_maturity
+      - evidence_confidence
+      - current_investment
+      - next_decision
+      - strategic_fit
+      - revenue_or_usage_evidence
+    validatedProductPath:
+      criticalMetric: VALIDATED_PRODUCT_PATH
+      requirements:
+        - defined_user_or_customer
+        - validated_problem
+        - coherent_value_proposition
+        - usable_solution
+        - real_usage
+        - evidence_supporting_continued_investment
+      commercialExtension:
+        - willingness_to_pay_evidence
+        - revenue_evidence
+      prototypeAloneIsInsufficient: true
+    authority:
+      - define_product_strategy
+      - define_discovery_standards
+      - define_product_classification
+      - define_product_portfolio_structure
+      - define_product_lifecycle_states
+      - define_prioritization_methods
+      - define_roadmap_governance
+      - define_product_experience_standards
+      - define_research_and_experimentation_methods
+      - define_product_metrics
+      - define_evidence_requirements_proportional_to_investment
+      - admit_product_candidates
+      - make_or_recommend_continue_pivot_pause_productize_scale_retire_or_kill_decisions_within_delegated_authority
+    constraints:
+      - may_not_redefine_corporate_strategy_unilaterally
+      - may_not_override_cfo_economic_constraints
+      - may_not_prescribe_technical_architecture_against_cto_authority
+      - may_not_create_commercial_commitments_against_cro_authority
+      - may_not_commit_unavailable_operational_capacity_against_coo_controls
+      - may_not_reinterpret_legal_obligations_against_clo_authority
+      - may_not_represent_weak_evidence_as_validated_demand
+      - does_not_own_every_repository_project_customer_request_or_implementation_detail
+    boundaries:
+      CEO: CEO owns enterprise direction, strategic problems and portfolio-level priorities; CPO owns product strategy, discovery, validation and product portfolio decisions within that direction.
+      CRO: CRO owns market and commercial evidence; CPO owns productization, product strategy and roadmap decisions.
+      CTO: CPO owns what, why and for whom; CTO owns technological design, architecture, engineering, operation and supportability.
+      COO: CPO owns product strategy and lifecycle decisions; COO owns enterprise operating mechanisms that enable reliable product execution and feedback.
+      CFO: CPO owns product investment justification; CFO determines affordability, runway impact, economic constraints and financial sustainability.
+      CLO: CPO integrates legal constraints into product decisions; CLO remains authoritative on legal interpretation and material legal-risk assessment.
+    potentialCapabilities:
+      - Product Strategy
+      - Product Discovery & Research
+      - Product Management
+      - Product Design / UX
+      - Product Operations
+      - Product Analytics
+    m0M6Indicators:
+      - validated_problems
+      - discovery_to_decision_time
+      - evidence_confidence
+      - active_product_bets
+      - product_work_in_progress
+      - products_paused_or_killed_with_documented_evidence
+      - adoption
+      - activation
+      - usage
+      - retention
+      - time_to_value
+      - willingness_to_pay
+      - product_revenue
+      - conversion
+      - expansion_when_applicable
+      - cost_of_learning
+      - roadmap_churn
+      - support_burden
+      - time_to_evidence
+      - evidence_coverage
+    operatingPrinciples:
+      - software_is_not_automatically_a_product
+      - product_exists_to_create_repeatable_value_for_a_defined_user_or_customer_under_a_sustainable_operating_model
+      - problems_precede_solutions
+      - requests_are_evidence_not_roadmap_authority
+      - product_maturity_and_initiative_lifecycle_are_separate_dimensions
+      - build_only_enough_to_obtain_the_next_material_evidence
+      - evidence_expectation_increases_with_investment_risk_and_irreversibility
+      - killing_an_unsupported_product_is_portfolio_management_not_organizational_failure
+      - roadmap_represents_prioritized_outcomes_and_hypotheses_not_every_requested_feature
+      - not_every_reusable_capability_should_become_an_external_product
+    antiPatterns:
+      - backlog_secretary
+      - generic_project_manager
+      - feature_factory_manager
+      - founder_proxy
+      - loudest_customer_proxy
+      - shadow_cto
+      - shadow_cro
+      - universal_owner_of_software
+      - ceo_idea_equals_roadmap
+      - client_request_equals_feature
+      - repository_equals_product
+      - internal_tool_equals_saas
+      - feature_shipped_equals_value_delivered
+      - experiment_equals_permanent_project
+    targetOutcomeM0M6: ADÜMÜN has an explicit evidence-backed product portfolio with controlled Product WIP, no unowned zombie products, clear separation among products, internal capabilities, client solutions and experiments, and at least one Validated Product Path demonstrating sufficient user or customer value to justify continued investment.
+    reportingLine: CEO
+
 reservedScaleTriggered:
   - code: CMO
     title: Chief Marketing Officer
@@ -626,7 +890,6 @@ notCurrentlyJustified:
 nextRefinement:
   required: true
   sequence:
-    - CPO
     - CTO
     - CLO
   scope:
