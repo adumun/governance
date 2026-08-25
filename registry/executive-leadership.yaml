@@ -1,4 +1,4 @@
-schemaVersion: "1.2"
+schemaVersion: "1.3"
 kind: ExecutiveLeadershipBaseline
 metadata:
   id: ADM-ORG-ELT-001
@@ -51,7 +51,8 @@ currentBaseline:
   - code: CRO
     title: Chief Revenue Officer
     responsibility: Revenue strategy, commercial model, sales, pricing, channels, partnerships, monetization, pipeline and customer/account growth.
-    status: DESIGN_BASELINE
+    status: DETAILED_ROLE_CANDIDATE
+    detailedRoleRef: ADM-ORG-CRO-001
   - code: CLO
     title: Chief Legal Officer
     responsibility: Corporate legal affairs, contracts, intellectual property, labor/legal coordination, privacy, regulation, compliance and legal risk protection.
@@ -291,6 +292,302 @@ detailedRoles:
       - default_manager_of_every_person
     reportingLine: CEO
 
+  CRO:
+    id: ADM-ORG-CRO-001
+    title: Chief Revenue Officer
+    maturity: CANDIDATE
+    authorityState: CURRENT
+    humanSourceSection: 19. CRO — Chief Revenue Officer — Detailed Executive Mandate
+    executiveLevel: C_LEVEL
+    accountabilityScope: ENTERPRISE_REVENUE
+    purpose: Build and operate ADÜMÜN's revenue system, converting validated market value into sustainable commercial results.
+    coreAccountabilities:
+      - revenue strategy
+      - go-to-market
+      - commercial architecture
+      - sales and business development
+      - pricing and packaging
+      - qualified pipeline
+      - lead generation
+      - partnerships and channels
+      - customer acquisition
+      - account growth
+      - monetization
+      - commercial experimentation
+      - offer management
+      - revenue forecasting
+      - revenue attribution
+      - market feedback and customer learning
+    sixMonthMandate:
+      - identify responsible early revenue from capabilities available now
+      - define explicit revenue architecture
+      - transform capabilities into sellable offers
+      - establish a reliable commercial pipeline
+      - run disciplined revenue experiments
+      - validate willingness to pay
+      - protect revenue quality with CFO and COO
+      - connect public presence to qualified opportunity generation where appropriate
+      - prove at least one repeatable customer_problem_to_collected_revenue_path
+    revenueArchitecture:
+      - SERVICES
+      - PRODUCTS
+      - RECURRING_REVENUE
+      - LICENSING_AND_IP
+      - PARTNERSHIPS
+      - COMMERCE
+      - OTHER_VALIDATED_MODELS
+    revenueLifecycle:
+      - market
+      - awareness
+      - lead
+      - qualification
+      - offer
+      - proposal
+      - negotiation
+      - close
+      - delivery_interface
+      - billing_interface
+      - payment
+      - retention
+      - expansion
+    offerMinimum:
+      - target_customer
+      - problem
+      - value_promise
+      - scope
+      - exclusions
+      - price_or_pricing_model
+      - delivery_model
+      - evidence
+      - service_or_support_assumptions
+      - commitments
+      - expected_economic_contribution
+    authority:
+      - define_revenue_strategy
+      - define_gtm_motions
+      - define_commercial_packaging
+      - propose_standard_pricing
+      - define_sales_process
+      - define_pipeline_stages
+      - define_qualification_rules
+      - define_customer_segmentation
+      - run_commercial_experiments
+      - define_channel_strategy
+      - define_partnership_models
+      - define_account_development_approaches
+      - define_market_activation_mechanisms
+    constraints:
+      - may_not_redefine_corporate_strategy_for_a_sale
+      - may_not_represent_pipeline_as_booked_billed_or_collected_revenue
+      - may_not_convert_every_client_request_into_product_roadmap_commitment
+      - may_not_commit_unavailable_operational_capacity
+      - may_not_sell_nonexistent_technical_capability_as_production_ready
+      - may_not_override_cfo_economic_controls
+      - may_not_reinterpret_legal_obligations
+      - may_not_commit_unapproved_ip_or_licensing_rights
+      - may_not_bind_adumun_beyond_delegated_commercial_authority
+    boundaries:
+      CEO: CEO establishes enterprise direction and strategic positioning; CRO owns the revenue engine within that direction.
+      CFO: CRO optimizes market conversion and revenue growth; CFO determines cost floors, margin, liquidity, cash timing and financial sustainability.
+      COO: CRO owns commercial commitments; COO ensures material commitments are reasonably deliverable through the enterprise operating system.
+      CPO: CRO owns market and commercial evidence; CPO owns productization and roadmap decisions.
+      CTO: CRO surfaces market demand; CTO determines technical feasibility, constraints, operating cost, technical risk and supportability.
+      CLO: CRO owns commercial negotiation within approved patterns; CLO owns legal interpretation and material legal-risk assessment.
+    pricingAuthority:
+      croOwns:
+        - market_facing_price_design
+        - packaging
+        - discount_strategy_within_policy
+        - commercial_negotiation
+      cfoOwns:
+        - cost_floor_visibility
+        - required_economics
+        - margin_implications
+        - cash_implications
+      belowEconomicFloor: CFO_REVIEW_REQUIRED
+      materialStrategicException: CEO_CFO_CRO_ALIGNMENT
+    pipelineStages:
+      - LEAD
+      - QUALIFIED
+      - DISCOVERY
+      - OFFER
+      - PROPOSAL
+      - NEGOTIATION
+      - WON
+      - LOST
+    opportunityMinimum:
+      - account_or_customer
+      - offer
+      - estimated_value
+      - probability_or_confidence
+      - owner
+      - next_action
+      - expected_close
+      - source
+      - material_blockers
+      - dependencies
+    revenueStates:
+      - PIPELINE
+      - WEIGHTED_PIPELINE
+      - COMMITTED
+      - BOOKED
+      - BILLED
+      - COLLECTED
+    idealCustomerProfileDimensions:
+      - industry_or_domain
+      - size_or_purchasing_capacity
+      - problem_severity
+      - urgency
+      - ability_and_willingness_to_pay
+      - buying_process
+      - delivery_fit
+      - strategic_fit
+    partnershipModels:
+      - referral
+      - channel
+      - reseller
+      - co_selling
+      - strategic_alliance
+      - technology_partnership
+      - sponsorship
+      - licensing
+      - distribution
+    interimMarketingScope:
+      - market_activation
+      - acquisition
+      - operational_positioning
+      - campaigns
+      - audience_development
+      - conversion
+    publicPresenceRevenueFlow:
+      - credibility
+      - audience
+      - discovery
+      - opportunity
+      - conversion
+      - revenue
+    revenueExperimentFields:
+      - customer
+      - problem
+      - offer
+      - channel
+      - price
+      - expected_evidence
+      - experiment_window
+      - result
+      - decision
+    revenueExperimentDecisions:
+      - SCALE
+      - ITERATE
+      - HOLD
+      - KILL
+    commercialAdmissionCriteria:
+      - revenue
+      - margin_or_contribution
+      - cash_timing
+      - strategic_fit
+      - reusable_capability_potential
+      - reference_value
+      - learning_value
+      - ip_implications
+      - delivery_capacity
+      - legal_and_security_risk
+      - opportunity_cost
+    dealQualityDimensions:
+      - REVENUE
+      - MARGIN
+      - CASH
+      - STRATEGIC_FIT
+      - REUSE
+      - REFERENCE_VALUE
+      - RISK
+      - CAPACITY
+    customerFeedbackEvidence:
+      - objections
+      - requested_features
+      - reasons_lost
+      - willingness_to_pay
+      - price_sensitivity
+      - competitor_references
+      - buying_criteria
+    customerOwnership:
+      commercialRelationship: CRO
+      deliveryExecution: COO_OR_DELIVERY
+      productExperienceAndDecisions: CPO
+      financialControl: CFO
+      legalInterpretation: CLO
+    commercialCommitmentMinimum:
+      - price
+      - scope
+      - delivery_or_availability_assumptions
+      - payment_terms
+      - sla_or_support_when_applicable
+      - ip_or_licensing_treatment
+      - exclusions
+      - termination_or_cancellation_conditions
+    revenueQualityClasses:
+      HIGH_QUALITY: acceptable economics, favorable cash timing, repeatability, strategic alignment and manageable support burden
+      STRATEGIC: conscious near-term economic tradeoff for reference, learning, market entry or reusable capability
+      BAD: poor economics, excessive customization, delayed collection, high support burden, material risk or strategic distraction
+    criticalMetric: VALIDATED_REVENUE_ENGINE
+    validatedRevenueEngineDefinition: At least one reasonably repeatable path from a defined customer or ICP and known problem through a known channel and defined offer at a tested price to successful delivery and collected revenue.
+    m0M6Indicators:
+      - booked_revenue
+      - collected_revenue
+      - recurring_revenue
+      - gross_contribution
+      - qualified_pipeline
+      - weighted_pipeline
+      - pipeline_coverage
+      - conversion
+      - win_rate
+      - sales_cycle_duration
+      - average_deal_value
+      - lead_to_qualified_conversion
+      - qualified_to_opportunity_conversion
+      - opportunity_to_customer_conversion
+      - validated_offers
+      - offer_conversion
+      - revenue_by_offer
+      - renewal_churn_and_expansion_when_applicable
+      - acquisition_cost
+      - revenue_per_commercial_effort
+      - discount_rate
+      - forecast_accuracy
+      - failed_commercial_commitments
+    potentialCapabilities:
+      - Revenue Strategy
+      - Sales / Business Development
+      - Partnerships
+      - Commercial Operations
+      - Offer Management
+      - Marketing & Market Activation (interim)
+    operatingPrinciples:
+      - revenue_is_evidence_of_value_exchange_not_proof_every_deal_is_good
+      - revenue_is_not_cash_and_pipeline_is_not_revenue
+      - capability_is_not_automatically_a_commercial_offer
+      - client_request_is_evidence_not_automatic_product_roadmap_authority
+      - no_material_commercial_commitment_without_reasonable_deliverability
+      - pricing_must_reflect_market_and_economic_reality
+      - commercial_learning_flows_to_product_and_strategy
+      - commercial_exceptions_remain_visible
+      - prefer_repeatable_high_quality_revenue_over_destructive_topline
+      - commercial_experiments_end_in_explicit_decisions
+    antiPatterns:
+      - sales_at_any_cost
+      - discount_machine
+      - impossible_promises
+      - product_roadmap_owner
+      - shadow_cfo
+      - delivery_owner
+      - vanity_metric_marketer
+      - pipeline_inflater
+      - opportunity_hoarder
+      - hiding_collection_risk
+      - unlimited_bespoke_work
+    targetOutcomeM0M6: Demonstrate at least one repeatable commercial path from a defined customer problem and offer to collected revenue without economically, operationally, legally or strategically destructive commitments.
+    reportingLine: CEO
+
 reservedScaleTriggered:
   - code: CMO
     title: Chief Marketing Officer
@@ -329,7 +626,6 @@ notCurrentlyJustified:
 nextRefinement:
   required: true
   sequence:
-    - CRO
     - CPO
     - CTO
     - CLO
