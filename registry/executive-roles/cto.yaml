@@ -1,0 +1,821 @@
+schemaVersion: "1.0"
+kind: ExecutiveRoleDefinition
+metadata:
+  id: ADM-ORG-CTO-001
+  organization: ADÜMÜN
+  code: CTO
+  title: Chief Technology Officer
+  maturity: CANDIDATE
+  authorityState: CURRENT
+  effectiveReferenceDate: 2026-08-25
+  parentBaselineRef: ADM-ORG-ELT-001
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 21. CTO — Chief Technology Officer — Detailed Executive Mandate
+  steward: People & Organization / Organizational Design & Workforce
+
+executiveLevel: C_LEVEL
+accountabilityScope: ENTERPRISE_TECHNOLOGY
+reportsTo: CEO
+peerRoles:
+  - CFO
+  - COO
+  - CPO
+  - CRO
+  - CLO
+
+purpose: >-
+  Ensure ADÜMÜN can design, build, operate, evolve, secure, observe, reuse and retire
+  software, platforms, infrastructure, data systems, AI systems, agents and technical
+  capabilities in a strategically coherent, technically sound, economically proportionate
+  and operationally supportable manner.
+
+coreAccountabilities:
+  - technology_strategy
+  - enterprise_and_solution_architecture
+  - software_engineering
+  - engineering_standards
+  - platform_engineering
+  - cloud_and_infrastructure
+  - devops_ci_cd_and_release_engineering
+  - reliability_and_observability
+  - technical_security_until_independent_ciso
+  - ai_and_agent_engineering
+  - technical_data_platforms_until_independent_cdo
+  - shared_technical_capabilities
+  - developer_experience
+  - technical_lifecycle
+  - technical_debt
+  - build_buy_reuse_decisions
+  - technical_feasibility
+  - engineering_quality
+  - operability
+  - supportability
+  - technology_cost
+  - technical_risk
+
+sixMonthMandate:
+  - establish_a_coherent_minimum_technology_operating_model
+  - create_repeatable_need_to_operation_delivery_path
+  - reduce_irreproducible_manual_configuration
+  - establish_proportionate_production_readiness
+  - make_material_systems_and_ownership_observable
+  - reuse_repeated_capabilities_when_evidence_justifies_it
+  - demonstrate_validated_technology_delivery_path
+
+technologyStrategy:
+  derivesFrom:
+    - enterprise_strategy
+    - product_needs
+    - commercial_needs
+    - operational_requirements
+    - economics
+    - risk
+  rule: Technology choices require an explicit enterprise capability, productivity, differentiation, cost, control, speed, interoperability, risk or sustainability rationale.
+  prohibitedBasis:
+    - novelty_alone
+    - individual_preference_alone
+    - trend_or_fashion_alone
+
+roleIdentity:
+  isNot:
+    - mandatory_principal_programmer
+    - lead_developer_only
+    - cloud_administrator_with_executive_title
+    - universal_code_reviewer
+    - architecture_dictator
+  principle: CTO owns the engineering system and technical capability, not permanent personal execution of every technical task.
+
+authority:
+  - define_technology_strategy
+  - define_architecture_standards
+  - define_engineering_standards
+  - define_technology_lifecycle_states
+  - define_technical_criticality
+  - define_engineering_quality_expectations
+  - define_platform_and_infrastructure_patterns
+  - define_technology_radar_states
+  - define_production_readiness_expectations
+  - require_technical_ownership
+  - define_technical_exception_mechanisms
+  - define_observability_and_reliability_requirements
+  - define_ai_and_agent_technical_controls
+  - define_technical_security_requirements
+  - recommend_build_buy_reuse_adapt_or_outsource
+  - require_architecture_review_proportional_to_risk
+
+constraints:
+  - may_not_redefine_corporate_strategy_through_technology_preference
+  - may_not_decide_product_value_or_priority_against_cpo_authority
+  - may_not_create_commercial_commitments_against_cro_authority
+  - may_not_commit_material_capital_outside_cfo_controls
+  - may_not_replace_enterprise_operating_priorities
+  - may_not_reinterpret_legal_requirements_against_clo_authority
+  - may_not_classify_experimental_capability_as_production_ready_without_evidence
+  - technical_feasibility_is_not_business_value
+
+boundaries:
+  CEO: CEO establishes strategic needs, enterprise priorities and risk appetite; CTO owns the technological approach, constraints and technical risk.
+  CPO: CPO owns what, why, for whom and product outcomes; CTO owns how the technology is architected, engineered, operated and supported.
+  COO: COO owns the enterprise operating system and cross-domain coordination; CTO owns the technology operating model and engineering methods.
+  CRO: CRO owns market demand and commercial commitments; CTO determines feasibility, scalability, technical risk, operating cost and supportability.
+  CFO: CFO owns economic envelope and financial controls; CTO owns architecture and technology consumption, with joint FinOps accountability.
+  CLO: CLO owns legal interpretation and legal exposure; CTO implements the corresponding technical controls.
+
+finOps:
+  ownership: JOINT_CFO_CTO_CAPABILITY
+  notSeparateDepartmentByDefault: true
+  dimensions:
+    - cost_by_environment
+    - cost_by_product
+    - cost_by_service
+    - major_cost_drivers
+    - idle_resources
+    - anomalies
+    - forecast
+
+technologyRadar:
+  states:
+    - ADOPT
+    - TRIAL
+    - ASSESS
+    - HOLD
+    - RETIRE
+  appliesTo:
+    - languages
+    - frameworks
+    - databases
+    - cloud_services
+    - infrastructure_tools
+    - ai_models
+    - agent_frameworks
+    - observability_tools
+  purpose: Reduce uncontrolled fragmentation while allowing justified exceptions.
+
+architecture:
+  visibilityMinimum:
+    - system_purpose
+    - technical_owner
+    - consumers
+    - data_handled
+    - runtime_location
+    - dependencies
+    - interfaces
+    - lifecycle
+    - criticality
+    - operating_expectations
+  decisionRecords:
+    type: ADR_OR_EQUIVALENT
+    minimumFields:
+      - context
+      - decision
+      - alternatives
+      - rationale
+      - consequences
+      - status
+    requiredWhen:
+      - meaningful_scope
+      - material_irreversibility
+      - material_cost
+      - material_risk
+      - cross_system_impact
+  governanceRule: Architecture-review intensity increases with irreversibility, scope, criticality, cost and risk.
+
+sourcingModel:
+  options:
+    - BUILD
+    - BUY
+    - REUSE
+    - ADAPT
+    - OUTSOURCE
+  evaluationDimensions:
+    - strategic_differentiation
+    - time_to_value
+    - total_lifecycle_cost
+    - operational_burden
+    - vendor_lock_in
+    - security
+    - control
+    - licensing
+    - integration_complexity
+    - internal_expertise
+    - portability
+    - supplier_viability
+    - opportunity_cost
+  rule: Open source, SaaS, cloud and internal development are choices, not ideologies.
+
+totalCostOfOwnership:
+  includes:
+    - build
+    - operate
+    - maintain
+    - secure
+    - monitor
+    - upgrade
+    - support
+    - migrate
+    - incident_response
+    - retirement
+
+engineering:
+  capabilityFlow:
+    - design
+    - implement
+    - test
+    - review
+    - integrate
+    - deploy
+    - observe
+    - maintain
+    - evolve
+    - retire
+  qualityPrinciple: Engineering quality is demonstrated through reliable outcomes, maintainability, recoverability and safe change, not code volume.
+  standardsDomains:
+    - source_control
+    - branching
+    - review
+    - testing
+    - dependency_management
+    - configuration
+    - secrets
+    - api_design
+    - error_handling
+    - logging
+    - observability
+    - deployment
+    - versioning
+    - documentation
+    - secure_coding
+
+platformEngineering:
+  goldenPaths:
+    purpose: Replace repeated manual technical instructions with reusable default paths when recurring friction is demonstrated.
+    possibleDomains:
+      - repository_creation
+      - project_baseline
+      - authentication
+      - database_provisioning
+      - environment_setup
+      - deployment
+      - monitoring
+    defaultNotMandatory: true
+  internalDeveloperPlatform:
+    recognizedCapability: true
+    organizationalClass: TECHNOLOGY_CAPABILITY
+    notAutomaticallyCommercialProduct: true
+    purpose: Abstract recurring technical operations for developers, agents and teams.
+    possibleDomains:
+      - repositories
+      - environments
+      - databases
+      - secrets
+      - identity
+      - api_gateways
+      - storage
+      - deployment
+      - observability
+      - queues
+      - ai_services
+      - document_services
+    antiPattern: mega_platform_before_demonstrated_demand_or_friction
+
+sharedTechnicalCapabilities:
+  trigger: repeated_implementation_of_same_technical_concern
+  examples:
+    - identity
+    - notifications
+    - document_management
+    - ai_inference
+    - audit_logging
+    - media_processing
+    - integration_adapters
+  reuseRule: Reuse is justified only when lifecycle and coordination cost are lower than continued duplication.
+  evaluationDimensions:
+    - coupling
+    - versioning
+    - compatibility
+    - support
+    - governance
+    - integration_overhead
+    - independent_evolution
+
+softwareLifecycle:
+  states:
+    - EXPERIMENTAL
+    - DEVELOPMENT
+    - PILOT
+    - PRODUCTION
+    - MAINTENANCE
+    - DEPRECATED
+    - RETIRED
+  principle: Lifecycle state determines proportionate expectations for quality, controls, supportability and change discipline.
+
+productionReadiness:
+  governedState: true
+  considerations:
+    - reproducible_deployment
+    - testing
+    - secrets_management
+    - security
+    - logging
+    - monitoring
+    - rollback_or_recovery
+    - dependency_health
+    - operational_ownership
+    - cost_visibility
+    - documentation
+    - data_protection
+  proportionalTo:
+    - risk
+    - criticality
+    - consequence
+
+productizationTransitions:
+  possibleClasses:
+    - initiative_local_software
+    - shared_capability
+    - product_technology
+    - client_solution
+    - managed_service
+  transitionRequirements:
+    - explicit_technical_owner
+    - compatibility_obligations
+    - versioning
+    - documentation
+    - support
+    - operability
+    - security
+    - cost_implications
+  ownershipRule: CTO governs technical integrity; CPO governs productization.
+
+noDuplicateSoftwareFactory:
+  rule: Do not create a second Software Factory organizational unit for work already covered by Product, Technology, Software Delivery, Platforms and Shared Technical Capabilities.
+  structuralTrigger: independent_accountability_problem_with_evidence
+
+softwareDeliveryBoundary:
+  deliveryOwns: customer_specific_solution_execution
+  ctoOwns:
+    - enterprise_technical_coherence
+    - engineering_system
+    - technical_standards
+    - reusable_capability_strategy
+    - technical_risk_controls
+  exceptionRule: Client-driven technology deviations must be explicit and assessed for support, specialist knowledge, lifecycle and reuse consequences.
+
+technicalExceptions:
+  minimumFields:
+    - departed_standard
+    - reason
+    - affected_system
+    - selected_alternative
+    - consequences
+    - owner
+  optionalFields:
+    - duration
+    - review_trigger
+  principle: Hidden deviation is drift; explicit deviation is governable.
+
+technicalDebt:
+  minimumFields:
+    - debt
+    - affected_capability
+    - impact
+    - risk
+    - expected_cost
+    - remediation
+    - priority
+  intentionalDebtAllowed: true
+  intentionalDebtRule: Time-bounded shortcuts are acceptable when the tradeoff and next decision are explicit.
+  interestSignals:
+    - slower_changes
+    - recurring_incidents
+    - security_exposure
+    - excessive_cloud_cost
+    - developer_friction
+    - support_burden
+    - failed_releases
+    - inability_to_evolve
+
+cloudAndInfrastructure:
+  domains:
+    - compute
+    - networking
+    - databases
+    - storage
+    - dns
+    - cdn
+    - identity_infrastructure
+    - environments
+    - secrets
+    - backups
+    - deployment_infrastructure
+  providerPrinciple: Providers are suppliers and capabilities, not corporate strategy.
+  multiCloudRule: Provider independence is pursued only when strategic, contractual, resilience or economic evidence justifies it.
+
+environments:
+  possibleStates:
+    - LOCAL_OR_DEVELOPMENT
+    - TEST
+    - UAT_OR_STAGING
+    - PRODUCTION
+  rule: Number and isolation level of environments must match lifecycle, risk and delivery needs.
+
+devOpsAndReleaseEngineering:
+  capabilityDomains:
+    - build
+    - test_automation
+    - infrastructure_automation
+    - configuration
+    - deployment
+    - release
+    - observability
+    - recovery
+  distinctEvents:
+    - commit
+    - merge
+    - build
+    - artifact
+    - release
+    - deployment
+
+validationPolicy:
+  localValidation: AUTHORITATIVE_AND_MANDATORY_WHEN_REQUIRED_BY_REPOSITORY_GOVERNANCE
+  remoteCI: ADDITIVE_WHEN_AVAILABLE
+  principle: Paid or unavailable remote CI must not become the sole gate for mandatory validation.
+  financialExceptionRule: Financial or platform limitations may alter execution path but do not justify skipping required validation evidence.
+
+reliability:
+  possibleDimensions:
+    - availability
+    - latency
+    - error_rate
+    - durability
+    - recovery
+  terminology:
+    SLI: measured_service_indicator
+    SLO: technical_service_objective
+    SLA: contractual_commitment
+  slaBoundary: CRO and CLO participate in contractual commitments; CTO determines technical supportability.
+
+observability:
+  outcome: Explain what is happening, what failed, where, since when and with what severity.
+  mechanisms:
+    - structured_logs
+    - metrics
+    - traces
+    - events
+    - dashboards
+    - alerts
+  proportionalToCriticality: true
+
+technicalIncidents:
+  flow:
+    - detect
+    - contain
+    - restore
+    - diagnose
+    - remediate
+    - learn
+    - prevent_recurrence
+  enterpriseIntegration: COO_INCIDENT_SYSTEM
+  postmortemPrinciple: Identify systemic causes and corrective actions rather than blame.
+
+securityEngineering:
+  interimExecutiveOwner: CTO
+  capabilities:
+    - secure_architecture
+    - identity_and_access_management
+    - secrets_management
+    - encryption
+    - dependency_security
+    - vulnerability_management
+    - secure_sdlc
+    - cloud_security
+    - technical_incident_response
+  cisoSeparationTriggers:
+    - regulatory_obligation
+    - enterprise_customer_requirements
+    - certification_or_audit_requirements
+    - material_cyber_risk
+    - material_security_incidents
+    - organizational_scale
+    - conflict_of_interest_or_independence_need
+
+dataEngineering:
+  interimExecutiveOwner: CTO
+  capabilities:
+    - data_stores
+    - pipelines
+    - technical_data_architecture
+    - quality_mechanisms
+    - metadata
+    - analytics_infrastructure
+    - data_platform_engineering
+  cdoSeparationTriggers:
+    - material_cross_vertical_data_governance
+    - data_monetization
+    - complex_enterprise_data_ownership
+    - regulatory_complexity
+    - material_ai_dependency_on_enterprise_data
+
+aiAndAgents:
+  executiveOwner: CTO
+  capabilities:
+    - model_selection
+    - inference_architecture
+    - orchestration
+    - tool_integration
+    - evaluation
+    - technical_guardrails
+    - observability
+    - cost_management
+    - deployment
+    - lifecycle
+    - operational_support
+  noIndependentChiefAiOfficerByDefault: true
+  classificationRule:
+    - ai_model_is_not_automatically_ai_capability
+    - ai_capability_is_not_automatically_ai_feature
+    - ai_feature_is_not_automatically_ai_product
+  evaluationDimensions:
+    - task_success
+    - correctness
+    - failure_modes
+    - unsupported_output_or_hallucination_when_relevant
+    - latency
+    - cost
+    - regression
+    - safety_when_applicable
+    - human_review_requirements
+  autonomyPrinciple: Agents may execute work but never acquire organizational accountability.
+  accountabilityMinimum:
+    - accountable_role
+    - mandate
+    - authority
+    - scope
+    - permissions
+    - consequences
+    - monitoring
+    - escalation
+    - rollback_or_recovery
+  privilegePrinciple: minimum_capability_necessary_for_mandate
+  humanInLoopPrinciple: approval_intensity_scales_with_risk_and_destructiveness
+
+vendorGovernance:
+  ctoEvaluates:
+    - capability_fit
+    - architecture
+    - security
+    - reliability
+    - api_or_service_limits
+    - integration
+    - longevity
+    - operational_burden
+    - portability
+    - exit_strategy
+  cfoEvaluates:
+    - economics
+    - procurement_implications
+  cloEvaluates:
+    - licensing
+    - contracts
+    - data_obligations
+  openSourceRule: Open source cost includes maintenance, security and operational burden.
+
+developerExperience:
+  indicators:
+    - environment_setup_time
+    - time_to_first_deploy
+    - build_time
+    - review_latency
+    - manual_configuration_steps
+    - repeated_internal_support_requests
+    - toolchain_inconsistency_cost
+  feeds:
+    - golden_paths
+    - internal_developer_platform
+
+engineeringProductivity:
+  avoidMetrics:
+    - lines_of_code_per_person
+    - commits_per_person
+    - tickets_per_person
+  usefulSignals:
+    - lead_time
+    - cycle_time
+    - deployment_frequency
+    - change_failure_rate
+    - time_to_restore
+    - review_latency
+    - build_duration
+    - rework
+    - maintainability
+    - developer_friction
+  doraWhenMeaningful:
+    - deployment_frequency
+    - lead_time_for_changes
+    - change_failure_rate
+    - time_to_restore
+
+qualityAndTesting:
+  principle: Quality is a lifecycle property, not solely a QA responsibility.
+  riskBasedTestingTypes:
+    - unit
+    - integration
+    - contract
+    - end_to_end
+    - security
+    - performance
+    - smoke
+    - exploratory
+  avoidUniversalCoverageThresholdAsSubstituteForRiskAnalysis: true
+  technicalDefinitionOfDonePossibleDimensions:
+    - implementation
+    - review
+    - testing
+    - security_consideration
+    - deployability
+    - observability
+    - documentation
+    - evidence
+
+technicalOwnership:
+  rule: Every material production system must have identifiable Technical Ownership.
+  unownedProductionSystem: ORGANIZATIONAL_DEBT
+  busFactorReductionMechanisms:
+    - documentation
+    - automation
+    - common_patterns
+    - reviews
+    - reproducible_environments
+    - shared_understanding
+
+deprecationAndRetirement:
+  deprecatedAssetMinimum:
+    - owner
+    - consumers
+    - rationale
+    - replacement_or_migration_path_when_needed
+    - retirement_trigger_or_horizon_when_practical
+  principle: Permanent unmanaged legacy is not lifecycle management.
+
+innovationAndResearch:
+  possibleCapabilities:
+    - technology_exploration
+    - applied_research
+    - ai_research
+    - research_and_development
+  rule: Exploration remains distinct from adopted standards and production capability.
+  noChiefInnovationOfficerByDefault: true
+
+machineReadableTechnologyGovernance:
+  architectureFitnessFunctionsPossible: true
+  possibleChecks:
+    - dependency_boundaries
+    - api_compatibility
+    - schema_rules
+    - security_baselines
+  serviceMetadataMinimumCandidate:
+    - id
+    - owner
+    - lifecycle
+    - product_or_capability_association
+    - criticality
+    - runtime
+    - data_classification
+    - dependencies
+    - environments
+    - repository
+  sourceOfTruthPrinciple: Derived views should consume intentional authoritative technical sources instead of competing manual copies.
+  architectureDriftDetectionTarget: declared_state_vs_repository_cloud_and_runtime_evidence
+
+criticality:
+  candidateTiers:
+    - EXPERIMENTAL
+    - INTERNAL_NON_CRITICAL
+    - PRODUCTION
+    - BUSINESS_CRITICAL
+    - MISSION_CRITICAL
+  proportionalControls:
+    - testing
+    - security
+    - observability
+    - backup
+    - recovery
+    - review
+    - reliability
+
+m0M6Indicators:
+  deliveryCapability:
+    - lead_time_to_deploy
+    - deployment_success
+    - change_failure_rate
+    - time_to_restore
+  quality:
+    - production_incidents
+    - escaped_defects
+    - rework
+  developerExperience:
+    - developer_environment_setup_time
+    - time_to_first_deploy
+    - review_latency
+    - build_time
+  ownershipAndObservability:
+    - production_systems_with_identified_technical_owner
+    - production_systems_with_proportionate_observability
+  platformAndReuse:
+    - repeated_capabilities_successfully_reused
+    - manual_technical_toil_removed
+  economics:
+    - infrastructure_cost
+    - technology_cost_anomalies
+    - idle_resource_waste
+  technologyHealth:
+    - material_security_findings
+    - unsupported_dependencies
+    - technical_debt_with_material_impact
+    - architecture_decisions_with_traceable_rationale
+    - production_systems_with_lifecycle_ownership_and_operational_metadata
+
+criticalOutcome:
+  code: VALIDATED_TECHNOLOGY_DELIVERY_PATH
+  definition: >-
+    ADÜMÜN can take an approved need and repeatedly progress through technical assessment,
+    design or architecture, implementation, validation, deployment, operation, observation
+    and learning using reproducible and proportionately governed practices rather than
+    undocumented manual configuration or exclusively tacit knowledge.
+  evidenceRule: A one-off successful deployment is evidence but does not alone prove a reliable delivery path.
+
+potentialCapabilities:
+  - Technology Strategy & Architecture
+  - Software Engineering
+  - Platform Engineering
+  - Cloud & Infrastructure
+  - DevOps / Release Engineering
+  - Reliability & Observability
+  - AI & Automation
+  - Security Engineering (interim)
+  - Data Engineering (interim)
+
+structuralRule: Named capabilities are not mandatory departments; organizational separation requires workload and accountability evidence.
+
+operatingPrinciples:
+  - technology_exists_to_create_and_preserve_enterprise_capability_not_maximize_novelty
+  - technical_feasibility_is_not_product_justification
+  - architecture_is_deliberate_and_proportional_to_risk_and_irreversibility
+  - production_ready_is_a_governed_state
+  - build_buy_reuse_adapt_and_outsource_are_strategic_choices_not_ideologies
+  - reuse_requires_favorable_lifecycle_economics
+  - every_material_production_system_requires_explicit_technical_ownership
+  - technical_debt_is_visible_intentional_when_accepted_and_prioritized_by_impact
+  - security_reliability_and_observability_scale_with_criticality
+  - automation_executes_but_does_not_own_accountability
+  - ai_is_a_transversal_capability_not_automatically_a_product_or_unit
+  - platform_engineering_removes_demonstrated_friction_not_builds_an_internal_empire
+  - standards_improve_interoperability_quality_and_speed_not_centralize_every_decision
+  - exceptions_are_allowed_when_explicit_justified_and_traceable
+  - technology_becomes_progressively_machine_readable_and_observable
+
+antiPatterns:
+  - mandatory_principal_programmer
+  - architecture_dictator
+  - technology_novelty_collector
+  - shadow_cpo
+  - shadow_coo
+  - universal_code_reviewer
+  - bottleneck_for_every_technical_decision
+  - cloud_admin_with_executive_title
+  - stack_religion
+  - platform_without_users
+  - sole_owner_of_all_defects
+
+invalidEquivalences:
+  - can_build_it_equals_should_build_it
+  - newer_technology_equals_better_technology
+  - shared_equals_reusable
+  - deployed_equals_production_ready
+  - works_equals_reliable
+  - cloud_equals_architecture
+  - ai_model_equals_ai_product
+  - automation_equals_accountability
+  - standard_equals_no_exceptions
+  - technical_debt_equals_always_bad
+
+targetOutcomeM0M6: >-
+  ADÜMÜN has a coherent and observable technology foundation capable of repeatedly converting
+  approved needs into operable software through explicit architecture, engineering, deployment
+  and operational practices; material production systems have identifiable ownership and
+  proportionate security, observability and recovery controls; repeated technical needs begin
+  moving toward shared capabilities or Golden Paths where evidence justifies reuse; and at least
+  one VALIDATED_TECHNOLOGY_DELIVERY_PATH is demonstrated end to end.
+
+maturityAndNextSteps:
+  current: CANDIDATE
+  beforeStandardizedOrEnforced:
+    - reconcile_with_completed_cfo_mandate
+    - reconcile_with_detailed_clo_contract
+    - reconcile_with_productization_and_software_lifecycle_governance
+    - reconcile_with_technical_security_independence_requirements
+    - validate_ciso_and_cdo_separation_triggers
+    - validate_against_actual_m0_m6_technology_delivery_evidence
