@@ -1,0 +1,38 @@
+recordType: RISK_ACCEPTANCE
+recordId: RSK-YYYY-NNN
+title: ""
+status: PROPOSED
+createdAt: YYYY-MM-DD
+updatedAt: YYYY-MM-DD
+
+relatedDecisionOrEvent:
+  type: DECISION
+  ref: DEC-YYYY-NNN
+
+riskStatement: ""
+originatingDomain: ""
+materiality:
+  level: M1
+  dimensions: []
+
+uncertaintyOrLikelihood: null
+potentialConsequences: []
+professionalAssessment: ""
+mitigations: []
+residualRisk: ""
+
+acceptedBy:
+  role: ""
+  actorRef: null
+acceptanceRationale: ""
+conditions: []
+
+monitoringOwner:
+  role: ""
+  actorRef: null
+reviewTriggers: []
+expiryDate: null
+
+evidenceRefs: []
+confidentiality: INTERNAL
+notes: ""
