@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+maturity: CANDIDATE
+last_reviewed: 2026-08-25
+identities:
+  - id: BRAND-CORP-TRANSITIONAL
+    display_name: "The X: Codename"
+    type: TRANSITIONAL_PUBLIC_IDENTITY
+    status: ACTIVE_TRANSITIONAL
+    canonical_owner: ADUMUN
+    predecessor: null
+    successor: BRAND-CORP-ADUMUN
+    public_from: 2026-09-07
+    planned_transition_window: 2026-11
+    commercial_use: true
+    disclosure_policy: PARTIAL
+    usage_notes:
+      - "Use for Sep-Oct 2026 public demand activation unless the governing milestone changes."
+      - "Do not present The X alone as the definitive corporate name."
+    source_of_truth:
+      - "Drive: Corporate Identity Public Presence Activation Matrix"
+      - "Drive: Public Presence & Demand Generation Quick Start"
+
+  - id: BRAND-CORP-ADUMUN
+    display_name: "ADÜMÜN"
+    technical_name: "ADUMUN"
+    type: CORPORATE_MASTER_BRAND
+    status: PRE_PUBLIC
+    canonical_owner: ADUMUN
+    predecessor: BRAND-CORP-TRANSITIONAL
+    successor: null
+    public_activation_gate: M-006
+    earliest_public_activation: 2026-11-02
+    commercial_use: false
+    disclosure_policy: INTERNAL_UNTIL_REVEAL
+    source_of_truth:
+      - "Drive: Corporate Identity Public Presence Activation Matrix"
+      - "Drive: ADÜMÜN corporate canons"
+
+transition:
+  id: TRANS-BRAND-001
+  from: BRAND-CORP-TRANSITIONAL
+  to: BRAND-CORP-ADUMUN
+  decision_gate: M-005
+  activation_gate: M-006
+  preserve:
+    - leads
+    - conversations
+    - contact_paths
+    - urls_or_redirects
+    - source_attribution
+    - analytics
+    - public_evidence_lineage
+    - offer_and_product_relationships
