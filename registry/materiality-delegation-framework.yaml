@@ -1,0 +1,383 @@
+schemaVersion: "1.0"
+kind: MaterialityDelegationFramework
+metadata:
+  id: ADM-ORG-MDF-001
+  organization: ADÜMÜN
+  title: Materiality & Delegation Framework
+  maturity: CANDIDATE
+  authorityState: CURRENT
+  effectiveReferenceDate: 2026-08-25
+  humanSource:
+    title: 00 - Canon - Organizational Design & Workforce
+    googleDriveId: 1nzxPWSjJTukNAS3rJQu4a37fe5SHHwZA586fobBxH3k
+    section: 25. Materiality & Delegation Framework
+  complements:
+    - ADM-ORG-ELT-RCN-001
+    - ADM-ORG-EDR-001
+  steward: People & Organization / Organizational Design & Workforce
+
+purpose: >-
+  Determine the lowest competent governance level for a decision based on real
+  impact, reversibility and exposure, while preserving customer, workforce,
+  financial, legal, technical and enterprise constraints.
+
+coreModel:
+  lenses:
+    IMPACT: magnitude, affected population, duration, direct and second-order consequences
+    REVERSIBILITY: ability to undo safely, quickly and without disproportionate loss or harm
+    EXPOSURE: breadth, duration, uncertainty, dependencies, precedent and future obligations
+  rules:
+    - monetary_value_is_not_required_for_materiality
+    - several_moderate_dimensions_may_aggregate_into_higher_materiality
+    - highest_credible_dimension_governs_until_explicitly_resolved
+    - uncertainty_amplifies_materiality_when_downside_is_meaningful
+    - no_single_numeric_formula_may_replace_professional_judgment
+    - no_intentional_fragmentation_to_avoid_controls
+
+materialityDimensions:
+  - FINANCIAL
+  - STRATEGIC
+  - CUSTOMER
+  - WORKFORCE
+  - LEGAL
+  - SECURITY
+  - DATA
+  - REPUTATION
+  - INTELLECTUAL_PROPERTY
+  - TECHNICAL_IRREVERSIBILITY
+  - OPERATIONAL
+  - BUSINESS_CONTINUITY
+  - REGULATORY
+  - GOVERNING_AUTHORITY
+
+levels:
+  M0_ROUTINE:
+    description: Local, low-impact, reversible work inside approved standards and delegation.
+    defaultAuthority: LOCAL_OR_DELEGATED_OWNER
+    standaloneDecisionRecord: false
+    ceoParticipation: false
+    agentAutonomy: ALLOWED_WITHIN_EXPLICIT_MANDATE_AND_CONTROLS
+  M1_SIGNIFICANT:
+    description: Meaningful but bounded impact with known controls and manageable reversibility.
+    defaultAuthority: DELEGATED_MANAGER_OWNER_OR_SPECIALIST
+    standaloneDecisionRecord: CONDITIONAL
+    ceoParticipation: false
+    agentAutonomy: ALLOWED_IF_DELEGATION_ENVELOPE_EXPLICIT_AND_MONITORED
+  M2_MATERIAL:
+    description: Cross-domain or materially meaningful customer, workforce, financial, legal, technical or operational impact.
+    defaultAuthority: APPLICABLE_C_LEVEL_OR_DELEGATED_SENIOR_AUTHORITY
+    standaloneDecisionRecord: GENERALLY_REQUIRED
+    mandatoryCrossDomainConsultation: true
+    agentAutonomy: HUMAN_DECISION_REQUIRED_UNLESS_SPECIFIC_PREAUTHORIZED_CONTROL_EXISTS
+  M3_MAJOR:
+    description: High enterprise exposure, difficult reversibility or major stakeholder, strategic, financial or reputational consequence.
+    defaultAuthority: EXPLICIT_C_LEVEL_DECISION_OWNER
+    standaloneDecisionRecord: REQUIRED
+    ceoParticipation: WHEN_ENTERPRISE_TRADEOFF_OR_PEER_CONFLICT_EXISTS
+    agentAutonomy: MAY_ANALYZE_OR_EXECUTE_AFTER_AUTHORIZED_DECISION_BUT_MAY_NOT_ORIGINATE_ENTERPRISE_COMMITMENT
+  M4_ENTERPRISE_CRITICAL:
+    description: Enterprise continuity, solvency, major strategy, governing authority, major security/privacy integrity or equivalent critical exposure.
+    defaultAuthority: CEO_OR_LEGALLY_COMPETENT_GOVERNING_AUTHORITY
+    standaloneDecisionRecord: REQUIRED
+    governingAuthorityParticipation: WHEN_RESERVED_BY_LAW_OR_CORPORATE_INSTRUMENT
+    agentAutonomy: NO_AUTONOMOUS_ENTERPRISE_DECISION
+  HARD_STOP:
+    description: Illegal, fraudulent, legally impossible, outside lawful corporate authority or otherwise explicitly non-overridable action.
+    decisionAllowed: false
+    overrideAllowed: false
+    agentAutonomy: PROHIBITED
+
+assessment:
+  IMPACT:
+    questions:
+      - how_severe_are_success_and_failure_consequences
+      - how_many_customers_workers_systems_or_assets_are_affected
+      - how_long_would_effects_persist
+      - what_second_order_effects_exist
+      - can_harm_be_meaningfully_remediated
+  REVERSIBILITY:
+    questions:
+      - can_the_decision_be_undone_quickly
+      - can_data_rights_trust_or_employment_conditions_be_restored
+      - is_rollback_known_and_tested
+      - would_reversal_create_new_material_harm
+  EXPOSURE:
+    questions:
+      - how_broad_is_the_scope
+      - how_uncertain_are_the_consequences
+      - what_third_party_dependencies_exist
+      - does_the_decision_create_precedent
+      - how_long_does_the_commitment_last
+      - what_future_obligations_or_lock_in_are_created
+
+routingRules:
+  highestMaterialityRule: Use the highest credible dimension until the relevant Decision Owner and Constraint Authorities explicitly resolve it.
+  aggregationRule: Multiple moderate dimensions may elevate overall materiality; explain the rationale rather than mechanically summing scores.
+  uncertaintyRule: Missing or conflicting evidence with meaningful downside increases caution and routes to the nearest competent domain, not automatically to CEO.
+  delegationFirstRule: Keep authority as close to the work as possible; escalation exists because materiality exceeds an envelope, not because senior visibility is desired.
+  precedentRule: One-off exceptions that are likely to recur may be classified higher because they alter future behavior.
+  cumulativeExposureRule: Repeated small commitments must be assessed in aggregate when their combined burden becomes material.
+  timeHorizonRule: Long-lived commitments may elevate materiality even when near-term cost is low.
+
+materialityByDomain:
+  CUSTOMER:
+    drivers:
+      - severity_of_customer_outcome_degradation
+      - number_or_importance_of_affected_customers
+      - contractual_commitments
+      - duration
+      - inability_to_remediate
+      - trust_loss
+      - impact_on_customer_growth_or_operations
+    principle: Zero direct cost does not imply low materiality.
+  WORKFORCE:
+    drivers:
+      - layoffs_or_material_restructuring
+      - significant_compensation_change
+      - sustained_workload_change
+      - material_location_or_employment_condition_change
+      - privacy_safety_dignity_or_fairness
+      - retention_and_attraction_impact
+    principle: Cost reduction does not automatically lower workforce materiality.
+  COMPENSATION:
+    routineWhen:
+      - inside_approved_compensation_philosophy
+      - inside_workforce_budget
+      - inside_defined_role_or_band_delegation
+    materialWhen:
+      - broad_compensation_philosophy_change
+      - significant_pay_reduction
+      - executive_compensation
+      - broad_incentive_redesign
+      - major_internal_equity_or_retention_effect
+    ambition: strongest_sustainable_compensation_ADUMUN_can_responsibly_afford
+  FINANCIAL:
+    drivers:
+      - amount
+      - liquidity_and_runway_effect
+      - recurring_or_one_time_obligation
+      - concentration
+      - downside
+      - financing_or_covenant_effect
+      - recoverability
+      - opportunity_cost
+    thresholdOwner: CFO
+  STRATEGIC:
+    drivers:
+      - major_business_line_entry_or_exit
+      - major_portfolio_shift
+      - irreversible_positioning
+      - exclusivity_or_optionality_loss
+      - major_alliance
+      - enterprise_independence
+  LEGAL_REGULATORY:
+    drivers:
+      - prohibition_or_legality
+      - contractual_liability
+      - ip_rights
+      - privacy_or_data_protection
+      - employment_or_consumer_obligations
+      - litigation_or_regulatory_exposure
+      - cross_border_complexity
+      - precedent
+    hardStops:
+      - ILLEGAL
+      - FRAUDULENT
+      - LEGALLY_IMPOSSIBLE
+      - OUTSIDE_LAWFUL_CORPORATE_AUTHORITY
+  SECURITY_DATA:
+    drivers:
+      - privilege_level
+      - sensitivity
+      - confidentiality_integrity_availability
+      - blast_radius
+      - recoverability
+      - affected_accounts_or_identities
+      - regulatory_or_contractual_duties
+      - credential_scope
+      - third_party_exposure
+  TECHNOLOGY:
+    drivers:
+      - reversibility
+      - blast_radius
+      - cross_product_coupling
+      - criticality
+      - migration_cost
+      - lock_in
+      - security_and_data_effect
+      - operating_burden
+      - enterprise_precedent
+  OPERATIONAL_CONTINUITY:
+    drivers:
+      - capacity_displacement
+      - delivery_failure
+      - interruption_duration
+      - dependent_workflows
+      - recovery_difficulty
+      - customer_commitment_impact
+      - workforce_burden
+  REPUTATION:
+    drivers:
+      - public_visibility
+      - stakeholder_trust
+      - severity_and_credibility
+      - permanence_of_public_record
+      - corporate_identity_effect
+      - customer_workforce_partner_or_investor_confidence
+  INTELLECTUAL_PROPERTY:
+    drivers:
+      - transfer
+      - exclusivity
+      - encumbrance
+      - disclosure
+      - weakening_control_of_core_rights
+      - strategic_importance_of_asset
+  GOVERNING_AUTHORITY:
+    principle: Executive delegation never exceeds law, shareholder or Board reservations, financing covenants or binding corporate instruments.
+
+consultationAndConstraints:
+  consultationRule: Trigger mandatory consultation because another accountability domain is materially affected, not because of title rank.
+  consultationDoesNotTransferOwnership: true
+  constraintAuthorityRule: A professional boundary must be satisfied, redesigned or escalated but does not transfer ownership of the whole decision.
+
+recording:
+  M0_ROUTINE: NO_STANDALONE_RECORD_BY_DEFAULT
+  M1_SIGNIFICANT: TRACE_WHEN_POLICY_PRECEDENT_OR_OPERATING_VALUE_JUSTIFIES
+  M2_MATERIAL: MATERIAL_DECISION_RECORD_GENERALLY_REQUIRED
+  M3_MAJOR: MATERIAL_DECISION_RECORD_REQUIRED
+  M4_ENTERPRISE_CRITICAL: MATERIAL_DECISION_RECORD_REQUIRED
+  emergencyException: Act first only when delay materially worsens immediate harm; reconstruct the record after stabilization.
+
+emergencyAuthority:
+  principle: Take the minimum reversible action necessary to contain immediate harm.
+  mayNot:
+    - authorize_illegal_action
+    - destroy_required_evidence
+    - expand_scope_beyond_necessary_containment_without_authority
+  retrospectiveReviewRequiredWhenMaterial: true
+
+agentGovernance:
+  generalRule: Technical ability or credentials do not grant organizational decision authority.
+  M0_ROUTINE:
+    autonomousExecution: true
+    conditions:
+      - explicit_mandate
+      - approved_standards
+      - appropriate_permissions
+      - reversible_or_controlled_action
+  M1_SIGNIFICANT:
+    autonomousExecution: CONDITIONAL
+    conditions:
+      - explicit_delegation_envelope
+      - accountable_human_or_role
+      - monitoring_and_escalation
+  M2_MATERIAL:
+    autonomousDecision: false
+    mayAnalyzePrepareOrExecuteAfterDecision: true
+    exception: only_specific_pre_authorized_control
+  M3_MAJOR:
+    autonomousEnterpriseCommitment: false
+    mayAssistAnalysisAndExecution: true
+  M4_ENTERPRISE_CRITICAL:
+    autonomousEnterpriseDecision: false
+  HARD_STOP:
+    executionProhibited: true
+  confidenceRule: Missing evidence with meaningful downside must not be interpreted as low materiality.
+
+compoundDecisions:
+  rule: Decompose components with different owners and materiality while governing each constrained component at its proper level.
+  overallOwnershipRule: Preserve the Decision Owner for the overall business decision even when subcomponents require separate constraint authority.
+  example:
+    commercialDeal:
+      routine_price: M1_SIGNIFICANT
+      material_product_customization: M2_MATERIAL
+      unusual_sla: M3_MAJOR
+      core_ip_exclusivity: M3_MAJOR
+
+antiAvoidance:
+  prohibitIntentionalFragmentation: true
+  examples:
+    - splitting_one_purchase_into_smaller_purchases
+    - splitting_one_hiring_plan_into_individual_hires_to_avoid_review
+    - splitting_one_contract_commitment_into_several_documents
+    - repeated_security_exceptions_below_threshold
+  repeatedExceptionRule: Repeated exceptions trigger policy, template or delegation review.
+
+reclassification:
+  triggers:
+    - material_scope_change
+    - new_evidence
+    - changed_cost
+    - changed_risk
+    - changed_customer_impact
+    - changed_workforce_impact
+    - changed_legal_environment
+    - changed_reversibility
+    - cumulative_exposure
+  principle: A decision may move upward or downward as evidence and exposure change.
+
+calibration:
+  owners:
+    - COO
+    - CFO
+    - ORGANIZATIONAL_DESIGN_OR_GOVERNANCE
+  reviewQuestions:
+    - are_low_level_decisions_being_unnecessarily_escalated
+    - are_material_decisions_being_under_classified
+    - is_ceo_becoming_a_bottleneck
+    - are_customer_or_workforce_impacts_being_missed
+    - are_agents_escalating_due_to_missing_rules
+    - are_repeated_exceptions_revealing_bad_policy
+  metrics:
+    - percent_M0_M1_resolved_without_executive_escalation
+    - M2_M3_decision_latency
+    - CEO_escalation_rate
+    - upward_reclassification_rate
+    - incidents_caused_by_under_classification
+    - avoidable_bureaucracy_caused_by_over_classification
+    - repeated_exception_rate
+    - agent_escalations_due_to_missing_rules
+    - customer_impact_decisions_with_adequate_evidence
+    - workforce_impact_decisions_with_adequate_evidence
+
+antiPatterns:
+  invalidEquivalences:
+    - expensive_equals_material
+    - cheap_equals_routine
+    - budgeted_equals_harmless
+    - technically_reversible_equals_fully_reversible
+    - CEO_visibility_equals_CEO_approval
+    - agent_can_execute_equals_agent_may_decide
+    - no_money_equals_no_materiality
+    - many_small_exceptions_equal_still_small
+
+operatingShape:
+  targetDistribution:
+    M0_M1: MANY
+    M2: MANAGEABLE
+    M3: FEW
+    M4: RARE
+  philosophy: Push competence, context and authority downward while surfacing truly enterprise-critical decisions early.
+
+criticalOutcome:
+  id: PROPORTIONATE_MATERIALITY_AND_DELEGATION
+  statement: >-
+    Recurring decisions are governed at the lowest competent level consistent
+    with their real impact, reversibility and exposure; customers and workers are
+    first-class stakeholders; professional constraints remain visible; material
+    decisions are reconstructible; agents can act safely within explicit
+    boundaries; and CEO or governing-authority attention is reserved for genuinely
+    enterprise-level matters.
+
+futureConsumers:
+  - executive_decision_rights
+  - financial_approval_policies
+  - procurement
+  - workforce_delegation
+  - contract_authority
+  - product_lifecycle
+  - technology_criticality
+  - security_controls
+  - incident_management
+  - agent_autonomy
+  - ADUMUN_Control_Center
