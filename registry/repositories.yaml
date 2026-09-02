@@ -1,4 +1,4 @@
-registryVersion: 1.0.0
+registryVersion: 1.0.1
 schemaVersion: 1.0.0
 status: CURRENT_CANDIDATE
 repositories:
@@ -20,10 +20,16 @@ repositories:
     role: Canonical version-control home for audit semantics, domain profiles, mechanisms, schemas and evidence registry.
     authority: CURRENT
     standards: [RS-CORE, RS-GOV, RS-CONTRACT]
-  - repository: cmartinezs/the-x-contract-registry
+  - repository: adumun/prospect-prototypes
+    class: CAPABILITY
+    status: EXPERIMENTAL
+    role: Reusable commercial-discovery capability for client-safe navigable prospect prototypes and validation surfaces.
+    authority: CURRENT_CANDIDATE
+    standards: [RS-CORE, RS-CONTRACT, RS-CAPABILITY, RS-FRONTEND, RS-PAGES, RS-EXPERIMENT]
+  - repository: adumun/contract-registry
     class: LEGACY
-    status: MIGRATING_TO_DEPRECATED
-    role: Historical predecessor split across ADÜMÜN successors.
+    status: DEPRECATED
+    role: Historical predecessor formerly located at cmartinezs/the-x-contract-registry; transferred without reviving authority.
     newConsumersAllowed: false
     activeDevelopment: false
     successors:
@@ -32,5 +38,7 @@ repositories:
       - adumun/audit-framework
     standards: [RS-CORE, RS-LEGACY]
 notes:
-  - This registry intentionally starts with the repositories involved in the current authority cutover.
+  - Repository provider transfers do not erase predecessor lineage; historical evidence may continue to cite the repository name valid when that evidence was created.
+  - adumun/contract-registry is deprecated despite its new provider location and must not receive new consumers or authority.
+  - adumun/prospect-prototypes was transferred from cmartinezs/the-x-prospect-prototypes; new canonical references use the ADÜMÜN organization path.
   - Historical portfolio seed observations remain referenced under registry/historical and are not silently promoted as current facts.
